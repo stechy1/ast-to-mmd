@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "application": "packages/application",
+    "cli": "packages/cli",
+    "graph-blocks": "packages/graph-blocks",
+    "graph-parser": "packages/graph-parser"
+  }
+}

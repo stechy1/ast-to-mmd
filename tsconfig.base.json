@@ -1,0 +1,25 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@ast-to-mmd/application": ["packages/application/src/index.ts"],
+      "@ast-to-mmd/graph-blocks": ["packages/graph-blocks/src/index.ts"],
+      "@ast-to-mmd/graph-parser": ["packages/graph-parser/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

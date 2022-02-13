@@ -1,0 +1,33 @@
+{
+  "root": "packages/graph-blocks",
+  "sourceRoot": "packages/graph-blocks/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/graph-blocks",
+        "main": "packages/graph-blocks/src/index.ts",
+        "tsConfig": "packages/graph-blocks/tsconfig.lib.json",
+        "assets": ["packages/graph-blocks/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/graph-blocks/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/graph-blocks"],
+      "options": {
+        "jestConfig": "packages/graph-blocks/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

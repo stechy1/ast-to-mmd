@@ -1,0 +1,33 @@
+{
+  "root": "packages/graph-parser",
+  "sourceRoot": "packages/graph-parser/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/graph-parser",
+        "main": "packages/graph-parser/src/index.ts",
+        "tsConfig": "packages/graph-parser/tsconfig.lib.json",
+        "assets": ["packages/graph-parser/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/graph-parser/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/graph-parser"],
+      "options": {
+        "jestConfig": "packages/graph-parser/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
