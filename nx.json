@@ -2,7 +2,7 @@
   "extends": "@nrwl/workspace/presets/core.json",
   "npmScope": "ast-to-mmd",
   "affected": {
-    "defaultBase": "main"
+    "defaultBase": "master"
   },
   "cli": {
     "defaultCollection": "@nrwl/workspace"

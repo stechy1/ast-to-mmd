@@ -15,11 +15,7 @@
     "skipDefaultLibCheck": true,
     "strict": true,
     "baseUrl": ".",
-    "paths": {
-      "@ast-to-mmd/application": ["packages/application/src/index.ts"],
-      "@ast-to-mmd/graph-blocks": ["packages/graph-blocks/src/index.ts"],
-      "@ast-to-mmd/graph-parser": ["packages/graph-parser/src/index.ts"]
-    }
+    "paths": {}
   },
   "exclude": ["node_modules", "tmp"]
 }

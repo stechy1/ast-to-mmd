@@ -7,15 +7,7 @@
     "build": "nx build",
     "build:cli": "nx run cli:build",
     "run:cli": "nx run cli:serve",
-    "build:application": "nx run application:build",
-    "affected:apps": "nx affected:apps --base=master",
-    "affected:libs": "nx affected:libs --base=master",
-    "affected:build": "nx affected:build --base=master",
-    "affected:e2e": "nx affected:e2e --base=master",
-    "affected:test": "nx affected:test --base=master",
-    "affected:lint": "nx affected:lint --base=master",
-    "affected:dep-graph": "nx affected:dep-graph",
-    "affected": "nx affected",
+    "test:cli": "nx run cli:test",
     "format": "nx format:write",
     "format:write": "nx format:write",
     "format:check": "nx format:check"
@@ -30,9 +22,10 @@
   ],
   "author": "Petr Štechmüller",
   "files": [
-    "lib/**/*"
+    "dist/packages/**/*"
   ],
   "bin": {
+    "@stechy1/ast-to-mmd": "dist/packages/cli/src/index.js",
     "ast-to-mmd": "dist/packages/cli/src/index.js"
   },
   "main": "dist/packages/cli/src/index.js",
