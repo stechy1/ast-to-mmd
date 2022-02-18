@@ -26,11 +26,11 @@ ${this.generateSpace(indent + 1)}end
 ${this.generateSpace(indent)}end`;
   }
 
-  public override getFirstId(): string {
-    return this.tryBlock.getFirstId();
+  public override get firstId(): string {
+    return this.tryBlock.firstId;
   }
 
-  public override getLastId(): string {
-    return super.getLastId();
+  public override get lastId(): string[] {
+    return super.lastId;
   }
 }

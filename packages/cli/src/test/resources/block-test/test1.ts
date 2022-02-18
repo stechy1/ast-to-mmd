@@ -20,6 +20,11 @@ export function function2() {
     function2();
     function1();
   }
+  function3();
+}
+
+function function3() {
+  function1();
 }
 
 export class Class1 {

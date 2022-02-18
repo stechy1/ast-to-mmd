@@ -13,25 +13,32 @@ export enum GraphBlockType {
 }
 
 export abstract class GraphBlock {
-
-  protected constructor(public readonly id: string, public readonly type: GraphBlockType) {}
+  protected constructor(
+    public readonly id: string,
+    public readonly type: GraphBlockType
+  ) {}
 
   public abstract render(indent: number): string;
 
-  public getFirstId(): string {
+  public get firstId(): string {
     return this.id;
   }
 
-  public getLastId(): string {
-    return this.id;
+  public get lastId(): string[] {
+    return [this.id];
   }
 
   protected generateSpace(count: number): string {
     return ' '.repeat(count);
   }
 
-  protected renderLine(indent: number, lhsId: string, rhsId: string, builderModifier?: (builder: LineBuilder) => LineBuilder): string {
-    let  builder = this.createLineBuilder(lhsId, rhsId);
+  protected renderLine(
+    indent: number,
+    lhsId: string,
+    rhsId: string,
+    builderModifier?: (builder: LineBuilder) => LineBuilder
+  ): string {
+    let builder = this.createLineBuilder(lhsId, rhsId);
     if (builderModifier) {
       builder = builderModifier(builder);
     }

@@ -12,26 +12,47 @@ ${this.childBlocks.map((child) => child.render(indent + 1)).join('\n')}
 ${this.renderDependencies(indent)}`;
   }
 
-  public override getFirstId(): string {
+  public override get firstId(): string {
     return this.childBlocks[0].id;
   }
 
-  public override getLastId(): string {
-    return this.childBlocks[this.childBlocks.length - 1].id;
+  public override get lastId(): string[] {
+    return [this.childBlocks[this.childBlocks.length - 1].id];
   }
 
   protected renderDependencies(indent: number): string {
-    const blocksWithDependencies = this.childBlocks.filter((block: GraphBlock) => block.includeInDependencyGraph());
+    const blocksWithDependencies = this.childBlocks.filter(
+      (block: GraphBlock) => block.includeInDependencyGraph()
+    );
     if (blocksWithDependencies.length === 1) {
       return '';
     }
 
-    return blocksWithDependencies.reduce((prev, curr) => {
-      return prev ? this.renderLine(indent + 1, prev, curr.id) : curr.id;
-    }, '');
+    let result = '';
+    let lastBlockWithDependency = blocksWithDependencies[0];
+
+    for (let i = 1; i < blocksWithDependencies.length; i++) {
+      const currentBlockWithDependency = blocksWithDependencies[i];
+      const currentFirstId = currentBlockWithDependency.firstId;
+      const lastIds = lastBlockWithDependency.lastId;
+
+      result += lastIds
+        .map((id) => {
+          return this.renderLine(indent + 1, id, currentFirstId);
+        })
+        .join('\n');
+      result += '\n';
+
+      lastBlockWithDependency = currentBlockWithDependency;
+    }
+
+    return result;
   }
 
-  protected override createLineBuilder(lhsId: string, rhsId: string): LineBuilder {
+  protected override createLineBuilder(
+    lhsId: string,
+    rhsId: string
+  ): LineBuilder {
     return super.createLineBuilder(lhsId, rhsId).setRhsHead(LINE_HEAD.ARROW);
   }
 }
