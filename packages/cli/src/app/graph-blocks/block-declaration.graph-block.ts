@@ -1,5 +1,5 @@
 import { GraphBlock, GraphBlockType } from './graph-block';
-import { LINE_HEAD, LineBuilder } from './render/line-renderer';
+import { LINE_HEAD, LineRenderer } from './render/line-renderer';
 
 export class BlockDeclarationGraphBlock extends GraphBlock {
   constructor(id: string, protected readonly childBlocks: GraphBlock[]) {
@@ -21,8 +21,8 @@ ${this.renderDependencies(indent)}`;
   }
 
   protected renderDependencies(indent: number): string {
-    const blocksWithDependencies = this.childBlocks.filter(
-      (block: GraphBlock) => block.includeInDependencyGraph()
+    const blocksWithDependencies = this.childBlocks.filter((block: GraphBlock) =>
+      block.includeInDependencyGraph()
     );
     if (blocksWithDependencies.length === 1) {
       return '';
@@ -49,10 +49,7 @@ ${this.renderDependencies(indent)}`;
     return result;
   }
 
-  protected override createLineBuilder(
-    lhsId: string,
-    rhsId: string
-  ): LineBuilder {
+  protected override createLineBuilder(lhsId: string, rhsId: string): LineRenderer {
     return super.createLineBuilder(lhsId, rhsId).setRhsHead(LINE_HEAD.ARROW);
   }
 }

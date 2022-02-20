@@ -15,7 +15,7 @@ export enum LINE_WIDTH {
   THICK,
 }
 
-export class LineBuilder {
+export class LineRenderer {
   private _connectionDescription?: string;
   private _lhsHead: LINE_HEAD = LINE_HEAD.NONE;
   private _rhsHead: LINE_HEAD = LINE_HEAD.NONE;
@@ -25,37 +25,37 @@ export class LineBuilder {
 
   constructor(private readonly lhsId: string, private readonly rhsId: string) {}
 
-  setConnectionDescription(value: string): LineBuilder {
+  setConnectionDescription(value: string): LineRenderer {
     this._connectionDescription = value;
     return this;
   }
 
-  setLhsHead(value: LINE_HEAD): LineBuilder {
+  setLhsHead(value: LINE_HEAD): LineRenderer {
     this._lhsHead = value;
     return this;
   }
 
-  setRhsHead(value: LINE_HEAD): LineBuilder {
+  setRhsHead(value: LINE_HEAD): LineRenderer {
     this._rhsHead = value;
     return this;
   }
 
-  setLineStyle(value: LINE_STYLE): LineBuilder {
+  setLineStyle(value: LINE_STYLE): LineRenderer {
     this._lineStyle = value;
     return this;
   }
 
-  setLineWidth(value: LINE_WIDTH): LineBuilder {
+  setLineWidth(value: LINE_WIDTH): LineRenderer {
     this._lineWidth = value;
     return this;
   }
 
-  setLineLength(value: number): LineBuilder {
+  setLineLength(value: number): LineRenderer {
     this._lineLength = value;
     return this;
   }
 
-  build(): string {
+  render(): string {
     let result = `${this.lhsId} `;
 
     result += this.lhsHead;

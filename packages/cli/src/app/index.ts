@@ -1,45 +1,45 @@
-import {
-  Block,
-  ClassDeclaration, FunctionDeclaration,
-  MethodDeclaration,
-  SourceFile,
-  SyntaxKind
-} from 'ts-morph';
-
-import {
-  CodeParser,
-  DecoratorType,
-  FileType,
-  includeFile,
-} from './graph-parser';
-import { BlockDeclarationGraphBlock, EmptyGraphBlock, GraphBlock, GraphParentGraphBlock } from './graph-blocks';
-import * as assert from 'assert';
-import { BlockIdGenerator } from './block-id-generator/block-id-generator';
-import { NamedBlockDeclarationGraphBlock } from './graph-blocks/named-block-declaration.graph-block';
-import { ParallelBlockDeclarationGraphBlock } from './graph-blocks/parallel-block-declaration.graph-block';
-
-function handlerMethodByType(
-  analyzedClass: ClassDeclaration,
-  decoratorType:
-    | DecoratorType.COMMAND_HANDLER
-    | DecoratorType.QUERY_HANDLER
-    | DecoratorType.EVENT_HANDLER
-): MethodDeclaration {
-  let method = null;
-  switch (decoratorType) {
-    case DecoratorType.COMMAND_HANDLER:
-    case DecoratorType.QUERY_HANDLER:
-      method = 'execute';
-      break;
-    case DecoratorType.EVENT_HANDLER:
-      method = 'handle';
-      break;
-    default:
-      throw new Error('Unsupported decorator type!');
-  }
-
-  return analyzedClass.getInstanceMethodOrThrow(method);
-}
+// import {
+//   Block,
+//   ClassDeclaration, FunctionDeclaration,
+//   MethodDeclaration,
+//   SourceFile,
+//   SyntaxKind
+// } from 'ts-morph';
+//
+// import {
+//   CodeParser,
+//   DecoratorType,
+//   FileType,
+//   includeFile,
+// } from './graph-parser';
+// import { BlockDeclarationGraphBlock, EmptyGraphBlock, GraphBlock, GraphParentGraphBlock } from './graph-blocks';
+// import * as assert from 'assert';
+// import { BlockIdGenerator } from './block-id-generator/block-id-generator';
+// import { NamedBlockDeclarationGraphBlock } from './graph-blocks/named-block-declaration.graph-block';
+// import { ParallelBlockDeclarationGraphBlock } from './graph-blocks/parallel-block-declaration.graph-block';
+//
+// function handlerMethodByType(
+//   analyzedClass: ClassDeclaration,
+//   decoratorType:
+//     | DecoratorType.COMMAND_HANDLER
+//     | DecoratorType.QUERY_HANDLER
+//     | DecoratorType.EVENT_HANDLER
+// ): MethodDeclaration {
+//   let method = null;
+//   switch (decoratorType) {
+//     case DecoratorType.COMMAND_HANDLER:
+//     case DecoratorType.QUERY_HANDLER:
+//       method = 'execute';
+//       break;
+//     case DecoratorType.EVENT_HANDLER:
+//       method = 'handle';
+//       break;
+//     default:
+//       throw new Error('Unsupported decorator type!');
+//   }
+//
+//   return analyzedClass.getInstanceMethodOrThrow(method);
+// }
 
 export { Convertor } from './convertor';
 
