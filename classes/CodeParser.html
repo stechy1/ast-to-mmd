@@ -1,0 +1,2299 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Ast-to-mmd documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Ast-to-mmd documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li >CodeParser</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>packages/ast-to-mmd/src/app/graph-parser/parser.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Parser of AST which than generate <a href="../classes/GraphBlock.html">GraphBlock</a> tree</p>
+
+            </p>
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#processBinaryExpression" >processBinaryExpression</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#processBlock" >processBlock</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#processClass" >processClass</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#processClasses" >processClasses</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#processClassMembers" >processClassMembers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#processExpressionStatement" >processExpressionStatement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#processForStatement" >processForStatement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#processFunctions" >processFunctions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#processIfStatement" >processIfStatement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#processMethodOrFunction" >processMethodOrFunction</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#processNode" >processNode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#processNodeLiteral" >processNodeLiteral</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#processNodes" >processNodes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#processThrowStatement" >processThrowStatement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#processTryStatement" >processTryStatement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#processUnaryExpression" >processUnaryExpression</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#processVariableDeclaration" >processVariableDeclaration</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#processVariableDeclarationList" >processVariableDeclarationList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#unwrapBlockDeclaration" >unwrapBlockDeclaration</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(idGenerator: <a href="../interfaces/BlockIdGenerator.html" target="_self">BlockIdGenerator</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:52</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Creates new instance of <a href="../classes/CodeParser.html">CodeParser</a></p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>idGenerator</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/BlockIdGenerator.html" target="_self" >BlockIdGenerator</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p><a href="../interfaces/BlockIdGenerator.html">BlockIdGenerator</a> ID generator implementation</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processBinaryExpression"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>processBinaryExpression</b></span>
+                        <a href="#processBinaryExpression"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processBinaryExpression(expression: BinaryExpression)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="227"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:227</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process BinaryExpression</p>
+<p>kind = 220</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>expression</td>
+                                    <td>
+                                            <code>BinaryExpression</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="BinaryExpression">BinaryExpression</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processBlock"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>processBlock</b></span>
+                        <a href="#processBlock"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processBlock(block: Block)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="250"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:250</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process Block</p>
+<p>kind = 234</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>block</td>
+                                    <td>
+                                            <code>Block</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="Block">Block</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processClass"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>processClass</b></span>
+                        <a href="#processClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processClass(classDeclaration: ClassDeclaration)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="427"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:427</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process Class declaration</p>
+<p>kind = 256</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>classDeclaration</td>
+                                    <td>
+                                            <code>ClassDeclaration</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="ClassDeclaration">ClassDeclaration</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processClasses"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>processClasses</b></span>
+                        <a href="#processClasses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processClasses(classes: ClassDeclaration[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="156"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:156</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process array of <a href="ClassDeclaration">ClassDeclaration</a></p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>classes</td>
+                                    <td>
+                                            <code>ClassDeclaration[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>[]<a href="ClassDeclaration">ClassDeclaration</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processClassMembers"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>processClassMembers</b></span>
+                        <a href="#processClassMembers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processClassMembers(classMembers: ClassMemberTypes[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="449"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:449</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process ClassMembers</p>
+<p>kind = <a href="MethodDeclaration">MethodDeclaration</a> (168) | <a href="PropertyDeclaration">PropertyDeclaration</a> (166) |
+<a href="GetAccessorDeclaration">GetAccessorDeclaration</a> | <a href="SetAccessorDeclaration">SetAccessorDeclaration</a> |
+<a href="ConstructorDeclaration">ConstructorDeclaration</a> | <a href="ClassStaticBlockDeclaration">ClassStaticBlockDeclaration</a></p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>classMembers</td>
+                                    <td>
+                                            <code>ClassMemberTypes[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>[]<a href="ClassMemberTypes">ClassMemberTypes</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processExpressionStatement"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>processExpressionStatement</b></span>
+                        <a href="#processExpressionStatement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processExpressionStatement(statement: ExpressionStatement)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="263"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:263</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process ExpressionStatement</p>
+<p>kind = 237</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>statement</td>
+                                    <td>
+                                            <code>ExpressionStatement</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="ExpressionStatement">ExpressionStatement</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processForStatement"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>processForStatement</b></span>
+                        <a href="#processForStatement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processForStatement(statement: ForStatement)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="316"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:316</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process ForStatement</p>
+<p>kind = 241</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>statement</td>
+                                    <td>
+                                            <code>ForStatement</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="ForStatement">ForStatement</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processFunctions"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>processFunctions</b></span>
+                        <a href="#processFunctions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processFunctions(functions: FunctionDeclaration[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="141"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:141</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process array of <a href="FunctionDeclaration">FunctionDeclaration</a></p>
+<p>wrapped into own <a href="../classes/NamedBlockDeclarationGraphBlock.html">NamedBlockDeclarationGraphBlock</a></p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>functions</td>
+                                    <td>
+                                            <code>FunctionDeclaration[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>[]<a href="FunctionDeclaration">FunctionDeclaration</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processIfStatement"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>processIfStatement</b></span>
+                        <a href="#processIfStatement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processIfStatement(statement: IfStatement)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="290"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:290</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process IfStatement</p>
+<p>kind = 238</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>statement</td>
+                                    <td>
+                                            <code>IfStatement</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="IfStatement">IfStatement</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processMethodOrFunction"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>processMethodOrFunction</b></span>
+                        <a href="#processMethodOrFunction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processMethodOrFunction(method: MethodDeclaration | FunctionDeclaration)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="203"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:203</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process MethodDeclaration or FunctionDeclaration</p>
+<p>kind = 168 |</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>method</td>
+                                    <td>
+                                            <code>MethodDeclaration | FunctionDeclaration</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="MethodDeclaration">MethodDeclaration</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processNode"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>processNode</b></span>
+                        <a href="#processNode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processNode(node: Node)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:84</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Main processing method for each <a href="Node">Node</a> type</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>node</td>
+                                    <td>
+                                            <code>Node</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="Node">Node</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processNodeLiteral"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>processNodeLiteral</b></span>
+                        <a href="#processNodeLiteral"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processNodeLiteral(node: NumericLiteral | BigIntLiteral | StringLiteral | RegularExpressionLiteral | NoSubstitutionTemplateLiteral | TypeLiteralNode | JSDocTypeLiteral)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="171"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:171</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process any kind of <a href="NumericLiteral "> BigIntLiteral | StringLiteral | RegularExpressionLiteral | NoSubstitutionTemplateLiteral | TypeLiteralNode | JSDocTypeLiteral</a></p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>node</td>
+                                    <td>
+                                            <code>NumericLiteral | BigIntLiteral | StringLiteral | RegularExpressionLiteral | NoSubstitutionTemplateLiteral | TypeLiteralNode | JSDocTypeLiteral</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>| BigIntLiteral | StringLiteral | RegularExpressionLiteral | NoSubstitutionTemplateLiteral | TypeLiteralNode | JSDocTypeLiteral<a href="NumericLiteral">NumericLiteral</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processNodes"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>processNodes</b></span>
+                        <a href="#processNodes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processNodes(node: Node)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:66</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process children of node from parameter and wrap result into <a href="../classes/BlockDeclarationGraphBlock.html">BlockDeclarationGraphBlock</a></p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>node</td>
+                                    <td>
+                                            <code>Node</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="Node">Node</a> Parent node to process</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processThrowStatement"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>processThrowStatement</b></span>
+                        <a href="#processThrowStatement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processThrowStatement(statement: ThrowStatement)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="355"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:355</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process ThrowStatement</p>
+<p>kind = 250</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>statement</td>
+                                    <td>
+                                            <code>ThrowStatement</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="ThrowStatement">ThrowStatement</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processTryStatement"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>processTryStatement</b></span>
+                        <a href="#processTryStatement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processTryStatement(statement: TryStatement)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="366"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:366</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process TryStatement</p>
+<p>kind = 251</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>statement</td>
+                                    <td>
+                                            <code>TryStatement</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="TryStatement">TryStatement</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processUnaryExpression"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>processUnaryExpression</b></span>
+                        <a href="#processUnaryExpression"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processUnaryExpression(expression: UnaryExpression)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="192"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:192</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process UnaryExpression</p>
+<p>kind = 218, 219</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>expression</td>
+                                    <td>
+                                            <code>UnaryExpression</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="UnaryExpression">UnaryExpression</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processVariableDeclaration"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>processVariableDeclaration</b></span>
+                        <a href="#processVariableDeclaration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processVariableDeclaration(variableDeclaration: VariableDeclaration)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="409"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:409</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process VariableDeclaration</p>
+<p>kind = 256</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>variableDeclaration</td>
+                                    <td>
+                                            <code>VariableDeclaration</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="VariableDeclaration">VariableDeclaration</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processVariableDeclarationList"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>processVariableDeclarationList</b></span>
+                        <a href="#processVariableDeclarationList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processVariableDeclarationList(variableDeclarationList: VariableDeclarationList)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="392"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:392</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process VariableDeclarationList</p>
+<p>kind = 254</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>variableDeclarationList</td>
+                                    <td>
+                                            <code>VariableDeclarationList</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="VariableDeclarationList">VariableDeclarationList</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="unwrapBlockDeclaration"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>unwrapBlockDeclaration</b></span>
+                        <a href="#unwrapBlockDeclaration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>unwrapBlockDeclaration(graphBlock: <a href="../classes/GraphBlock.html" target="_self">GraphBlock</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="468"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:468</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Unwrap children of <a href="../classes/BlockDeclarationGraphBlock.html">BlockDeclarationGraphBlock</a> into own array.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>graphBlock</td>
+                                    <td>
+                                                <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="../classes/GraphBlock.html">GraphBlock</a> Parent of children to unwrap.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  BigIntLiteral,
+  BinaryExpression,
+  Block,
+  CallExpression,
+  CatchClause,
+  ClassDeclaration,
+  ClassMemberTypes,
+  Expression,
+  ExpressionStatement,
+  ForStatement,
+  FunctionDeclaration,
+  IfStatement,
+  JSDocTypeLiteral,
+  MethodDeclaration,
+  Node,
+  NoSubstitutionTemplateLiteral,
+  NumericLiteral,
+  RegularExpressionLiteral,
+  Statement,
+  StringLiteral,
+  SyntaxKind,
+  ThrowStatement,
+  TryStatement,
+  TypeLiteralNode,
+  UnaryExpression,
+  VariableDeclaration,
+  VariableDeclarationList,
+} from &#x27;ts-morph&#x27;;
+
+import { BlockIdGenerator } from &#x27;../block-id-generator&#x27;;
+import {
+  BinaryExpressionDeclarationGraphBlock,
+  BlockDeclarationGraphBlock,
+  EmptyGraphBlock,
+  ForDeclarationGraphBlock,
+  GraphBlock,
+  IfElseDeclarationGraphBlock,
+  MethodCallGraphBlock,
+  NamedBlockDeclarationGraphBlock,
+  ParallelBlockDeclarationGraphBlock,
+  TextGraphBlock,
+  ThrowDeclarationGraphBlock,
+  TryCatchDeclarationGraphBlock,
+  VariableDeclarationGraphBlock,
+  VariableDeclarationListGraphBlock,
+} from &#x27;../graph-blocks&#x27;;
+
+/**
+ * Parser of AST which than generate {@link GraphBlock} tree
+ */
+export class CodeParser {
+  /**
+   * Creates new instance of {@link CodeParser}
+   *
+   * @param idGenerator {@link BlockIdGenerator} ID generator implementation
+   */
+  constructor(private readonly idGenerator: BlockIdGenerator) {}
+
+  /**
+   * Process children of node from parameter and wrap result into {@link BlockDeclarationGraphBlock}
+   *
+   * @param node {@link Node} Parent node to process
+   * @returns {@link BlockDeclarationGraphBlock}
+   */
+  public processNodes(node: Node): GraphBlock {
+    const graphBlocks: GraphBlock[] &#x3D; [];
+    for (const child of node.getChildren()) {
+      const graphBlock &#x3D; this.processNode(child);
+      if (graphBlock) {
+        graphBlocks.push(graphBlock);
+      }
+    }
+    return new BlockDeclarationGraphBlock(this.idGenerator.generate(), graphBlocks);
+  }
+
+  /**
+   * Main processing method for each {@link Node} type
+   *
+   * @param node {@link Node}
+   * @returns {@link GraphBlock} implementation
+   * @throws Error When kind is not supported yet
+   */
+  public processNode(node: Node): GraphBlock {
+    // prettier-ignore
+    switch (node.getKind()) {
+      case SyntaxKind.SingleLineCommentTrivia:                            //   2
+        return new EmptyGraphBlock(this.idGenerator.generate());
+      case SyntaxKind.NumericLiteral:                                     //   8
+      case SyntaxKind.BigIntLiteral:                                      //   9
+      case SyntaxKind.StringLiteral:                                      //  10
+      case SyntaxKind.RegularExpressionLiteral:                           //  13
+      case SyntaxKind.NoSubstitutionTemplateLiteral:                      //  14
+      case SyntaxKind.TypeLiteral:                                        // 181
+      case SyntaxKind.JSDocTypeLiteral:                                   // 320
+      case SyntaxKind.Identifier:
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        return this.processNodeLiteral(node);
+      case SyntaxKind.MethodDeclaration:                                  // 168
+        return this.processMethodOrFunction(node as MethodDeclaration);
+      case SyntaxKind.PrefixUnaryExpression:                              // 218
+      case SyntaxKind.PostfixUnaryExpression:                             // 219
+        return this.processUnaryExpression(node as UnaryExpression);
+      case SyntaxKind.BinaryExpression:                                   // 220
+        return this.processBinaryExpression(node as BinaryExpression);
+      case SyntaxKind.Block:                                              // 234
+        return this.processBlock(node as Block);
+      case SyntaxKind.VariableStatement:                                  // 236
+        return new EmptyGraphBlock(this.idGenerator.generate());
+      case SyntaxKind.ExpressionStatement:                                // 237
+        return this.processExpressionStatement(node as ExpressionStatement);
+      case SyntaxKind.IfStatement:                                        // 238
+        return this.processIfStatement(node as IfStatement);
+      case SyntaxKind.ForStatement:                                       // 241
+        return this.processForStatement(node as ForStatement);
+      case SyntaxKind.ThrowStatement:                                     // 250
+        return this.processThrowStatement(node as ThrowStatement);
+      case SyntaxKind.TryStatement:                                       // 251
+        return this.processTryStatement(node as TryStatement);
+      case SyntaxKind.VariableDeclaration:                                // 253
+        return this.processVariableDeclaration(node as VariableDeclaration);
+      case SyntaxKind.VariableDeclarationList:                            // 254
+        return this.processVariableDeclarationList(node as VariableDeclarationList);
+      case SyntaxKind.FunctionDeclaration:                                // 255
+        return this.processMethodOrFunction(node as FunctionDeclaration);
+      case SyntaxKind.ClassDeclaration:                                   // 256
+        return this.processClass(node as ClassDeclaration);
+      default:                                                            //  -1
+        throw new Error(&#x27;Unknown kind! &#x27; + node.getKind());
+    }
+  }
+
+  /**
+   * Process array of {@link FunctionDeclaration}
+   *
+   * @param functions {@link FunctionDeclaration[]}
+   * @returns {@link ParallelBlockDeclarationGraphBlock} where each function is
+   * wrapped into own {@link NamedBlockDeclarationGraphBlock}
+   */
+  public processFunctions(functions: FunctionDeclaration[]): GraphBlock {
+    const blocks: GraphBlock[] &#x3D; [];
+    for (const functionDeclaration of functions) {
+      blocks.push(this.processMethodOrFunction(functionDeclaration));
+    }
+
+    return new ParallelBlockDeclarationGraphBlock(this.idGenerator.generate(), blocks);
+  }
+
+  /**
+   * Process array of {@link ClassDeclaration}
+   *
+   * @param classes {@link ClassDeclaration[]}
+   * @returns {@link ParallelBlockDeclarationGraphBlock}
+   */
+  public processClasses(classes: ClassDeclaration[]): GraphBlock {
+    const blocks: GraphBlock[] &#x3D; [];
+    for (const classDeclaration of classes) {
+      blocks.push(this.processClass(classDeclaration));
+    }
+
+    return new ParallelBlockDeclarationGraphBlock(this.idGenerator.generate(), blocks);
+  }
+
+  /**
+   * Process any kind of {@link NumericLiteral | BigIntLiteral | StringLiteral | RegularExpressionLiteral | NoSubstitutionTemplateLiteral | TypeLiteralNode | JSDocTypeLiteral}
+   *
+   * @param node {@link NumericLiteral | BigIntLiteral | StringLiteral | RegularExpressionLiteral | NoSubstitutionTemplateLiteral | TypeLiteralNode | JSDocTypeLiteral}
+   * @returns {@link TextGraphBlock}
+   */
+  protected processNodeLiteral(
+    node:
+      | NumericLiteral
+      | BigIntLiteral
+      | StringLiteral
+      | RegularExpressionLiteral
+      | NoSubstitutionTemplateLiteral
+      | TypeLiteralNode
+      | JSDocTypeLiteral
+  ): GraphBlock {
+    return new TextGraphBlock(this.idGenerator.generate(), node.getText());
+  }
+
+  /**
+   * Process UnaryExpression
+   *
+   * kind &#x3D; 218, 219
+   *
+   * @param expression {@link UnaryExpression}
+   * @returns {@link TextGraphBlock}
+   */
+  protected processUnaryExpression(expression: UnaryExpression): GraphBlock {
+    return new TextGraphBlock(this.idGenerator.generate(), expression.getText());
+  }
+
+  /**
+   * Process MethodDeclaration or FunctionDeclaration
+   *
+   * kind &#x3D; 168 |
+   *
+   * @param method {@link MethodDeclaration}
+   */
+  protected processMethodOrFunction(method: MethodDeclaration | FunctionDeclaration): GraphBlock {
+    const methodName: string | undefined &#x3D; method.getName();
+    if (!methodName) {
+      return new EmptyGraphBlock(this.idGenerator.generate());
+    }
+    const body &#x3D; method.getBody();
+    if (!body) {
+      return new EmptyGraphBlock(this.idGenerator.generate());
+    }
+
+    return new NamedBlockDeclarationGraphBlock(
+      this.idGenerator.generate(),
+      [this.processBlock(body as Block)],
+      methodName
+    );
+  }
+
+  /**
+   * Process BinaryExpression
+   *
+   * kind &#x3D; 220
+   *
+   * @param expression {@link BinaryExpression}
+   */
+  protected processBinaryExpression(expression: BinaryExpression): GraphBlock {
+    const operator &#x3D; expression.getOperatorToken();
+    const lhs: Expression &#x3D; expression.getLeft();
+    const rhs: Expression &#x3D; expression.getRight();
+
+    const lhsBlock &#x3D; this.processNode(lhs);
+    const rhsBlock &#x3D; this.processNode(rhs);
+
+    return new BinaryExpressionDeclarationGraphBlock(
+      this.idGenerator.generate(),
+      lhsBlock,
+      rhsBlock,
+      operator.getText()
+    );
+  }
+
+  /**
+   * Process Block
+   *
+   * kind &#x3D; 234
+   *
+   * @param block {@link Block}
+   */
+  public processBlock(block: Block): GraphBlock {
+    const blockChildren &#x3D; block.getChildAtIndex(1);
+
+    return this.processNodes(blockChildren);
+  }
+
+  /**
+   * Process ExpressionStatement
+   *
+   * kind &#x3D; 237
+   *
+   * @param statement {@link ExpressionStatement}
+   */
+  protected processExpressionStatement(statement: ExpressionStatement): GraphBlock {
+    const awaitOrCallExpression: ExpressionStatement | undefined &#x3D; statement.getFirstChild();
+    if (!awaitOrCallExpression) {
+      return new EmptyGraphBlock(this.idGenerator.generate());
+    }
+
+    if (awaitOrCallExpression.getKind() &#x3D;&#x3D;&#x3D; SyntaxKind.AwaitExpression) {
+      const callExpression: CallExpression | undefined &#x3D; awaitOrCallExpression.getFirstChildByKind(
+        SyntaxKind.CallExpression
+      );
+      if (!callExpression) {
+        return new EmptyGraphBlock(this.idGenerator.generate());
+      }
+      return new MethodCallGraphBlock(this.idGenerator.generate(), callExpression.getText());
+    }
+
+    return new MethodCallGraphBlock(this.idGenerator.generate(), awaitOrCallExpression.getText());
+  }
+
+  /**
+   * Process IfStatement
+   *
+   * kind &#x3D; 238
+   *
+   * @param statement {@link IfStatement}
+   * @returns {@link IfElseDeclarationGraphBlock}
+   */
+  protected processIfStatement(statement: IfStatement): GraphBlock {
+    const expression &#x3D; statement.getExpression();
+    const thenStatement &#x3D; statement.getThenStatement();
+    const elseStatement &#x3D; statement.getElseStatement();
+
+    // const condition &#x3D; this.processNode(expression);
+    const condition &#x3D; expression.getText();
+    const thanBlock &#x3D; this.processNode(thenStatement);
+    const elseBlock &#x3D; elseStatement ? this.processNode(elseStatement) : undefined;
+
+    return new IfElseDeclarationGraphBlock(
+      this.idGenerator.generate(),
+      condition,
+      this.unwrapBlockDeclaration(thanBlock),
+      elseBlock ? this.unwrapBlockDeclaration(elseBlock) : undefined
+    );
+  }
+
+  /**
+   * Process ForStatement
+   *
+   * kind &#x3D; 241
+   *
+   * @param statement {@link ForStatement}
+   * @returns {@link ForDeclarationGraphBlock}
+   */
+  protected processForStatement(statement: ForStatement): GraphBlock {
+    const body: Statement &#x3D; statement.getStatement();
+    const initializer: VariableDeclarationList | Expression | undefined &#x3D; statement.getInitializer();
+    const condition: Expression | undefined &#x3D; statement.getCondition();
+    const incrementor: Expression | undefined &#x3D; statement.getIncrementor();
+
+    const bodyBlock &#x3D; this.processNode(body);
+    let initBlock;
+    if (initializer) {
+      initBlock &#x3D; new TextGraphBlock(this.idGenerator.generate(), this.processNode(initializer));
+    } else {
+      initBlock &#x3D; new EmptyGraphBlock(this.idGenerator.generate());
+    }
+
+    const testBlock &#x3D; new TextGraphBlock(
+      this.idGenerator.generate(),
+      condition ? this.processNode(condition) : new EmptyGraphBlock(this.idGenerator.generate())
+    );
+    const updateBlock &#x3D; new TextGraphBlock(
+      this.idGenerator.generate(),
+      incrementor ? this.processNode(incrementor) : new EmptyGraphBlock(this.idGenerator.generate())
+    );
+
+    return new ForDeclarationGraphBlock(
+      this.idGenerator.generate(),
+      this.unwrapBlockDeclaration(bodyBlock),
+      initBlock,
+      testBlock,
+      updateBlock
+    );
+  }
+
+  /**
+   * Process ThrowStatement
+   *
+   * kind &#x3D; 250
+   *
+   * @param statement {@link ThrowStatement}
+   */
+  protected processThrowStatement(statement: ThrowStatement): GraphBlock {
+    return new ThrowDeclarationGraphBlock(this.idGenerator.generate(), statement.getText());
+  }
+
+  /**
+   * Process TryStatement
+   *
+   * kind &#x3D; 251
+   *
+   * @param statement {@link TryStatement}
+   */
+  protected processTryStatement(statement: TryStatement): GraphBlock {
+    const tryBlock: Block | undefined &#x3D; statement.getTryBlock();
+    const catchBlock: CatchClause | undefined &#x3D; statement.getCatchClause();
+    const finallyBlock &#x3D; statement.getFinallyBlock();
+    const tryGraphBlock &#x3D; tryBlock ? this.processBlock(tryBlock) : undefined;
+    const catchGraphBlock &#x3D; catchBlock ? this.processBlock(catchBlock.getBlock()) : undefined;
+    const finallyGraphBlock &#x3D; finallyBlock ? this.processNode(finallyBlock) : undefined;
+
+    return new TryCatchDeclarationGraphBlock(
+      this.idGenerator.generate(),
+      tryGraphBlock ? this.unwrapBlockDeclaration(tryGraphBlock) : undefined,
+      catchGraphBlock ? this.unwrapBlockDeclaration(catchGraphBlock) : undefined,
+      finallyGraphBlock ? this.unwrapBlockDeclaration(finallyGraphBlock) : undefined,
+      catchGraphBlock ? this.idGenerator.generate() : undefined,
+      finallyGraphBlock ? this.idGenerator.generate() : undefined
+    );
+  }
+
+  /**
+   * Process VariableDeclarationList
+   *
+   * kind &#x3D; 254
+   *
+   * @param variableDeclarationList {@link VariableDeclarationList}
+   * @returns {@link VariableDeclarationListGraphBlock}
+   */
+  protected processVariableDeclarationList(variableDeclarationList: VariableDeclarationList): GraphBlock {
+    const variableDeclarations: VariableDeclaration[] &#x3D; variableDeclarationList.getDeclarations();
+    const variableDeclarationBlocks: VariableDeclarationGraphBlock[] &#x3D; variableDeclarations.map((value) &#x3D;&gt;
+      this.processVariableDeclaration(value)
+    ) as VariableDeclarationGraphBlock[];
+
+    return new VariableDeclarationListGraphBlock(this.idGenerator.generate(), variableDeclarationBlocks);
+  }
+
+  /**
+   * Process VariableDeclaration
+   *
+   * kind &#x3D; 256
+   *
+   * @param variableDeclaration {@link VariableDeclaration}
+   * @returns {@link VariableDeclarationGraphBlock}
+   */
+  protected processVariableDeclaration(variableDeclaration: VariableDeclaration): GraphBlock {
+    const variableName &#x3D; variableDeclaration.getName();
+    const initializer: Expression | undefined &#x3D; variableDeclaration.getInitializer();
+
+    const initializerBlock &#x3D; initializer
+      ? this.processNode(initializer)
+      : new EmptyGraphBlock(this.idGenerator.generate());
+
+    return new VariableDeclarationGraphBlock(this.idGenerator.generate(), variableName, initializerBlock);
+  }
+
+  /**
+   * Process Class declaration
+   *
+   * kind &#x3D; 256
+   *
+   * @param classDeclaration {@link ClassDeclaration}
+   */
+  protected processClass(classDeclaration: ClassDeclaration): GraphBlock {
+    const className: string | undefined &#x3D; classDeclaration.getName();
+    if (!className) {
+      return new EmptyGraphBlock(this.idGenerator.generate());
+    }
+
+    return new NamedBlockDeclarationGraphBlock(
+      this.idGenerator.generate(),
+      this.processClassMembers(classDeclaration.getMembers()),
+      className
+    );
+  }
+
+  /**
+   * Process ClassMembers
+   *
+   * kind &#x3D; {@link MethodDeclaration} (168) | {@link PropertyDeclaration} (166) |
+   * {@link GetAccessorDeclaration} | {@link SetAccessorDeclaration} |
+   * {@link ConstructorDeclaration} | {@link ClassStaticBlockDeclaration}
+   *
+   * @param classMembers {@link ClassMemberTypes[]}
+   */
+  protected processClassMembers(classMembers: ClassMemberTypes[]): GraphBlock[] {
+    const blocks: GraphBlock[] &#x3D; [];
+
+    for (const classMember of classMembers) {
+      const block &#x3D; this.processNode(classMember);
+      if (block) {
+        blocks.push(block);
+      }
+    }
+
+    return blocks;
+  }
+
+  /**
+   * Unwrap children of {@link BlockDeclarationGraphBlock} into own array.
+   *
+   * @param graphBlock {@link GraphBlock} Parent of children to unwrap.
+   * @returns {@link GraphBlock[]} Children of a parent
+   */
+  protected unwrapBlockDeclaration(graphBlock: GraphBlock): GraphBlock[] {
+    if (graphBlock instanceof BlockDeclarationGraphBlock) {
+      if (graphBlock.children.length !&#x3D;&#x3D; 1) {
+        throw Error(&#x27;Too many children!&#x27;);
+      }
+
+      return graphBlock.children[0];
+    } else {
+      return [graphBlock];
+    }
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'CodeParser.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
