@@ -1,7 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
+  "plugins": ["@nrwl/nx", "import", "simple-import-sort"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -19,13 +19,27 @@
             ]
           }
         ],
+        "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
         "max-len": [
           "error",
           {
             "code": 110,
             "ignorePattern": "import"
           }
-        ]
+        ],
+        "import/order": ["error", {
+          "alphabetize": {
+            "caseInsensitive": true,
+            "order": "asc"
+          },
+          "groups": [
+            ["builtin", "external", "object", "type"],
+            ["internal", "parent", "sibling", "index"]
+          ],
+          "newlines-between": "always"
+        }],
+        "simple-import-sort/exports": "error",
+        "simple-import-sort/imports": "error"
       }
     },
     {

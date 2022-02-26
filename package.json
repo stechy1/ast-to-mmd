@@ -5,12 +5,16 @@
   "scripts": {
     "nx": "nx",
     "build": "nx build",
-    "build:cli": "nx run cli:build",
-    "run:cli": "nx run cli:serve",
-    "test:cli": "nx run cli:test",
+    "build:ast-to-mmd": "nx run ast-to-mmd:build",
+    "run:ast-to-mmd": "nx run ast-to-mmd:serve",
+    "test:ast-to-mmd": "nx run ast-to-mmd:test",
+    "lint:ast-to-mmd": "nx run ast-to-mmd:lint",
+    "lint-fix:ast-to-mmd": "nx run ast-to-mmd:lint --fix",
     "format": "nx format:write",
     "format:write": "nx format:write",
-    "format:check": "nx format:check"
+    "format:check": "nx format:check",
+    "doc": "npx @compodoc/compodoc -p packages/ast-to-mmd/tsconfig.doc.json -n \"Ast-to-mmd documentation\" --includes additional-documentation",
+    "doc-watch": "npx @compodoc/compodoc -p packages/ast-to-mmd/tsconfig.doc.json -n \"Ast-to-mmd documentation\" --includes additional-documentation -s -w"
   },
   "private": true,
   "keywords": [
@@ -25,10 +29,10 @@
     "dist/packages/**/*"
   ],
   "bin": {
-    "@stechy1/ast-to-mmd": "dist/packages/cli/src/index.js",
-    "ast-to-mmd": "dist/packages/cli/src/index.js"
+    "@stechy1/ast-to-mmd": "dist/packages/ast-to-mmd/src/index.js",
+    "ast-to-mmd": "dist/packages/ast-to-mmd/src/index.js"
   },
-  "main": "dist/packages/cli/src/index.js",
+  "main": "dist/packages/ast-to-mmd/src/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com//stechy1/ast-to-mmd.git"
@@ -44,6 +48,7 @@
     "tslib": "^2.0.0"
   },
   "devDependencies": {
+    "@compodoc/compodoc": "1.1.18",
     "@nrwl/cli": "13.8.1",
     "@nrwl/eslint-plugin-nx": "13.8.1",
     "@nrwl/jest": "13.8.1",
@@ -59,6 +64,9 @@
     "@typescript-eslint/parser": "~5.10.0",
     "eslint": "~8.7.0",
     "eslint-config-prettier": "8.1.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "jest": "27.2.3",
     "prettier": "^2.5.1",
     "ts-jest": "27.0.5",

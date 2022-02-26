@@ -1,0 +1,39 @@
+{
+  "root": "packages/ast-to-mmd",
+  "sourceRoot": "packages/ast-to-mmd/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/ast-to-mmd",
+        "main": "packages/ast-to-mmd/src/index.ts",
+        "tsConfig": "packages/ast-to-mmd/tsconfig.app.json",
+        "assets": ["packages/ast-to-mmd/*.md"]
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "options": {
+        "buildTarget": "ast-to-mmd:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/ast-to-mmd/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/ast-to-mmd"],
+      "options": {
+        "jestConfig": "packages/ast-to-mmd/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,6 +1,6 @@
 {
   "version": 2,
   "projects": {
-    "cli": "packages/cli"
+    "ast-to-mmd": "packages/ast-to-mmd"
   }
 }
