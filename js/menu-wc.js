@@ -49,6 +49,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
+                                <a href="classes/BaseExitDeclarationGraphBlock.html" data-type="entity-link" >BaseExitDeclarationGraphBlock</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/BaseForDeclarationGraphBlock.html" data-type="entity-link" >BaseForDeclarationGraphBlock</a>
                             </li>
                             <li class="link">
@@ -104,6 +107,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/ParallelBlockDeclarationGraphBlock.html" data-type="entity-link" >ParallelBlockDeclarationGraphBlock</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ReturnDeclarationGraphBlock.html" data-type="entity-link" >ReturnDeclarationGraphBlock</a>
                             </li>
                             <li class="link">
                                 <a href="classes/ShapeRenderer.html" data-type="entity-link" >ShapeRenderer</a>
