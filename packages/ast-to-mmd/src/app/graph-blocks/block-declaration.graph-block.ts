@@ -14,16 +14,16 @@ ${this.renderDependencies(_indent)}
 `;
   }
 
-  public override get firstId(): string {
-    return this.childBlocks[0].id;
+  public override get firstBlock(): GraphBlock {
+    return this.childBlocks[0];
   }
 
-  public override get lastId(): string[] {
+  public override get lastBlocks(): string[] {
     if (this.childBlocks.length === 0) {
-      return super.lastId;
+      return super.lastBlocks;
     }
     if (this.childBlocks.length === 1) {
-      return this.childBlocks[0].includeInDependencyGraph ? this.childBlocks[0].lastId : [];
+      return this.childBlocks[0].includeInDependencyGraph && !this.childBlocks[0].skipRenderRestDependencies ? this.childBlocks[0].lastBlocks : [];
     }
 
     const visibleBlocks = this.blocksWithDependencies;
@@ -31,7 +31,7 @@ ${this.renderDependencies(_indent)}
       return [];
     }
 
-    return visibleBlocks[visibleBlocks.length - 1].lastId;
+    return visibleBlocks[visibleBlocks.length - 1].lastBlocks;
   }
 
   public override get hasChildren(): boolean {

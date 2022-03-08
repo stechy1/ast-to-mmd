@@ -100,14 +100,14 @@ ${this._generateSpace(indent)}end
   /**
    * @returns {string} First ID of this node.
    */
-  public get firstId(): string {
-    return this.id;
+  public get firstBlock(): GraphBlock {
+    return this;
   }
 
   /**
    * @returns {string[]} Array of last ID of nodes directly connected to this node.
    */
-  public get lastId(): string[] {
+  public get lastBlocks(): string[] {
     return [this.id];
   }
 
@@ -139,6 +139,20 @@ ${this._generateSpace(indent)}end
    */
   public get includeInDependencyGraph(): boolean {
     return true;
+  }
+
+  /**
+   * @returns True, when this children of this node is allowed to unwrap, False otherwise.
+   */
+  public get allowUnwrapChildren(): boolean {
+    return true;
+  }
+
+  /**
+   * @returns True, when rest of the dependencies in a chain should not be rendered, False otherwise.
+   */
+  public get skipRenderRestDependencies(): boolean {
+    return false;
   }
 
   /**
@@ -217,7 +231,7 @@ ${this._generateSpace(indent)}end
    * @returns {string} Dependencies of blocks.
    */
   protected _renderDependencies(indent: number, blocks: GraphBlock[]): string {
-    blocks = blocks.filter((block) => block.includeInDependencyGraph);
+    blocks = blocks.filter((block: GraphBlock) => block.includeInDependencyGraph);
     if (blocks.length <= 1) {
       return '';
     }
@@ -226,11 +240,14 @@ ${this._generateSpace(indent)}end
     let lastBlockWithDependency = blocks[0];
 
     for (let i = 1; i < blocks.length; i++) {
-      const currentBlockWithDependency = blocks[i];
-      const currentFirstId = currentBlockWithDependency.firstId;
-      const lastIds = lastBlockWithDependency.lastId;
+      const currentBlockWithDependency: GraphBlock = blocks[i];
+      const currentFirstBlock: GraphBlock = currentBlockWithDependency.firstBlock;
+      const lastIds: string[] = lastBlockWithDependency.lastBlocks;
 
-      result += this._renderLinesL2R(indent, currentFirstId, lastIds);
+      result += this._renderLinesL2R(indent, currentFirstBlock.id, lastIds);
+      if (currentBlockWithDependency.skipRenderRestDependencies) {
+        break;
+      }
 
       lastBlockWithDependency = currentBlockWithDependency;
     }
@@ -353,6 +370,7 @@ ${this._generateSpace(indent)}end
     return result;
   }
 
+  // noinspection JSMethodCanBeStatic
   /**
    * Private method for finding a child index of defined block in a multidimensional array of children.
    *

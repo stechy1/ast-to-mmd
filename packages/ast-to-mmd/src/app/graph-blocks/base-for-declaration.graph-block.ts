@@ -20,10 +20,6 @@ export abstract class BaseForDeclarationGraphBlock extends BlockDeclarationGraph
     );
   }
 
-  public override get firstId(): string {
-    return this.id;
-  }
-
   protected renderOuterBody(indent: number): string {
     return `
 ${this._generateSpace(indent + 1)}${this.id}${this._renderShape(this.renderCondition(), Shape.PARALLEOGRAM)}
@@ -38,12 +34,12 @@ ${super.render(indent)}
       childDependencies = this._renderLinesL2R(
         _indent,
         this.id,
-        blocksToRender[blocksToRender.length - 1].lastId,
+        blocksToRender[blocksToRender.length - 1].lastBlocks,
         (builder) => this.createLoopLine(builder)
       );
     }
     return `
-${this._renderLine(_indent, this.id, this.body[0].firstId)}
+${this._renderLine(_indent, this.id, this.body[0].firstBlock.id)}
 ${childDependencies}
 ${super.renderDependencies(_indent)}
 `;

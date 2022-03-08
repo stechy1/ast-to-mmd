@@ -9,12 +9,12 @@ export class TextGraphBlock extends GraphBlock {
     return this.graphBlock.toString();
   }
 
-  override get firstId(): string {
-    return this.blockIsString ? super.firstId : (<GraphBlock>this.graphBlock).firstId;
+  override get firstBlock(): GraphBlock {
+    return this.blockIsString ? super.firstBlock : (<GraphBlock>this.graphBlock).firstBlock;
   }
 
-  override get lastId(): string[] {
-    return this.blockIsString ? super.lastId : (<GraphBlock>this.graphBlock).lastId;
+  override get lastBlocks(): string[] {
+    return this.blockIsString ? super.lastBlocks : (<GraphBlock>this.graphBlock).lastBlocks;
   }
 
   override toString(): string {

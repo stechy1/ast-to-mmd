@@ -26,7 +26,9 @@ export class TryCatchDeclarationGraphBlock extends BlockDeclarationGraphBlock {
   }
 
   public override render(_indent: number): string {
-    return this.renderInSubgraph(_indent, this.id, `TRY-CATCH_${this.tryCatchId}`, (bodyIndent: number) => this.renderOuterBody(bodyIndent));
+    return this.renderInSubgraph(_indent, this.id, `TRY-CATCH_${this.tryCatchId}`, (bodyIndent: number) =>
+      this.renderOuterBody(bodyIndent)
+    );
   }
 
   override get children(): GraphBlock[][] {
@@ -104,8 +106,8 @@ ${this.finallyBlock ? this._renderDependencies(indent, this.finallyBlock) : ''}
           if (filteredTryBlock.length !== 0) {
             result += this._renderLinesL2R(
               _indent,
-              `${filteredFinalyBlock[0].firstId}`,
-              filteredTryBlock[filteredTryBlock.length - 1].lastId
+              `${filteredFinalyBlock[0].firstBlock}`,
+              filteredTryBlock[filteredTryBlock.length - 1].lastBlocks
             );
           }
         }
@@ -114,8 +116,8 @@ ${this.finallyBlock ? this._renderDependencies(indent, this.finallyBlock) : ''}
           if (filteredCatchBlock.length !== 0) {
             result += this._renderLinesL2R(
               _indent,
-              `${filteredFinalyBlock[0].firstId}`,
-              filteredCatchBlock[filteredCatchBlock.length - 1].lastId
+              `${filteredFinalyBlock[0].firstBlock}`,
+              filteredCatchBlock[filteredCatchBlock.length - 1].lastBlocks
             );
           }
         }
@@ -125,13 +127,15 @@ ${this.finallyBlock ? this._renderDependencies(indent, this.finallyBlock) : ''}
     return result;
   }
 
-  public override get lastId(): string[] {
+  public override get lastBlocks(): string[] {
     if (this.finallyBlock) {
-      return this.finallyBlock[this.finallyBlock.length - 1].lastId;
+      return this.finallyBlock[this.finallyBlock.length - 1].lastBlocks;
     }
 
-    const tryBlockLastId = super.lastId;
-    const catchLastId: string[] = this.catchBlock ? this.catchBlock[this.catchBlock.length - 1].lastId : [];
+    const tryBlockLastId = super.lastBlocks;
+    const catchLastId: string[] = this.catchBlock
+      ? this.catchBlock[this.catchBlock.length - 1].lastBlocks
+      : [];
 
     const allIds = [...tryBlockLastId, ...catchLastId];
     if (allIds.length === 0) {

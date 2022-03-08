@@ -17,6 +17,7 @@ import {
   NoSubstitutionTemplateLiteral,
   NumericLiteral,
   RegularExpressionLiteral,
+  ReturnStatement,
   Statement,
   StringLiteral,
   SyntaxKind,
@@ -39,6 +40,7 @@ import {
   MethodCallGraphBlock,
   NamedBlockDeclarationGraphBlock,
   ParallelBlockDeclarationGraphBlock,
+  ReturnDeclarationGraphBlock,
   TextGraphBlock,
   ThrowDeclarationGraphBlock,
   TryCatchDeclarationGraphBlock,
@@ -99,6 +101,8 @@ export class CodeParser {
         return this.processNodeLiteral(node);
       case SyntaxKind.MethodDeclaration:                                  // 168
         return this.processMethodOrFunction(node as MethodDeclaration);
+      case SyntaxKind.Constructor:                                        // 170
+        return new EmptyGraphBlock(this.idGenerator.generate());
       case SyntaxKind.PrefixUnaryExpression:                              // 218
       case SyntaxKind.PostfixUnaryExpression:                             // 219
         return this.processUnaryExpression(node as UnaryExpression);
@@ -107,6 +111,7 @@ export class CodeParser {
       case SyntaxKind.Block:                                              // 234
         return this.processBlock(node as Block);
       case SyntaxKind.VariableStatement:                                  // 236
+      case SyntaxKind.PropertyDeclaration:                                // 166
         return new EmptyGraphBlock(this.idGenerator.generate());
       case SyntaxKind.ExpressionStatement:                                // 237
         return this.processExpressionStatement(node as ExpressionStatement);
@@ -114,6 +119,8 @@ export class CodeParser {
         return this.processIfStatement(node as IfStatement);
       case SyntaxKind.ForStatement:                                       // 241
         return this.processForStatement(node as ForStatement);
+      case SyntaxKind.ReturnStatement:                                    // 246
+        return this.processReturnStatement(node as ReturnStatement);
       case SyntaxKind.ThrowStatement:                                     // 250
         return this.processThrowStatement(node as ThrowStatement);
       case SyntaxKind.TryStatement:                                       // 251
@@ -306,6 +313,18 @@ export class CodeParser {
   }
 
   /**
+   * Process ReturnStatement
+   *
+   * kind = 246
+   *
+   * @param _statement {@link ReturnStatement}
+   * @returns {@link ForDeclarationGraphBlock}
+   */
+  protected processReturnStatement(_statement: ReturnStatement): GraphBlock {
+    return new ReturnDeclarationGraphBlock(this.idGenerator.generate());
+  }
+
+  /**
    * Process ForStatement
    *
    * kind = 241
@@ -460,13 +479,14 @@ export class CodeParser {
   }
 
   /**
-   * Unwrap children of {@link BlockDeclarationGraphBlock} into own array.
+   * Unwrap children of {@link BlockDeclarationGraphBlock} into own array only
+   * if parent block allows children unwrap.
    *
    * @param graphBlock {@link GraphBlock} Parent of children to unwrap.
    * @returns {@link GraphBlock[]} Children of a parent
    */
   protected unwrapBlockDeclaration(graphBlock: GraphBlock): GraphBlock[] {
-    if (graphBlock instanceof BlockDeclarationGraphBlock) {
+    if (graphBlock instanceof BlockDeclarationGraphBlock && graphBlock.allowUnwrapChildren) {
       if (graphBlock.children.length !== 1) {
         throw Error('Too many children!');
       }

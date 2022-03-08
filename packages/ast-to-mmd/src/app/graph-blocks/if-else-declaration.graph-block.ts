@@ -26,18 +26,19 @@ export class IfElseDeclarationGraphBlock extends BlockDeclarationGraphBlock {
     );
   }
 
-  public override get firstId(): string {
-    return this.id;
+
+  override get firstBlock(): GraphBlock {
+    return this;
   }
 
-  public override get lastId(): string[] {
-    const thanBlockId = super.lastId;
+  public override get lastBlocks(): string[] {
+    const thanBlockId = super.lastBlocks;
     const visibleElseBlocks = this.elseBlock ? this.filterChildren(this.elseBlock) : [];
     let elseBlockId: string[];
     if (visibleElseBlocks.length === 0) {
       elseBlockId = [];
     } else {
-      elseBlockId = visibleElseBlocks[visibleElseBlocks.length - 1].lastId;
+      elseBlockId = visibleElseBlocks[visibleElseBlocks.length - 1].lastBlocks;
     }
     return [...thanBlockId, ...elseBlockId];
   }
@@ -51,15 +52,36 @@ export class IfElseDeclarationGraphBlock extends BlockDeclarationGraphBlock {
     const filteredElseBlock = this.elseBlock ? this.filterChildren(this.elseBlock) : [];
     const result: GraphBlock[][] = [];
 
+    /**
+     * Local helper function for unified pushing direct children into a result
+     *
+     * @param child {@link GraphBlock}
+     * @param result {@link GraphBlock[][]}
+     */
+    function pushDirectChildren(child: GraphBlock, result: GraphBlock[][]): void {
+      const indirectChildren = child.children;
+      if (indirectChildren.length !== 0 && child.allowUnwrapChildren) {
+        result.push(...indirectChildren);
+      } else {
+        result.push([child]);
+      }
+    }
+
     if (filteredThanBlock.length !== 0) {
-      result.push(...filteredThanBlock[filteredThanBlock.length - 1].children);
+      const lastDirectChild = filteredThanBlock[filteredThanBlock.length - 1];
+      pushDirectChildren(lastDirectChild, result);
     }
 
     if (filteredElseBlock.length !== 0) {
-      result.push(...filteredElseBlock[filteredElseBlock.length - 1].children);
+      const lastDirectChild = filteredElseBlock[filteredElseBlock.length - 1];
+      pushDirectChildren(lastDirectChild, result);
     }
 
     return result;
+  }
+
+  override get allowUnwrapChildren(): boolean {
+    return false;
   }
 
   protected renderOuterBody(indent: number): string {
@@ -79,7 +101,7 @@ ${this.renderDirectDependencies(indent + 1)}
       dependencies += this._renderLine(
         indent,
         this.id,
-        filteredThanBlock[0].firstId,
+        filteredThanBlock[0].firstBlock.id,
         this.positiveBuilderModifier
       );
       dependencies += '\n';
@@ -90,14 +112,14 @@ ${this.renderDirectDependencies(indent + 1)}
         dependencies += this._renderLine(
           indent,
           this.id,
-          filteredElseBlock[0].firstId,
+          filteredElseBlock[0].firstBlock.id,
           this.negativeBuilderModifier
         );
       } else {
         dependencies += this._renderLine(
           indent,
           this.id,
-          this.thanBlock[this.thanBlock.length - 1].firstId,
+          this.thanBlock[this.thanBlock.length - 1].firstBlock.id,
           this.negativeBuilderModifier
         );
       }
