@@ -2,7 +2,7 @@ import { GraphBlock } from './graph-block';
 import { Shape } from './renderer';
 
 export class VariableDeclarationGraphBlock extends GraphBlock {
-  constructor(id: string, private readonly variableName: string, private readonly initializer: GraphBlock) {
+  constructor(id: string, private readonly variableName: string, private readonly initializer?: GraphBlock) {
     super(id);
   }
 
@@ -15,6 +15,11 @@ export class VariableDeclarationGraphBlock extends GraphBlock {
   }
 
   public override toString(): string {
-    return `${this.variableName} = ${this.initializer.toString()}`;
+    let result = this.variableName;
+
+    if (this.initializer) {
+      result += ` = ${this.initializer.toString()}`;
+    }
+    return result;
   }
 }

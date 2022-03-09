@@ -8,6 +8,8 @@ import {
   ClassMemberTypes,
   Expression,
   ExpressionStatement,
+  ForInStatement,
+  ForOfStatement,
   ForStatement,
   FunctionDeclaration,
   IfStatement,
@@ -26,7 +28,7 @@ import {
   TypeLiteralNode,
   UnaryExpression,
   VariableDeclaration,
-  VariableDeclarationList,
+  VariableDeclarationList
 } from 'ts-morph';
 
 import { BlockIdGenerator } from '../block-id-generator';
@@ -35,6 +37,8 @@ import {
   BlockDeclarationGraphBlock,
   EmptyGraphBlock,
   ForDeclarationGraphBlock,
+  ForInDeclarationGraphBlock,
+  ForOfDeclarationGraphBlock,
   GraphBlock,
   IfElseDeclarationGraphBlock,
   MethodCallGraphBlock,
@@ -45,7 +49,7 @@ import {
   ThrowDeclarationGraphBlock,
   TryCatchDeclarationGraphBlock,
   VariableDeclarationGraphBlock,
-  VariableDeclarationListGraphBlock,
+  VariableDeclarationListGraphBlock
 } from '../graph-blocks';
 
 /**
@@ -103,6 +107,8 @@ export class CodeParser {
         return this.processMethodOrFunction(node as MethodDeclaration);
       case SyntaxKind.Constructor:                                        // 170
         return new EmptyGraphBlock(this.idGenerator.generate());
+      case SyntaxKind.CallExpression:
+        return this.processExpressionStatement(node as ExpressionStatement);
       case SyntaxKind.PrefixUnaryExpression:                              // 218
       case SyntaxKind.PostfixUnaryExpression:                             // 219
         return this.processUnaryExpression(node as UnaryExpression);
@@ -119,6 +125,10 @@ export class CodeParser {
         return this.processIfStatement(node as IfStatement);
       case SyntaxKind.ForStatement:                                       // 241
         return this.processForStatement(node as ForStatement);
+      case SyntaxKind.ForInStatement:                                     // 242
+        return this.processForInStatement(node as ForInStatement);
+      case SyntaxKind.ForOfStatement:                                     // 243
+        return this.processForOfStatement(node as ForOfStatement);
       case SyntaxKind.ReturnStatement:                                    // 246
         return this.processReturnStatement(node as ReturnStatement);
       case SyntaxKind.ThrowStatement:                                     // 250
@@ -365,6 +375,70 @@ export class CodeParser {
   }
 
   /**
+   * Process ForInStatement
+   *
+   * kind = 242
+   *
+   * @param statement {@link ForInStatement}
+   * @returns {@link ForInDeclarationGraphBlock}
+   */
+  protected processForInStatement(statement: ForInStatement): GraphBlock {
+    const body: Statement = statement.getStatement();
+    const initializer: Expression | VariableDeclarationList = statement.getInitializer();
+    const expression = statement.getExpression();
+
+    const bodyBlock = this.processNode(body);
+
+    let initBlock;
+    if (initializer) {
+      initBlock = new TextGraphBlock(this.idGenerator.generate(), this.processNode(initializer));
+    } else {
+      initBlock = new EmptyGraphBlock(this.idGenerator.generate());
+    }
+
+    let expressionBlock;
+    if (expression) {
+      expressionBlock = new TextGraphBlock(this.idGenerator.generate(), this.processNode(expression));
+    } else {
+      expressionBlock = new EmptyGraphBlock(this.idGenerator.generate());
+    }
+
+    return new ForInDeclarationGraphBlock(this.idGenerator.generate(), this.unwrapBlockDeclaration(bodyBlock), initBlock, expressionBlock);
+  }
+
+  /**
+   * Process ForOfStatement
+   *
+   * kind = 243
+   *
+   * @param statement {@link ForOfStatement}
+   * @returns {@link ForOfDeclarationGraphBlock}
+   */
+  protected processForOfStatement(statement: ForOfStatement): GraphBlock {
+    const body: Statement = statement.getStatement();
+    const initializer: Expression | VariableDeclarationList = statement.getInitializer();
+    const expression = statement.getExpression();
+
+    const bodyBlock = this.processNode(body);
+
+    let initBlock;
+    if (initializer) {
+      initBlock = new TextGraphBlock(this.idGenerator.generate(), this.processNode(initializer));
+    } else {
+      initBlock = new EmptyGraphBlock(this.idGenerator.generate());
+    }
+
+    let expressionBlock;
+    if (expression) {
+      expressionBlock = new TextGraphBlock(this.idGenerator.generate(), this.processNode(expression));
+    } else {
+      expressionBlock = new EmptyGraphBlock(this.idGenerator.generate());
+    }
+
+    return new ForOfDeclarationGraphBlock(this.idGenerator.generate(), this.unwrapBlockDeclaration(bodyBlock), initBlock, expressionBlock);
+  }
+
+  /**
    * Process ThrowStatement
    *
    * kind = 250
@@ -431,7 +505,7 @@ export class CodeParser {
 
     const initializerBlock = initializer
       ? this.processNode(initializer)
-      : new EmptyGraphBlock(this.idGenerator.generate());
+      : undefined;
 
     return new VariableDeclarationGraphBlock(this.idGenerator.generate(), variableName, initializerBlock);
   }

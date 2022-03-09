@@ -5,15 +5,15 @@ export abstract class ForXDeclarationGraphBlock extends BaseForDeclarationGraphB
   protected constructor(
     id: string,
     body: GraphBlock[],
-    protected readonly leftBlock: GraphBlock,
-    protected readonly rightBlock: GraphBlock
+    protected readonly initializer: GraphBlock,
+    protected readonly expression: GraphBlock
   ) {
     super(id, body);
   }
 
   protected override renderCondition(): string {
-    return '';
+    return `${this.initializer.toString()} ${this.operator} ${this.expression.toString()}`;
   }
 
-  protected abstract get conditionFirst(): boolean;
+  protected abstract get operator(): string;
 }

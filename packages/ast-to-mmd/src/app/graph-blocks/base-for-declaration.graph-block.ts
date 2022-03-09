@@ -11,6 +11,11 @@ export abstract class BaseForDeclarationGraphBlock extends BlockDeclarationGraph
     super(id, body);
   }
 
+
+  override get firstBlock(): GraphBlock {
+    return this;
+  }
+
   public override render(_indent: number): string {
     return this.renderInSubgraph(
       _indent,

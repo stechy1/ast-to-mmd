@@ -12,4 +12,9 @@ export class MethodCallGraphBlock extends GraphBlock {
       Shape.SUBROUTINE
     )}`;
   }
+
+
+  public override toString(): string {
+    return this.methodCallExpression;
+  }
 }
