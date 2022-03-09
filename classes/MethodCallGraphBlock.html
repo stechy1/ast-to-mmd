@@ -125,6 +125,11 @@
                                 <a href="#render" >render</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier"></span>
+                                <a href="#toString" >toString</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                 <a href="#__multiFindChildIndex" >__multiFindChildIndex</a>
                             </li>
@@ -183,10 +188,6 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#renderLazyDependencies" >renderLazyDependencies</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#toString" >toString</a>
                             </li>
                         </ul>
                     </td>
@@ -523,6 +524,52 @@
                     </div>
                     <div class="io-description">
                         
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toString"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier"></span>
+                        <span ><b>toString</b></span>
+                        <a href="#toString"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toString()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:17</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
                     </div>
                 </td>
             </tr>
@@ -2153,51 +2200,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="toString"></a>
-                    <span class="name">
-                        <span class="modifier">Public</span>
-                        <span ><b>toString</b></span>
-                        <a href="#toString"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>toString()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:395</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
 
 
@@ -2221,6 +2223,11 @@ export class MethodCallGraphBlock extends GraphBlock {
       this.methodCallExpression,
       Shape.SUBROUTINE
     )}&#x60;;
+  }
+
+
+  public override toString(): string {
+    return this.methodCallExpression;
   }
 }
 </code></pre>

@@ -241,7 +241,7 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#conditionFirst" >conditionFirst</a>
+                                    <a href="#operator" >operator</a>
                                 </li>
                             </ul>
                         </td>
@@ -257,7 +257,7 @@
                 <tr>
                     <td class="col-md-4">
                                 <span class="modifier">Protected</span>
-                        <code>constructor(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="../classes/GraphBlock.html" target="_self">GraphBlock[]</a>, leftBlock: <a href="../classes/GraphBlock.html" target="_self">GraphBlock</a>, rightBlock: <a href="../classes/GraphBlock.html" target="_self">GraphBlock</a>)</code>
+                        <code>constructor(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="../classes/GraphBlock.html" target="_self">GraphBlock[]</a>, initializer: <a href="../classes/GraphBlock.html" target="_self">GraphBlock</a>, expression: <a href="../classes/GraphBlock.html" target="_self">GraphBlock</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -304,7 +304,7 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>leftBlock</td>
+                                                        <td>initializer</td>
                                                   
                                                         <td>
                                                                         <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
@@ -316,7 +316,7 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>rightBlock</td>
+                                                        <td>expression</td>
                                                   
                                                         <td>
                                                                         <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
@@ -673,7 +673,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:54</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:59</a></code>
 </div>
                 </td>
             </tr>
@@ -762,7 +762,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseForDeclarationGraphBlock.html#source" target="_self" >BaseForDeclarationGraphBlock:58</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseForDeclarationGraphBlock.html#source" target="_self" >BaseForDeclarationGraphBlock:63</a></code>
 </div>
                 </td>
             </tr>
@@ -840,7 +840,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:14</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:19</a></code>
 </div>
                 </td>
             </tr>
@@ -917,7 +917,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseForDeclarationGraphBlock.html#source" target="_self" >BaseForDeclarationGraphBlock:50</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseForDeclarationGraphBlock.html#source" target="_self" >BaseForDeclarationGraphBlock:55</a></code>
 </div>
                 </td>
             </tr>
@@ -995,7 +995,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BlockDeclarationGraphBlock.html#source" target="_self" >BlockDeclarationGraphBlock:30</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BlockDeclarationGraphBlock.html#source" target="_self" >BlockDeclarationGraphBlock:35</a></code>
 </div>
                 </td>
             </tr>
@@ -1072,7 +1072,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseForDeclarationGraphBlock.html#source" target="_self" >BaseForDeclarationGraphBlock:23</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseForDeclarationGraphBlock.html#source" target="_self" >BaseForDeclarationGraphBlock:28</a></code>
 </div>
                 </td>
             </tr>
@@ -2794,14 +2794,14 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="conditionFirst"></a>
-                        <span class="name"><b>conditionFirst</b><a href="#conditionFirst"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="operator"></a>
+                        <span class="name"><b>operator</b><a href="#operator"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <span class="accessor"><b>get</b><code>conditionFirst()</code></span>
+                        <span class="accessor"><b>get</b><code>operator()</code></span>
                     </td>
                 </tr>
                             <tr>
@@ -2824,17 +2824,17 @@ export abstract class ForXDeclarationGraphBlock extends BaseForDeclarationGraphB
   protected constructor(
     id: string,
     body: GraphBlock[],
-    protected readonly leftBlock: GraphBlock,
-    protected readonly rightBlock: GraphBlock
+    protected readonly initializer: GraphBlock,
+    protected readonly expression: GraphBlock
   ) {
     super(id, body);
   }
 
   protected override renderCondition(): string {
-    return &#x27;&#x27;;
+    return &#x60;${this.initializer.toString()} ${this.operator} ${this.expression.toString()}&#x60;;
   }
 
-  protected abstract get conditionFirst(): boolean;
+  protected abstract get operator(): string;
 }
 </code></pre>
     </div>

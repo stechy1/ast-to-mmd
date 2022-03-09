@@ -232,6 +232,20 @@
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#firstBlock" >firstBlock</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
@@ -575,7 +589,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:54</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:59</a></code>
 </div>
                 </td>
             </tr>
@@ -658,8 +672,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/base-for-declaration.graph-block.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/base-for-declaration.graph-block.ts:63</a></div>
                 </td>
             </tr>
 
@@ -736,7 +750,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:14</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:19</a></code>
 </div>
                 </td>
             </tr>
@@ -807,8 +821,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/base-for-declaration.graph-block.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/base-for-declaration.graph-block.ts:55</a></div>
                 </td>
             </tr>
 
@@ -879,8 +893,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/base-for-declaration.graph-block.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/base-for-declaration.graph-block.ts:53</a></div>
                 </td>
             </tr>
 
@@ -925,7 +939,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BlockDeclarationGraphBlock.html#source" target="_self" >BlockDeclarationGraphBlock:30</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BlockDeclarationGraphBlock.html#source" target="_self" >BlockDeclarationGraphBlock:35</a></code>
 </div>
                 </td>
             </tr>
@@ -996,8 +1010,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/base-for-declaration.graph-block.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/base-for-declaration.graph-block.ts:28</a></div>
                 </td>
             </tr>
 
@@ -2710,6 +2724,33 @@
 
 
 
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="firstBlock"></a>
+                        <span class="name"><b>firstBlock</b><a href="#firstBlock"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>firstBlock()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/base-for-declaration.graph-block.ts:15</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
     </div>
 
 
@@ -2725,6 +2766,11 @@ export abstract class BaseForDeclarationGraphBlock extends BlockDeclarationGraph
 
   protected constructor(id: string, protected readonly body: GraphBlock[]) {
     super(id, body);
+  }
+
+
+  override get firstBlock(): GraphBlock {
+    return this;
   }
 
   public override render(_indent: number): string {

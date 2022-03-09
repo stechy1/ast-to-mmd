@@ -221,7 +221,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, variableName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, initializer: <a href="../classes/GraphBlock.html" target="_self">GraphBlock</a>)</code>
+<code>constructor(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, variableName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, initializer?: <a href="../classes/GraphBlock.html" target="_self">GraphBlock</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -275,7 +275,7 @@
                                                         </td>
                                                   
                                                     <td>
-                                                            No
+                                                            Yes
                                                     </td>
                                                     
                                                 </tr>
@@ -2267,7 +2267,7 @@
 import { Shape } from &#x27;./renderer&#x27;;
 
 export class VariableDeclarationGraphBlock extends GraphBlock {
-  constructor(id: string, private readonly variableName: string, private readonly initializer: GraphBlock) {
+  constructor(id: string, private readonly variableName: string, private readonly initializer?: GraphBlock) {
     super(id);
   }
 
@@ -2280,7 +2280,12 @@ export class VariableDeclarationGraphBlock extends GraphBlock {
   }
 
   public override toString(): string {
-    return &#x60;${this.variableName} &#x3D; ${this.initializer.toString()}&#x60;;
+    let result &#x3D; this.variableName;
+
+    if (this.initializer) {
+      result +&#x3D; &#x60; &#x3D; ${this.initializer.toString()}&#x60;;
+    }
+    return result;
   }
 }
 </code></pre>
