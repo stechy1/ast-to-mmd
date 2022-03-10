@@ -280,11 +280,14 @@ export class Exporter {
    * @param graphResults {@link GraphResult[]} Graph results for export.
    */
   public export(graphResults: GraphResult[]): void {
+    console.log(&#x60;Found: ${graphResults.length} graphs.&#x60;);
 
     for (const {graph, sourceFile} of graphResults) {
       const mmdPath &#x3D; path.resolve(sourceFile.getDirectoryPath(), sourceFile.getBaseNameWithoutExtension()) + &#x27;.mmd&#x27;;
+      console.log(&#x60;Writing content with graph into the file: ${mmdPath}.&#x60;);
       const fileContent &#x3D; graph.render(0);
       writeFileSync(mmdPath, fileContent, { encoding: &#x27;utf-8&#x27; });
+      console.log(&#x27;\tGraph rendered into the file.&#x27;);
     }
 
   }
