@@ -52,6 +52,9 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
+            <a href="#readme" role="tab" id="readme-tab" data-toggle="tab" data-link="readme">README</a>
+        </li>
+        <li >
             <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
@@ -991,7 +994,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BlockDeclarationGraphBlock.html#source" target="_self" >BlockDeclarationGraphBlock:99</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BlockDeclarationGraphBlock.html#source" target="_self" >BlockDeclarationGraphBlock:98</a></code>
 </div>
                 </td>
             </tr>
@@ -1064,8 +1067,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/try-catch-declaration.graph-block.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/try-catch-declaration.graph-block.ts:86</a></div>
                 </td>
             </tr>
 
@@ -3052,7 +3055,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/try-catch-declaration.graph-block.ts:130</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/try-catch-declaration.graph-block.ts:129</a></div>
                                 </td>
                             </tr>
 
@@ -3061,6 +3064,12 @@
 </section>
     </div>
 
+    <div class="tab-pane fade " id="c-readme">
+        <p><h1 id="try-catch-block">Try-catch block</h1>
+<h2 id="example-of-full-try-catch-block-with-finally-section">Example of full <em>try-catch</em> block with <em>finally</em> section</h2>
+<p><img src="../../../../../docu-graph-generated/try_catch_full.png" alt="Try catch block" class="img-responsive"></p>
+</p>
+    </div>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BlockDeclarationGraphBlock } from &#x27;./block-declaration.graph-block&#x27;;
@@ -3144,7 +3153,6 @@ ${this.tryBlock ? this._renderDependencies(indent, this.tryBlock) : &#x27;&#x27;
   protected renderCatchBody(indent: number): string {
     return &#x60;
 ${this.catchBlock ? this.renderChildren(indent, this.catchBlock) : &#x27;&#x27;}
-
 ${this.catchBlock ? this._renderDependencies(indent, this.catchBlock) : &#x27;&#x27;}
 &#x60;;
   }
@@ -3171,7 +3179,7 @@ ${this.finallyBlock ? this._renderDependencies(indent, this.finallyBlock) : &#x2
           if (filteredTryBlock.length !&#x3D;&#x3D; 0) {
             result +&#x3D; this._renderLinesL2R(
               _indent,
-              &#x60;${filteredFinalyBlock[0].firstBlock}&#x60;,
+              &#x60;${filteredFinalyBlock[0].firstBlock.id}&#x60;,
               filteredTryBlock[filteredTryBlock.length - 1].lastBlocks
             );
           }
@@ -3181,7 +3189,7 @@ ${this.finallyBlock ? this._renderDependencies(indent, this.finallyBlock) : &#x2
           if (filteredCatchBlock.length !&#x3D;&#x3D; 0) {
             result +&#x3D; this._renderLinesL2R(
               _indent,
-              &#x60;${filteredFinalyBlock[0].firstBlock}&#x60;,
+              &#x60;${filteredFinalyBlock[0].firstBlock.id}&#x60;,
               filteredCatchBlock[filteredCatchBlock.length - 1].lastBlocks
             );
           }

@@ -70,17 +70,183 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Class responsible for exporting generated graph to correct output</p>
+                <p>Class responsible for exporting generated graph to correct output.</p>
 
             </p>
 
 
 
 
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#export" >export</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
 
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(outputRootPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">packages/ast-to-mmd/src/app/exporter.ts:10</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Initialize new instance of <a href="../classes/Exporter.html">Exporter</a>.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>outputRootPath</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Path to root of output path.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="export"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>export</b></span>
+                        <a href="#export"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>export(graphResults: <a href="../interfaces/GraphResult.html" target="_self">GraphResult[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/exporter.ts:24</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Exports graph results to defined output path.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>graphResults</td>
+                                    <td>
+                                                <code><a href="../interfaces/GraphResult.html" target="_self" >GraphResult[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>[]<a href="../interfaces/GraphResult.html">GraphResult</a> Graph results for export.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
 
 
@@ -90,10 +256,38 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class Exporter {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { writeFileSync } from &#x27;fs&#x27;;
+import * as path from &#x27;path&#x27;;
+
+import { GraphResult } from &#x27;./graph-result&#x27;;
 
 
+/**
+ * Class responsible for exporting generated graph to correct output.
+ */
+export class Exporter {
 
+  /**
+   * Initialize new instance of {@link Exporter}.
+   *
+   * @param outputRootPath {string} Path to root of output path.
+   */
+  constructor(private readonly outputRootPath: string) {}
+
+  /**
+   * Exports graph results to defined output path.
+   *
+   * @param graphResults {@link GraphResult[]} Graph results for export.
+   */
+  public export(graphResults: GraphResult[]): void {
+
+    for (const {graph, sourceFile} of graphResults) {
+      const mmdPath &#x3D; path.resolve(sourceFile.getDirectoryPath(), sourceFile.getBaseNameWithoutExtension()) + &#x27;.mmd&#x27;;
+      const fileContent &#x3D; graph.render(0);
+      writeFileSync(mmdPath, fileContent, { encoding: &#x27;utf-8&#x27; });
+    }
+
+  }
 }
 </code></pre>
     </div>

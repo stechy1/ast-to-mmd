@@ -205,6 +205,9 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
+                                    <a href="#lastBlocks" >lastBlocks</a>
+                                </li>
+                                <li>
                                     <a href="#skipRenderRestDependencies" >skipRenderRestDependencies</a>
                                 </li>
                             </ul>
@@ -2222,6 +2225,28 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="lastBlocks"></a>
+                        <span class="name"><b>lastBlocks</b><a href="#lastBlocks"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>lastBlocks()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/base-exit-declaration.graph-block.ts:8</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="skipRenderRestDependencies"></a>
                         <span class="name"><b>skipRenderRestDependencies</b><a href="#skipRenderRestDependencies"><span class="icon ion-ios-link"></span></a></span>
                     </td>
@@ -2234,7 +2259,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/base-exit-declaration.graph-block.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/base-exit-declaration.graph-block.ts:12</a></div>
                                 </td>
                             </tr>
 
@@ -2252,6 +2277,9 @@ export abstract class BaseExitDeclarationGraphBlock extends GraphBlock {
     super(id);
   }
 
+  override get lastBlocks(): string[] {
+    return [];
+  }
 
   override get skipRenderRestDependencies(): boolean {
     return true;

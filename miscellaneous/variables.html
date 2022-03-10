@@ -60,13 +60,25 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
+                            <a href="#convertor" title="packages/ast-to-mmd/src/index.ts" ><b>convertor</b>&nbsp;&nbsp;&nbsp;(packages/.../index.ts)</a>
+                        </li>
+                        <li>
                             <a href="#cwd" title="packages/ast-to-mmd/src/index.ts" ><b>cwd</b>&nbsp;&nbsp;&nbsp;(packages/.../index.ts)</a>
                         </li>
                         <li>
                             <a href="#decoratorTypeMap" title="packages/ast-to-mmd/src/app/graph-parser/include-file.ts" ><b>decoratorTypeMap</b>&nbsp;&nbsp;&nbsp;(packages/.../include-file.ts)</a>
                         </li>
                         <li>
+                            <a href="#exporter" title="packages/ast-to-mmd/src/index.ts" ><b>exporter</b>&nbsp;&nbsp;&nbsp;(packages/.../index.ts)</a>
+                        </li>
+                        <li>
                             <a href="#fileTypeMap" title="packages/ast-to-mmd/src/app/graph-parser/include-file.ts" ><b>fileTypeMap</b>&nbsp;&nbsp;&nbsp;(packages/.../include-file.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#graphResults" title="packages/ast-to-mmd/src/index.ts" ><b>graphResults</b>&nbsp;&nbsp;&nbsp;(packages/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#idGenerator" title="packages/ast-to-mmd/src/index.ts" ><b>idGenerator</b>&nbsp;&nbsp;&nbsp;(packages/.../index.ts)</a>
                         </li>
                         <li>
                             <a href="#options" title="packages/ast-to-mmd/src/index.ts" ><b>options</b>&nbsp;&nbsp;&nbsp;(packages/.../index.ts)</a>
@@ -93,6 +105,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="convertor"></a>
+                    <span class="name">
+                        <span ><b>convertor</b></span>
+                        <a href="#convertor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Convertor(project.getSourceFiles(), idGenerator)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="cwd"></a>
                     <span class="name">
                         <span ><b>cwd</b></span>
@@ -103,6 +135,66 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>process.cwd()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="exporter"></a>
+                    <span class="name">
+                        <span ><b>exporter</b></span>
+                        <a href="#exporter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Exporter(options[&#x27;output&#x27;])</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphResults"></a>
+                    <span class="name">
+                        <span ><b>graphResults</b></span>
+                        <a href="#graphResults"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>convertor.convert()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="idGenerator"></a>
+                    <span class="name">
+                        <span ><b>idGenerator</b></span>
+                        <a href="#idGenerator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new UuidBlockIdGenerator()</code>
                     </td>
                 </tr>
 
