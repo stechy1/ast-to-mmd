@@ -1,0 +1,4 @@
+function fun() {
+  foo();
+  bar();
+}

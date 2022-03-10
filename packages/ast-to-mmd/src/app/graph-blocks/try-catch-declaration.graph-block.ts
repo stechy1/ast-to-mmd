@@ -79,7 +79,6 @@ ${this.tryBlock ? this._renderDependencies(indent, this.tryBlock) : ''}
   protected renderCatchBody(indent: number): string {
     return `
 ${this.catchBlock ? this.renderChildren(indent, this.catchBlock) : ''}
-
 ${this.catchBlock ? this._renderDependencies(indent, this.catchBlock) : ''}
 `;
   }
@@ -106,7 +105,7 @@ ${this.finallyBlock ? this._renderDependencies(indent, this.finallyBlock) : ''}
           if (filteredTryBlock.length !== 0) {
             result += this._renderLinesL2R(
               _indent,
-              `${filteredFinalyBlock[0].firstBlock}`,
+              `${filteredFinalyBlock[0].firstBlock.id}`,
               filteredTryBlock[filteredTryBlock.length - 1].lastBlocks
             );
           }
@@ -116,7 +115,7 @@ ${this.finallyBlock ? this._renderDependencies(indent, this.finallyBlock) : ''}
           if (filteredCatchBlock.length !== 0) {
             result += this._renderLinesL2R(
               _indent,
-              `${filteredFinalyBlock[0].firstBlock}`,
+              `${filteredFinalyBlock[0].firstBlock.id}`,
               filteredCatchBlock[filteredCatchBlock.length - 1].lastBlocks
             );
           }

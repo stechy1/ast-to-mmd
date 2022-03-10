@@ -6,6 +6,10 @@ export class NamedBlockDeclarationGraphBlock extends BlockDeclarationGraphBlock 
     super(id, childBlocks);
   }
 
+  override get includeInDependencyGraph(): boolean {
+    return this.childBlocks.length !== 0;
+  }
+
   override render(_indent: number): string {
     return this.renderInSubgraph(_indent, this.id, this.name, (bodyIndent: number) => this.renderOuterBody(bodyIndent))
   }

@@ -5,6 +5,9 @@ export abstract class BaseExitDeclarationGraphBlock extends GraphBlock {
     super(id);
   }
 
+  override get lastBlocks(): string[] {
+    return [];
+  }
 
   override get skipRenderRestDependencies(): boolean {
     return true;

@@ -6,7 +6,9 @@ import figlet = require('figlet');
 import { readFileSync } from 'fs';
 import * as path from 'path';
 import { Project, ProjectOptions } from 'ts-morph';
-// import { UuidBlockIdGenerator } from './app/block-id-generator';
+
+import { Convertor, Exporter } from './app';
+import { IncrementalBlockIdGenerator, UuidBlockIdGenerator } from "./app/block-id-generator";
 
 clear();
 console.log(figlet.textSync('AST-to-MMD CLI', { horizontalLayout: 'full' }));
@@ -17,10 +19,12 @@ const version = JSON.parse(
 
 program
   .version(version)
-  .description('CLI for generating flow graphs from code')
-  .option('-p, --path <path>', 'Define path where to find source files.')
+  .description('CLI for generating flow graphs from code.')
+  .option('-p, --path <path>', 'Define path where to find source file.')
+  .option('-d, --directory <path>', 'Define path to directory where to find source files.')
   .option('-ts, --tsConfig <tsConfig>', 'Defines path to ts-config.json.')
-  .option('-O, --output <output>', 'Defines output path.')
+  .option('-O, --output <output>', 'Defines output path. (currently not used)')
+  .option('-G, --idGenerator <type>', 'Defines type of ID generator', 'uuid')
   .parse(process.argv);
 
 const options = program.opts();
@@ -41,5 +45,16 @@ const project = new Project(tsMorphOptions);
 if (options['path']) {
   project.addSourceFileAtPath(path.resolve(cwd, options['path']));
 }
+if (options['directory']) {
+  project.addSourceFilesAtPaths(path.resolve(cwd, options['directory']));
+}
+let idGenerator = new UuidBlockIdGenerator();
+if (options['idGenerator'] === 'incremental') {
+  idGenerator = new IncrementalBlockIdGenerator();
+}
 
-// astToMmd(project.getSourceFiles(), new UuidBlockIdGenerator(), path.resolve(cwd, options['output']));
+const convertor = new Convertor(project.getSourceFiles(), idGenerator);
+const graphResults = convertor.convert();
+
+const exporter = new Exporter(options['output']);
+exporter.export(graphResults);
