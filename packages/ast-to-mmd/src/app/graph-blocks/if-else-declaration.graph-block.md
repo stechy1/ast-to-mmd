@@ -6,7 +6,7 @@
 ## Example of rendered nested _conditions_ with functions before and after
 ![Conditions](../docu-graph-generated/condition_nested.png)
 
-## Example of rendered _condition_ withhout _else_
+## Example of rendered _condition_ without _else_
 ![Conditions](../docu-graph-generated/condition_without_else.png)
 
 ## Example of rendered _condition_ with _throw_ when positive without continue
