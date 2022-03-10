@@ -13,8 +13,8 @@
     "format:check": "nx format:check",
     "generate-docu-graphs": "node dist/packages/ast-to-mmd/src/index.js -d docu-graph-sources/* -O ./docu-graph-dist/ -G incremental",
     "render-docu-graphs": "node tools/render-docu-graphs.mjs",
-    "doc": "npx @compodoc/compodoc -p packages/ast-to-mmd/tsconfig.doc.json -n \"Ast-to-mmd documentation\" --includes additional-documentation",
-    "doc-watch": "npx @compodoc/compodoc -p packages/ast-to-mmd/tsconfig.doc.json -n \"Ast-to-mmd documentation\" --includes additional-documentation -s -w"
+    "doc": "npx @compodoc/compodoc -p packages/ast-to-mmd/tsconfig.doc.json -n \"Ast-to-mmd documentation\" --includes additional-documentation -a docu-graph-generated",
+    "doc-watch": "npx @compodoc/compodoc -p packages/ast-to-mmd/tsconfig.doc.json -n \"Ast-to-mmd documentation\" --includes additional-documentation -a docu-graph-generated -s -w"
   },
   "private": true,
   "keywords": [
