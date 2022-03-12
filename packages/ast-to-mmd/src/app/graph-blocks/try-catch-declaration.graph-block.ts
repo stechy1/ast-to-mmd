@@ -1,5 +1,6 @@
 import { BlockDeclarationGraphBlock } from './block-declaration.graph-block';
 import { GraphBlock } from './graph-block';
+import { BlockKind } from '../block.kind';
 
 export class TryCatchDeclarationGraphBlock extends BlockDeclarationGraphBlock {
   private static TRY_CATCH_COUNTER = 0;
@@ -29,6 +30,10 @@ export class TryCatchDeclarationGraphBlock extends BlockDeclarationGraphBlock {
     return this.renderInSubgraph(_indent, this.id, `TRY-CATCH_${this.tryCatchId}`, (bodyIndent: number) =>
       this.renderOuterBody(bodyIndent)
     );
+  }
+
+  public override get blockKind(): BlockKind {
+    return BlockKind.TRY_CATCH_DECLARATION;
   }
 
   override get children(): GraphBlock[][] {
@@ -98,10 +103,10 @@ ${this.finallyBlock ? this._renderDependencies(indent, this.finallyBlock) : ''}
   protected override renderDependencies(_indent: number): string {
     let result = '';
     if (this.finallyBlock) {
-      const filteredFinalyBlock = this.filterChildren(this.finallyBlock);
+      const filteredFinalyBlock = this._filterChildren(this.finallyBlock);
       if (filteredFinalyBlock) {
         if (this.tryBlock) {
-          const filteredTryBlock = this.filterChildren(this.tryBlock);
+          const filteredTryBlock = this._filterChildren(this.tryBlock);
           if (filteredTryBlock.length !== 0) {
             result += this._renderLinesL2R(
               _indent,
@@ -111,7 +116,7 @@ ${this.finallyBlock ? this._renderDependencies(indent, this.finallyBlock) : ''}
           }
         }
         if (this.catchBlock) {
-          const filteredCatchBlock = this.filterChildren(this.catchBlock);
+          const filteredCatchBlock = this._filterChildren(this.catchBlock);
           if (filteredCatchBlock.length !== 0) {
             result += this._renderLinesL2R(
               _indent,

@@ -1,3 +1,4 @@
+import { BlockKind } from '../block.kind';
 import { GraphBlock } from './graph-block';
 import { LINE_HEAD, LineRenderer } from './renderer';
 
@@ -12,6 +13,10 @@ export class BlockDeclarationGraphBlock extends GraphBlock {
 ${this.renderChildren(_indent, this.childBlocks)}
 ${this.renderDependencies(_indent)}
 `;
+  }
+
+  public override get blockKind(): BlockKind {
+    return BlockKind.BLOCK_DECLARATION;
   }
 
   public override get firstBlock(): GraphBlock {
@@ -47,7 +52,7 @@ ${this.renderDependencies(_indent)}
   }
 
   protected get blocksWithDependencies(): GraphBlock[] {
-    return this.filterChildren(this.childBlocks);
+    return this._filterChildren(this.childBlocks);
   }
 
   protected renderDependencies(_indent: number): string {
@@ -55,7 +60,8 @@ ${this.renderDependencies(_indent)}
   }
 
   protected renderChildren(indent: number, children: GraphBlock[]): string {
-    return this.filterChildren(children)
+    return this._filterChildren(children)
+      .filter((child: GraphBlock) => !child.isDependencyBridge)
       .map((child: GraphBlock) => `${child.render(indent + 1)}\n${child.renderLazyDependencies(indent + 1)}`)
       .join('\n');
   }

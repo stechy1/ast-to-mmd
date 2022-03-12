@@ -1,9 +1,14 @@
+import { BlockKind } from '../block.kind';
 import { BlockDeclarationGraphBlock } from './block-declaration.graph-block';
 import { GraphBlock } from './graph-block';
 
 export class NamedBlockDeclarationGraphBlock extends BlockDeclarationGraphBlock {
   constructor(id: string, childBlocks: GraphBlock[], private readonly name: string) {
     super(id, childBlocks);
+  }
+
+  public override get blockKind(): BlockKind {
+    return BlockKind.NAMED_BLOCK_DECLARATION;
   }
 
   override get includeInDependencyGraph(): boolean {

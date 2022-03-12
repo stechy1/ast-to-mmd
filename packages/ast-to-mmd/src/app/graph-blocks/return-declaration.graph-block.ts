@@ -1,5 +1,5 @@
+import { BlockKind } from '../block.kind';
 import { BaseExitDeclarationGraphBlock } from './base-exit-declaration.graph-block';
-import { GraphBlock } from './graph-block';
 import { Shape } from './renderer';
 
 export class ReturnDeclarationGraphBlock extends BaseExitDeclarationGraphBlock {
@@ -11,7 +11,8 @@ export class ReturnDeclarationGraphBlock extends BaseExitDeclarationGraphBlock {
     return `${this._generateSpace(_indent)}${this.id}${this._renderShape('return', Shape.CIRCLE)}`;
   }
 
-  public override set parent(value: GraphBlock | undefined) {
-    super.parent = value;
+  public override get blockKind(): BlockKind {
+    return BlockKind.RETURN_DECLARATION;
   }
+
 }

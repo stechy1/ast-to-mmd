@@ -2,10 +2,10 @@ import { BlockDeclarationGraphBlock } from './block-declaration.graph-block';
 import { GraphBlock } from './graph-block';
 import { LINE_HEAD, LINE_STYLE, LineRenderer, Shape } from './renderer';
 
-export abstract class BaseForDeclarationGraphBlock extends BlockDeclarationGraphBlock {
+export abstract class BaseCycleDeclarationGraphBlock extends BlockDeclarationGraphBlock {
   private static CYCLE_COUNTER = 0;
 
-  private cycleID = BaseForDeclarationGraphBlock.CYCLE_COUNTER++;
+  private cycleID = BaseCycleDeclarationGraphBlock.CYCLE_COUNTER++;
 
   protected constructor(id: string, protected readonly body: GraphBlock[]) {
     super(id, body);
@@ -54,10 +54,6 @@ ${super.renderDependencies(_indent)}
 
   protected renderBody(indent: number): string {
     return super.renderDependencies(indent);
-  }
-
-  protected override createLineBuilder(lhsId: string, rhsId: string): LineRenderer {
-    return super.createLineBuilder(lhsId, rhsId).setRhsHead(LINE_HEAD.ARROW);
   }
 
   protected createLoopLine(builder: LineRenderer): LineRenderer {

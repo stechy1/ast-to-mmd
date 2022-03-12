@@ -1,3 +1,4 @@
+import { BlockKind } from '../block.kind';
 import { GraphBlock } from './graph-block';
 
 export class BinaryExpressionDeclarationGraphBlock extends GraphBlock {
@@ -12,6 +13,10 @@ export class BinaryExpressionDeclarationGraphBlock extends GraphBlock {
 
   public override render(_indent: number): string {
     return '';
+  }
+
+  public override get blockKind(): BlockKind {
+    return BlockKind.BINARY_EXPRESSION_DECLARATION;
   }
 
   public override get includeInDependencyGraph(): boolean {

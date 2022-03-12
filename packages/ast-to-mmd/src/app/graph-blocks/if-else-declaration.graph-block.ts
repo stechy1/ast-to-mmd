@@ -1,6 +1,7 @@
+import { BlockKind } from '../block.kind';
 import { BlockDeclarationGraphBlock } from './block-declaration.graph-block';
 import { GraphBlock } from './graph-block';
-import { LINE_HEAD, LineRenderer, Shape } from './renderer';
+import { LINE_HEAD, LineRenderer, LineRendererModifier, Shape } from './renderer';
 
 export class IfElseDeclarationGraphBlock extends BlockDeclarationGraphBlock {
   private static CONDITION_COUNTER = 0;
@@ -26,6 +27,9 @@ export class IfElseDeclarationGraphBlock extends BlockDeclarationGraphBlock {
     );
   }
 
+  public override get blockKind(): BlockKind {
+    return BlockKind.IF_ELSE_DECLARATION;
+  }
 
   override get firstBlock(): GraphBlock {
     return this;
@@ -33,7 +37,7 @@ export class IfElseDeclarationGraphBlock extends BlockDeclarationGraphBlock {
 
   public override get lastBlocks(): string[] {
     const thanBlockId = super.lastBlocks;
-    const visibleElseBlocks = this.elseBlock ? this.filterChildren(this.elseBlock) : [];
+    const visibleElseBlocks = this.elseBlock ? this._filterChildren(this.elseBlock) : [];
     let elseBlockId: string[];
     if (visibleElseBlocks.length === 0) {
       elseBlockId = [];
@@ -48,8 +52,8 @@ export class IfElseDeclarationGraphBlock extends BlockDeclarationGraphBlock {
   }
 
   public override get children(): GraphBlock[][] {
-    const filteredThanBlock = this.filterChildren(this.thanBlock);
-    const filteredElseBlock = this.elseBlock ? this.filterChildren(this.elseBlock) : [];
+    const filteredThanBlock = this._filterChildren(this.thanBlock);
+    const filteredElseBlock = this.elseBlock ? this._filterChildren(this.elseBlock) : [];
     const result: GraphBlock[][] = [];
 
     /**
@@ -90,49 +94,34 @@ ${this._generateSpace(indent + 1)}${this.id}${this._renderShape(this.condition, 
 ${this.renderChildren(indent, this.thanBlock)}
 ${this.renderChildren(indent, this.elseBlock || [])}
 ${this.renderDependencies(indent)}
+${this._renderDependencies(indent, this.elseBlock || [])}
 ${this.renderDirectDependencies(indent + 1)}
 `;
   }
 
   protected renderDirectDependencies(indent: number): string {
     let dependencies = '';
-    const filteredThanBlock = this.filterChildren(this.thanBlock);
+    const filteredThanBlock = this._filterChildren(this.thanBlock);
     if (filteredThanBlock.length !== 0) {
-      dependencies += this._renderLine(
-        indent,
-        this.id,
-        filteredThanBlock[0].firstBlock.id,
-        this.positiveBuilderModifier
-      );
+      const firstChild: GraphBlock = filteredThanBlock[0];
+      dependencies += this.__renderDirectDependencies(indent, firstChild, this.positiveBuilderModifier);
+
       dependencies += '\n';
     }
     if (this.elseBlock) {
-      const filteredElseBlock = this.filterChildren(this.elseBlock);
+      const filteredElseBlock = this._filterChildren(this.elseBlock);
       if (filteredElseBlock.length !== 0) {
-        dependencies += this._renderLine(
-          indent,
-          this.id,
-          filteredElseBlock[0].firstBlock.id,
-          this.negativeBuilderModifier
-        );
+        const firstChild: GraphBlock = filteredElseBlock[0];
+        dependencies += this.__renderDirectDependencies(indent, firstChild, this.negativeBuilderModifier);
       } else {
-        dependencies += this._renderLine(
-          indent,
-          this.id,
-          this.thanBlock[this.thanBlock.length - 1].firstBlock.id,
-          this.negativeBuilderModifier
-        );
+        const lastChild: GraphBlock = filteredElseBlock[filteredElseBlock.length - 1];
+        dependencies += this.__renderDirectDependencies(indent, lastChild, this.negativeBuilderModifier);
       }
     } else {
       if (this.parent) {
-        const siblingChild: GraphBlock | undefined = this.findSiblingChild(this);
+        const siblingChild: GraphBlock | undefined = this._findSiblingChild(this);
         if (siblingChild) {
-          siblingChild.lazyDependency = this._renderLine(
-            0,
-            this.id,
-            siblingChild.id,
-            this.negativeBuilderModifier
-          );
+          siblingChild.lazyDependency = this._renderLine(0, this.id, siblingChild.id, this.negativeBuilderModifier);
         }
       }
     }
@@ -148,7 +137,16 @@ ${this.renderDirectDependencies(indent + 1)}
     return builder.setConnectionDescription('No');
   }
 
-  protected override createLineBuilder(lhsId: string, rhsId: string): LineRenderer {
-    return super.createLineBuilder(lhsId, rhsId).setRhsHead(LINE_HEAD.ARROW);
+  private __renderDirectDependencies(indent: number, children: GraphBlock, builderModifier: LineRendererModifier): string {
+    let dependencies = '';
+    if (!children.isDependencyBridge) {
+      dependencies += this._renderLine(indent, this.id, children.firstBlock.id, builderModifier);
+    }
+    if (children.skipRenderRestDependencies) {
+      dependencies += this._renderConnectionWithParent(indent, children, [this.id], builderModifier);
+    }
+
+    return dependencies;
   }
+
 }

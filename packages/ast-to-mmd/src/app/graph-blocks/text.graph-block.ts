@@ -1,3 +1,4 @@
+import { BlockKind } from '../block.kind';
 import { GraphBlock } from './graph-block';
 
 export class TextGraphBlock extends GraphBlock {
@@ -7,6 +8,10 @@ export class TextGraphBlock extends GraphBlock {
 
   render(_indent: number): string {
     return this.graphBlock.toString();
+  }
+
+  public override get blockKind(): BlockKind {
+    return BlockKind.TEXT_DECLARATION;
   }
 
   override get firstBlock(): GraphBlock {

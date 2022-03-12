@@ -2,10 +2,12 @@ import {
   BigIntLiteral,
   BinaryExpression,
   Block,
+  BreakStatement,
   CallExpression,
   CatchClause,
   ClassDeclaration,
   ClassMemberTypes,
+  ContinueStatement,
   Expression,
   ExpressionStatement,
   ForInStatement,
@@ -35,6 +37,8 @@ import { BlockIdGenerator } from '../block-id-generator';
 import {
   BinaryExpressionDeclarationGraphBlock,
   BlockDeclarationGraphBlock,
+  BreakDeclarationGraphBlock,
+  ContinueDeclarationGraphBlock,
   EmptyGraphBlock,
   ForDeclarationGraphBlock,
   ForInDeclarationGraphBlock,
@@ -129,6 +133,10 @@ export class CodeParser {
         return this.processForInStatement(node as ForInStatement);
       case SyntaxKind.ForOfStatement:                                     // 243
         return this.processForOfStatement(node as ForOfStatement);
+      case SyntaxKind.ContinueStatement:                                  // 244
+        return this.processContinueStatement(node as ContinueStatement);
+      case SyntaxKind.BreakStatement:                                     // 245
+        return this.processBreakStatement(node as BreakStatement);
       case SyntaxKind.ReturnStatement:                                    // 246
         return this.processReturnStatement(node as ReturnStatement);
       case SyntaxKind.ThrowStatement:                                     // 250
@@ -436,6 +444,28 @@ export class CodeParser {
     }
 
     return new ForOfDeclarationGraphBlock(this.idGenerator.generate(), this.unwrapBlockDeclaration(bodyBlock), initBlock, expressionBlock);
+  }
+
+  /**
+   * Process ContinueStatement
+   *
+   * kind = 244
+   *
+   * @param statement {@link ContinueStatement}
+   */
+  protected processContinueStatement(statement: ContinueStatement): GraphBlock {
+    return new ContinueDeclarationGraphBlock(this.idGenerator.generate());
+  }
+
+  /**
+   * Process BreakStatement
+   *
+   * kind = 245
+   *
+   * @param statement {@link BreakStatement}
+   */
+  protected processBreakStatement(statement: BreakStatement): GraphBlock {
+    return new BreakDeclarationGraphBlock(this.idGenerator.generate());
   }
 
   /**

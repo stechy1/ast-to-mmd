@@ -1,3 +1,4 @@
+import { BlockKind } from '../block.kind';
 import { GraphBlock } from './graph-block';
 import { Shape } from './renderer';
 
@@ -8,6 +9,10 @@ export class VariableDeclarationGraphBlock extends GraphBlock {
 
   public override render(_indent: number): string {
     return `${this.id}${this._renderShape(this.toString(), Shape.PARALLEOGRAM_ALT)}`;
+  }
+
+  public override get blockKind(): BlockKind {
+    return BlockKind.VARIABLE_DECLARATION;
   }
 
   public override get includeInDependencyGraph(): boolean {

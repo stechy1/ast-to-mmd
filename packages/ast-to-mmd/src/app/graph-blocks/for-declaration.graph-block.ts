@@ -1,7 +1,8 @@
-import { BaseForDeclarationGraphBlock } from './base-for-declaration.graph-block';
+import { BlockKind } from '../block.kind';
+import { BaseCycleDeclarationGraphBlock } from './base-cycle-declaration-graph.block';
 import { GraphBlock } from './graph-block';
 
-export class ForDeclarationGraphBlock extends BaseForDeclarationGraphBlock {
+export class ForDeclarationGraphBlock extends BaseCycleDeclarationGraphBlock {
   constructor(
     id: string,
     body: GraphBlock[],
@@ -10,6 +11,10 @@ export class ForDeclarationGraphBlock extends BaseForDeclarationGraphBlock {
     private readonly updateBlock: GraphBlock
   ) {
     super(id, body);
+  }
+
+  public override get blockKind(): BlockKind {
+    return BlockKind.FOR_DECLARATION;
   }
 
   protected renderCondition(): string {

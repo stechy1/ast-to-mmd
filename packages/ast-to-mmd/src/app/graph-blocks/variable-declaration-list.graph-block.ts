@@ -1,3 +1,4 @@
+import { BlockKind } from '../block.kind';
 import { GraphBlock } from './graph-block';
 import { VariableDeclarationGraphBlock } from './variable-declaration.graph-block';
 
@@ -8,6 +9,10 @@ export class VariableDeclarationListGraphBlock extends GraphBlock {
 
   public override render(_indent: number): string {
     return '';
+  }
+
+  public override get blockKind(): BlockKind {
+    return BlockKind.VARIABLE_LIST_DECLARATION;
   }
 
   public override get includeInDependencyGraph(): boolean {

@@ -1,3 +1,4 @@
+import { BlockKind } from '../block.kind';
 import { BlockDeclarationGraphBlock } from './block-declaration.graph-block';
 import { GraphBlock } from './graph-block';
 
@@ -11,5 +12,9 @@ export class GraphParentGraphBlock extends BlockDeclarationGraphBlock {
 flowchart TD
 ${this._generateSpace(_indent)}${super.render(_indent)}
 `;
+  }
+
+  public override get blockKind(): BlockKind {
+    return BlockKind.PARENT_DECLARATION;
   }
 }

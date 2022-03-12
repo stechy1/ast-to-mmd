@@ -1,7 +1,7 @@
-import { BaseForDeclarationGraphBlock } from './base-for-declaration.graph-block';
+import { BaseCycleDeclarationGraphBlock } from './base-cycle-declaration-graph.block';
 import { GraphBlock } from './graph-block';
 
-export abstract class ForXDeclarationGraphBlock extends BaseForDeclarationGraphBlock {
+export abstract class ForXDeclarationGraphBlock extends BaseCycleDeclarationGraphBlock {
   protected constructor(
     id: string,
     body: GraphBlock[],

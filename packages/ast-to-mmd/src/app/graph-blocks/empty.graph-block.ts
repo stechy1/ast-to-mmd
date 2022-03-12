@@ -1,3 +1,4 @@
+import { BlockKind } from '../block.kind';
 import { GraphBlock } from './graph-block';
 
 export class EmptyGraphBlock extends GraphBlock {
@@ -7,6 +8,10 @@ export class EmptyGraphBlock extends GraphBlock {
 
   render(_indent: number): string {
     return '';
+  }
+
+  public override get blockKind(): BlockKind {
+    return BlockKind.EMPTY_DECLARATION;
   }
 
   public override get includeInDependencyGraph(): boolean {

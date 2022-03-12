@@ -75,10 +75,16 @@ export class LineRenderer {
   /**
    * Set connection description on the line.
    *
-   * @param value {string} Connection description
+   * @param value {string} Connection description.
+   * @param append {boolean} True, when description should be appended to existing one, False otherwise.
    */
-  setConnectionDescription(value: string): LineRenderer {
-    this._connectionDescription = value;
+  setConnectionDescription(value: string, append = false): LineRenderer {
+    if (!this._connectionDescription) {
+      this._connectionDescription = value;
+      return this;
+    }
+
+    this._connectionDescription = append ? `${this._connectionDescription}</br></br>${value}` : value;
     return this;
   }
 
@@ -204,3 +210,8 @@ export class LineRenderer {
     return this._lineStyle === LINE_STYLE.DOTTED;
   }
 }
+
+/**
+ * Modifier of existing {@link LineRenderer}
+ */
+export type LineRendererModifier = (builder: LineRenderer) => LineRenderer;
