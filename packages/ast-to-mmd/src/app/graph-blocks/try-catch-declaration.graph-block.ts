@@ -1,6 +1,6 @@
+import { BlockKind } from '../block.kind';
 import { BlockDeclarationGraphBlock } from './block-declaration.graph-block';
 import { GraphBlock } from './graph-block';
-import { BlockKind } from '../block.kind';
 
 export class TryCatchDeclarationGraphBlock extends BlockDeclarationGraphBlock {
   private static TRY_CATCH_COUNTER = 0;
