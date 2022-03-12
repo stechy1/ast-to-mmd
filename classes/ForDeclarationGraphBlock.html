@@ -74,7 +74,7 @@
                 <h3>Extends</h3>
             </p>
             <p class="comment">
-                        <code><a href="../classes/BaseForDeclarationGraphBlock.html" target="_self" >BaseForDeclarationGraphBlock</a></code>
+                        <code><a href="../classes/BaseCycleDeclarationGraphBlock.html" target="_self" >BaseCycleDeclarationGraphBlock</a></code>
             </p>
 
 
@@ -109,9 +109,29 @@
                                 <a href="#_parent" >_parent</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_parentSiblingCondition" >_parentSiblingCondition</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_siblingCondition" >_siblingCondition</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#EMPTY_LINE_RENDERER_MODIFIER" >EMPTY_LINE_RENDERER_MODIFIER</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#id" >id</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#POSITIVE_SIBLING_CONDITION" >POSITIVE_SIBLING_CONDITION</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -137,11 +157,6 @@
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                    <span class="modifier"></span>
-                                <a href="#createLineBuilder" >createLineBuilder</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
                                 <a href="#createLoopLine" >createLoopLine</a>
                             </li>
                             <li>
@@ -164,6 +179,11 @@
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
+                                    <span class="modifier"></span>
+                                <a href="#createLineBuilder" >createLineBuilder</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
                                 <a href="#renderChildren" >renderChildren</a>
                             </li>
                             <li>
@@ -180,11 +200,27 @@
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
+                                <a href="#_filterChildren" >_filterChildren</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#_findParentBySiblingCondition" >_findParentBySiblingCondition</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#_findSiblingChild" >_findSiblingChild</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
                                 <a href="#_generateSpace" >_generateSpace</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
                                 <a href="#_multiFilterChildren" >_multiFilterChildren</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#_renderConnectionWithParent" >_renderConnectionWithParent</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
@@ -208,14 +244,6 @@
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#filterChildren" >filterChildren</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#findSiblingChild" >findSiblingChild</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
                                 <a href="#renderInSubgraph" >renderInSubgraph</a>
                             </li>
                             <li>
@@ -234,6 +262,20 @@
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#blockKind" >blockKind</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
@@ -249,7 +291,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/for-declaration.graph-block.ts:4</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/for-declaration.graph-block.ts:5</a></div>
                             </td>
                         </tr>
 
@@ -366,13 +408,13 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/BaseForDeclarationGraphBlock.html" target="_self" >BaseForDeclarationGraphBlock</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../classes/BaseCycleDeclarationGraphBlock.html" target="_self" >BaseCycleDeclarationGraphBlock</a></code>
 </div>
                             </td>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/BaseForDeclarationGraphBlock.html#source" target="_self" >BaseForDeclarationGraphBlock:6</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseCycleDeclarationGraphBlock.html#source" target="_self" >BaseCycleDeclarationGraphBlock:6</a></code>
 </div>
                         </td>
                     </tr>
@@ -394,18 +436,18 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>BaseForDeclarationGraphBlock.CYCLE_COUNTER++</code>
+                        <i>Default value : </i><code>BaseCycleDeclarationGraphBlock.CYCLE_COUNTER++</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/BaseForDeclarationGraphBlock.html" target="_self" >BaseForDeclarationGraphBlock</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../classes/BaseCycleDeclarationGraphBlock.html" target="_self" >BaseCycleDeclarationGraphBlock</a></code>
 </div>
                             </td>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/BaseForDeclarationGraphBlock.html#source" target="_self" >BaseForDeclarationGraphBlock:8</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseCycleDeclarationGraphBlock.html#source" target="_self" >BaseCycleDeclarationGraphBlock:8</a></code>
 </div>
                         </td>
                     </tr>
@@ -444,7 +486,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:20</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:30</a></code>
 </div>
                         </td>
                     </tr>
@@ -489,7 +531,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:15</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:25</a></code>
 </div>
                         </td>
                     </tr>
@@ -497,6 +539,133 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Parent of current node in graph. Can be undefined.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_parentSiblingCondition"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_parentSiblingCondition</b></span>
+                        <a href="#_parentSiblingCondition"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/SiblingCondition.html" target="_self" >SiblingCondition</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:39</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p><a href="../interfaces/SiblingCondition.html">SiblingCondition</a> for finding correct parent.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_siblingCondition"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_siblingCondition</b></span>
+                        <a href="#_siblingCondition"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/SiblingCondition.html" target="_self" >SiblingCondition</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:35</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p><a href="../interfaces/SiblingCondition.html">SiblingCondition</a>.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EMPTY_LINE_RENDERER_MODIFIER"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>EMPTY_LINE_RENDERER_MODIFIER</b></span>
+                        <a href="#EMPTY_LINE_RENDERER_MODIFIER"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/LineRenderer.html" target="_self" >LineRendererModifier</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:20</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Empty implementation of <a href="../miscellaneous/typealiases.html#LineRendererModifier">LineRendererModifier</a>.</p>
 </div>
                 </td>
             </tr>
@@ -530,7 +699,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:27</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:46</a></code>
 </div>
                         </td>
                     </tr>
@@ -538,6 +707,53 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-description">Unique ID in the node graph.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="POSITIVE_SIBLING_CONDITION"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>POSITIVE_SIBLING_CONDITION</b></span>
+                        <a href="#POSITIVE_SIBLING_CONDITION"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/SiblingCondition.html" target="_self" >SiblingCondition</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new PositiveSiblingCondition()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:16</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Positive sibling condition default for all <a href="../classes/GraphBlock.html">GraphBlock</a>.</p>
+</div>
                 </td>
             </tr>
 
@@ -576,7 +792,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:10</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:12</a></code>
 </div>
                         </td>
                     </tr>
@@ -619,13 +835,13 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/BaseForDeclarationGraphBlock.html" target="_self" >BaseForDeclarationGraphBlock</a></code>
+                    <div class="io-line">Inherited from         <code><a href="../classes/BaseCycleDeclarationGraphBlock.html" target="_self" >BaseCycleDeclarationGraphBlock</a></code>
 </div>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseForDeclarationGraphBlock.html#source" target="_self" >BaseForDeclarationGraphBlock:15</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseCycleDeclarationGraphBlock.html#source" target="_self" >BaseCycleDeclarationGraphBlock:20</a></code>
 </div>
                 </td>
             </tr>
@@ -646,96 +862,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="createLineBuilder"></a>
-                    <span class="name">
-                        <span class="modifier">Protected</span>
-                        <span class="modifier"></span>
-                        <span ><b>createLineBuilder</b></span>
-                        <a href="#createLineBuilder"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createLineBuilder(lhsId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, rhsId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:59</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>lhsId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>rhsId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classess/LineRenderer.html" target="_self" >LineRenderer</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="createLoopLine"></a>
                     <span class="name">
                         <span class="modifier">Protected</span>
@@ -747,20 +873,20 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createLoopLine(builder: <a href="../classess/LineRenderer.html" target="_self">LineRenderer</a>)</code>
+                    <code>createLoopLine(builder: <a href="../classes/LineRenderer.html" target="_self">LineRenderer</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/BaseForDeclarationGraphBlock.html" target="_self" >BaseForDeclarationGraphBlock</a></code>
+                    <div class="io-line">Inherited from         <code><a href="../classes/BaseCycleDeclarationGraphBlock.html" target="_self" >BaseCycleDeclarationGraphBlock</a></code>
 </div>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseForDeclarationGraphBlock.html#source" target="_self" >BaseForDeclarationGraphBlock:63</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseCycleDeclarationGraphBlock.html#source" target="_self" >BaseCycleDeclarationGraphBlock:59</a></code>
 </div>
                 </td>
             </tr>
@@ -784,7 +910,7 @@
                                 <tr>
                                     <td>builder</td>
                                     <td>
-                                                <code><a href="../classess/LineRenderer.html" target="_self" >LineRenderer</a></code>
+                                                <code><a href="../classes/LineRenderer.html" target="_self" >LineRenderer</a></code>
                                     </td>
 
                                     <td>
@@ -799,7 +925,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classess/LineRenderer.html" target="_self" >LineRenderer</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/LineRenderer.html" target="_self" >LineRenderer</a></code>
 
                     </div>
                     <div class="io-description">
@@ -909,13 +1035,13 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/BaseForDeclarationGraphBlock.html" target="_self" >BaseForDeclarationGraphBlock</a></code>
+                    <div class="io-line">Inherited from         <code><a href="../classes/BaseCycleDeclarationGraphBlock.html" target="_self" >BaseCycleDeclarationGraphBlock</a></code>
 </div>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseForDeclarationGraphBlock.html#source" target="_self" >BaseForDeclarationGraphBlock:55</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseCycleDeclarationGraphBlock.html#source" target="_self" >BaseCycleDeclarationGraphBlock:55</a></code>
 </div>
                 </td>
             </tr>
@@ -1064,13 +1190,13 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/BaseForDeclarationGraphBlock.html" target="_self" >BaseForDeclarationGraphBlock</a></code>
+                    <div class="io-line">Inherited from         <code><a href="../classes/BaseCycleDeclarationGraphBlock.html" target="_self" >BaseCycleDeclarationGraphBlock</a></code>
 </div>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseForDeclarationGraphBlock.html#source" target="_self" >BaseForDeclarationGraphBlock:28</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseCycleDeclarationGraphBlock.html#source" target="_self" >BaseCycleDeclarationGraphBlock:28</a></code>
 </div>
                 </td>
             </tr>
@@ -1123,6 +1249,96 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="createLineBuilder"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span class="modifier"></span>
+                        <span ><b>createLineBuilder</b></span>
+                        <a href="#createLineBuilder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createLineBuilder(lhsId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, rhsId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:69</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>lhsId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>rhsId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/LineRenderer.html" target="_self" >LineRenderer</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="renderChildren"></a>
                     <span class="name">
                         <span class="modifier">Protected</span>
@@ -1147,7 +1363,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BlockDeclarationGraphBlock.html#source" target="_self" >BlockDeclarationGraphBlock:57</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BlockDeclarationGraphBlock.html#source" target="_self" >BlockDeclarationGraphBlock:62</a></code>
 </div>
                 </td>
             </tr>
@@ -1236,7 +1452,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:381</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:568</a></code>
 </div>
                 </td>
             </tr>
@@ -1324,7 +1540,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>__renderLines(indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, ids: string[], direction: "left" | "right", builderModifier?: (builder?: <a href="../classess/LineRenderer.html">LineRenderer</a>) => void)</code>
+                    <code>__renderLines(indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, ids: string[], direction: "left" | "right", builderModifier: <a href="../classes/LineRenderer.html" target="_self">LineRendererModifier[]</a>)</code>
                 </td>
             </tr>
 
@@ -1337,7 +1553,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:352</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:539</a></code>
 </div>
                 </td>
             </tr>
@@ -1428,11 +1644,11 @@
                                 <tr>
                                     <td>builderModifier</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+                                                <code><a href="../classes/LineRenderer.html" target="_self" >LineRendererModifier[]</a></code>
                                     </td>
 
                                     <td>
-                                        Yes
+                                        No
                                     </td>
 
 
@@ -1486,7 +1702,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:176</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:289</a></code>
 </div>
                 </td>
             </tr>
@@ -1546,6 +1762,313 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="_filterChildren"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>_filterChildren</b></span>
+                        <a href="#_filterChildren"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_filterChildren(children: <a href="../classes/GraphBlock.html" target="_self">GraphBlock[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:466</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Helper method for filtering array of children.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>children</td>
+                                    <td>
+                                                <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>[]<a href="../classes/GraphBlock.html">GraphBlock</a> Array of children.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_findParentBySiblingCondition"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>_findParentBySiblingCondition</b></span>
+                        <a href="#_findParentBySiblingCondition"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_findParentBySiblingCondition(child: <a href="../classes/GraphBlock.html" target="_self">GraphBlock</a>, siblingCondition: <a href="../interfaces/SiblingCondition.html" target="_self">SiblingCondition</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:514</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Helper method for finding an indirect parent of defined child by <a href="../interfaces/SiblingCondition.html">SiblingCondition</a>.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>child</td>
+                                    <td>
+                                                <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="../classes/GraphBlock.html">GraphBlock</a> Child whose parent is wanted.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>siblingCondition</td>
+                                    <td>
+                                                <code><a href="../interfaces/SiblingCondition.html" target="_self" >SiblingCondition</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="../interfaces/SiblingCondition.html">SiblingCondition</a>.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock | undefined</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_findSiblingChild"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>_findSiblingChild</b></span>
+                        <a href="#_findSiblingChild"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_findSiblingChild(child: <a href="../classes/GraphBlock.html" target="_self">GraphBlock</a>, parentSiblingCondition: <a href="../interfaces/SiblingCondition.html" target="_self">SiblingCondition</a>, siblingCondition: <a href="../interfaces/SiblingCondition.html" target="_self">SiblingCondition</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:478</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Helper method for finding a sibling of defined child in parents children.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>child</td>
+                                    <td>
+                                                <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        <p><a href="../classes/GraphBlock.html">GraphBlock</a> Node which for sibling is looked for.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>parentSiblingCondition</td>
+                                    <td>
+                                                <code><a href="../interfaces/SiblingCondition.html" target="_self" >SiblingCondition</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>this.siblingCondition</code>
+                                    </td>
+
+                                    <td>
+                                        <p><a href="../interfaces/SiblingCondition.html">SiblingCondition</a>.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>siblingCondition</td>
+                                    <td>
+                                                <code><a href="../interfaces/SiblingCondition.html" target="_self" >SiblingCondition</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>this.siblingCondition</code>
+                                    </td>
+
+                                    <td>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock | undefined</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="_generateSpace"></a>
                     <span class="name">
                         <span class="modifier">Protected</span>
@@ -1570,7 +2093,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:188</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:301</a></code>
 </div>
                 </td>
             </tr>
@@ -1655,7 +2178,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:300</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:456</a></code>
 </div>
                 </td>
             </tr>
@@ -1715,6 +2238,119 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="_renderConnectionWithParent"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>_renderConnectionWithParent</b></span>
+                        <a href="#_renderConnectionWithParent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_renderConnectionWithParent(indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, children: <a href="../classes/GraphBlock.html" target="_self">GraphBlock</a>, lastIds: string[], priorityBuilderModifier: <a href="../classes/LineRenderer.html" target="_self">LineRendererModifier[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:410</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>indent</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>children</td>
+                                    <td>
+                                                <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>lastIds</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>priorityBuilderModifier</td>
+                                    <td>
+                                                <code><a href="../classes/LineRenderer.html" target="_self" >LineRendererModifier[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="_renderDependencies"></a>
                     <span class="name">
                         <span class="modifier">Protected</span>
@@ -1739,7 +2375,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:233</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:346</a></code>
 </div>
                 </td>
             </tr>
@@ -1827,7 +2463,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>_renderLine(indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, lhsId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, rhsId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, builderModifier?: (builder?: <a href="../classess/LineRenderer.html">LineRenderer</a>) => void)</code>
+                    <code>_renderLine(indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, lhsId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, rhsId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, builderModifier: <a href="../classes/LineRenderer.html" target="_self">LineRendererModifier[]</a>)</code>
                 </td>
             </tr>
 
@@ -1840,7 +2476,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:201</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:314</a></code>
 </div>
                 </td>
             </tr>
@@ -1915,17 +2551,15 @@
                                 <tr>
                                     <td>builderModifier</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+                                                <code><a href="../classes/LineRenderer.html" target="_self" >LineRendererModifier[]</a></code>
                                     </td>
 
                                     <td>
-                                        Yes
+                                        No
                                     </td>
 
 
                                     <td>
-                                        <p>Optional modifier of current line.</p>
-
                                     </td>
                                 </tr>
                             </tbody>
@@ -1960,7 +2594,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>_renderLinesL2R(indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, toId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fromIds: string[], builderModifier?: (builder?: <a href="../classess/LineRenderer.html">LineRenderer</a>) => void)</code>
+                    <code>_renderLinesL2R(indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, toId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fromIds: string[], builderModifier: <a href="../classes/LineRenderer.html" target="_self">LineRendererModifier[]</a>)</code>
                 </td>
             </tr>
 
@@ -1973,7 +2607,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:267</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:383</a></code>
 </div>
                 </td>
             </tr>
@@ -2048,11 +2682,11 @@
                                 <tr>
                                     <td>builderModifier</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+                                                <code><a href="../classes/LineRenderer.html" target="_self" >LineRendererModifier[]</a></code>
                                     </td>
 
                                     <td>
-                                        Yes
+                                        No
                                     </td>
 
 
@@ -2093,7 +2727,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>_renderLinesR2L(fromId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, toIds: string[], indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, builderModifier?: (builder?: <a href="../classess/LineRenderer.html">LineRenderer</a>) => void)</code>
+                    <code>_renderLinesR2L(indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, fromId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, toIds: string[], builderModifier: <a href="../classes/LineRenderer.html" target="_self">LineRendererModifier[]</a>)</code>
                 </td>
             </tr>
 
@@ -2106,7 +2740,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:285</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:401</a></code>
 </div>
                 </td>
             </tr>
@@ -2130,6 +2764,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>indent</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Indentation from start of the line.</p>
+
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td>fromId</td>
                                     <td>
@@ -2163,29 +2813,13 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>indent</td>
+                                    <td>builderModifier</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                <code><a href="../classes/LineRenderer.html" target="_self" >LineRendererModifier[]</a></code>
                                     </td>
 
                                     <td>
                                         No
-                                    </td>
-
-
-                                    <td>
-                                        <p>Indentation from start of the line.</p>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>builderModifier</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
-                                    </td>
-
-                                    <td>
-                                        Yes
                                     </td>
 
 
@@ -2239,7 +2873,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:222</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:335</a></code>
 </div>
                 </td>
             </tr>
@@ -2316,174 +2950,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="filterChildren"></a>
-                    <span class="name">
-                        <span class="modifier">Protected</span>
-                        <span ><b>filterChildren</b></span>
-                        <a href="#filterChildren"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>filterChildren(children: <a href="../classes/GraphBlock.html" target="_self">GraphBlock[]</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:310</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Helper method for filtering array of children.</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>children</td>
-                                    <td>
-                                                <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock[]</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>[]<a href="../classes/GraphBlock.html">GraphBlock</a> Array of children.</p>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock[]</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findSiblingChild"></a>
-                    <span class="name">
-                        <span class="modifier">Protected</span>
-                        <span ><b>findSiblingChild</b></span>
-                        <a href="#findSiblingChild"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findSiblingChild(child: <a href="../classes/GraphBlock.html" target="_self">GraphBlock</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:320</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Helper method for finding a sibling of defined child in parents children.</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>child</td>
-                                    <td>
-                                                <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p><a href="../classes/GraphBlock.html">GraphBlock</a> Node which for sibling is looked for.</p>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock | undefined</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="renderInSubgraph"></a>
                     <span class="name">
                         <span class="modifier">Protected</span>
@@ -2495,7 +2961,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>renderInSubgraph(indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, bodyRenderer: (indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>) => void, direction: "TB" | "TD" | "BT" | "LR" | "RL")</code>
+                    <code>renderInSubgraph(_indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, bodyRenderer: (indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>) => void, direction: "TB" | "TD" | "BT" | "LR" | "RL")</code>
                 </td>
             </tr>
 
@@ -2508,7 +2974,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:64</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:86</a></code>
 </div>
                 </td>
             </tr>
@@ -2542,7 +3008,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>indent</td>
+                                    <td>_indent</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                     </td>
@@ -2664,7 +3130,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>renderLazyDependencies(indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <code>renderLazyDependencies(_indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -2677,7 +3143,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:41</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:63</a></code>
 </div>
                 </td>
             </tr>
@@ -2702,7 +3168,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>indent</td>
+                                    <td>_indent</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                     </td>
@@ -2761,7 +3227,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:395</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:582</a></code>
 </div>
                 </td>
             </tr>
@@ -2784,22 +3250,83 @@
 
 
 
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="blockKind"></a>
+                        <span class="name"><b>blockKind</b><a href="#blockKind"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>blockKind()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/for-declaration.graph-block.ts:16</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
     </div>
 
     <div class="tab-pane fade " id="c-readme">
         <p><h1 id="for-cycle">For cycle</h1>
 <h2 id="example-of-rendered-full-for-cycle-with-functions-before-and-after">Example of rendered full <em>for cycle</em> with functions before and after</h2>
 <p><img src="../docu-graph-generated/for_cycle_full.png" alt="For cycle" class="img-responsive"></p>
-<h2 id="example-of-rendered-for-cycle-with-break-inside-cycle">Example of rendered <em>for cycle</em> with break inside cycle</h2>
-<p><img src="../docu-graph-generated/for_cycle_conditional_break.png" alt="For cycle" class="img-responsive"></p>
+<h2 id="example-of-rendered-for-cycle-with-break-inside-cycle">Example of rendered <em>for cycle</em> with <em>break</em> inside cycle</h2>
+<p><img src="../docu-graph-generated/for_cycle_conditional_break1.png" alt="For cycle" class="img-responsive"></p>
+<h2 id="example-of-rendered-for-cycle-with-break-inside-cycle-1">Example of rendered <em>for cycle</em> with <em>break</em> inside cycle</h2>
+<p><img src="../docu-graph-generated/for_cycle_conditional_break2.png" alt="For cycle" class="img-responsive"></p>
+<h2 id="example-of-rendered-for-cycle-with-break-inside-cycle-2">Example of rendered <em>for cycle</em> with <em>break</em> inside cycle</h2>
+<p><img src="../docu-graph-generated/for_cycle_conditional_break3.png" alt="For cycle" class="img-responsive"></p>
+<h2 id="example-of-rendered-for-cycle-with-break-inside-cycle-3">Example of rendered <em>for cycle</em> with <em>break</em> inside cycle</h2>
+<p><img src="../docu-graph-generated/for_cycle_conditional_break4.png" alt="For cycle" class="img-responsive"></p>
+<hr>
+<h2 id="example-of-rendered-for-cycle-with-continue-inside-cycle">Example of rendered <em>for cycle</em> with <em>continue</em> inside cycle</h2>
+<p><img src="../docu-graph-generated/for_cycle_conditional_continue1.png" alt="For cycle" class="img-responsive"></p>
+<h2 id="example-of-rendered-for-cycle-with-continue-inside-cycle-1">Example of rendered <em>for cycle</em> with <em>continue</em> inside cycle</h2>
+<p><img src="../docu-graph-generated/for_cycle_conditional_continue2.png" alt="For cycle" class="img-responsive"></p>
+<h2 id="example-of-rendered-for-cycle-with-continue-inside-cycle-2">Example of rendered <em>for cycle</em> with <em>continue</em> inside cycle</h2>
+<p><img src="../docu-graph-generated/for_cycle_conditional_continue3.png" alt="For cycle" class="img-responsive"></p>
+<h2 id="example-of-rendered-for-cycle-with-continue-inside-cycle-3">Example of rendered <em>for cycle</em> with <em>continue</em> inside cycle</h2>
+<p><img src="../docu-graph-generated/for_cycle_conditional_continue4.png" alt="For cycle" class="img-responsive"></p>
+<hr>
+<h2 id="example-of-rendered-for-cycle-with-return-inside-cycle">Example of rendered <em>for cycle</em> with <em>return</em> inside cycle</h2>
+<p><img src="../docu-graph-generated/for_cycle_conditional_return1.png" alt="For cycle" class="img-responsive"></p>
+<h2 id="example-of-rendered-for-cycle-with-return-inside-cycle-1">Example of rendered <em>for cycle</em> with <em>return</em> inside cycle</h2>
+<p><img src="../docu-graph-generated/for_cycle_conditional_return2.png" alt="For cycle" class="img-responsive"></p>
+<h2 id="example-of-rendered-for-cycle-with-return-inside-cycle-2">Example of rendered <em>for cycle</em> with <em>return</em> inside cycle</h2>
+<p><img src="../docu-graph-generated/for_cycle_conditional_return3.png" alt="For cycle" class="img-responsive"></p>
+<h2 id="example-of-rendered-for-cycle-with-return-inside-cycle-3">Example of rendered <em>for cycle</em> with <em>return</em> inside cycle</h2>
+<p><img src="../docu-graph-generated/for_cycle_conditional_return4.png" alt="For cycle" class="img-responsive"></p>
+<hr>
+<h2 id="example-of-rendered-for-cycle-with-throw-inside-cycle">Example of rendered <em>for cycle</em> with <em>throw</em> inside cycle</h2>
+<p><img src="../docu-graph-generated/for_cycle_conditional_throw1.png" alt="For cycle" class="img-responsive"></p>
+<h2 id="example-of-rendered-for-cycle-with-throw-inside-cycle-1">Example of rendered <em>for cycle</em> with <em>throw</em> inside cycle</h2>
+<p><img src="../docu-graph-generated/for_cycle_conditional_throw2.png" alt="For cycle" class="img-responsive"></p>
+<h2 id="example-of-rendered-for-cycle-with-throw-inside-cycle-2">Example of rendered <em>for cycle</em> with <em>throw</em> inside cycle</h2>
+<p><img src="../docu-graph-generated/for_cycle_conditional_throw3.png" alt="For cycle" class="img-responsive"></p>
+<h2 id="example-of-rendered-for-cycle-with-throw-inside-cycle-3">Example of rendered <em>for cycle</em> with <em>throw</em> inside cycle</h2>
+<p><img src="../docu-graph-generated/for_cycle_conditional_throw4.png" alt="For cycle" class="img-responsive"></p>
 </p>
     </div>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BaseForDeclarationGraphBlock } from &#x27;./base-for-declaration.graph-block&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BlockKind } from &#x27;../block.kind&#x27;;
+import { BaseCycleDeclarationGraphBlock } from &#x27;./base-cycle-declaration-graph.block&#x27;;
 import { GraphBlock } from &#x27;./graph-block&#x27;;
 
-export class ForDeclarationGraphBlock extends BaseForDeclarationGraphBlock {
+export class ForDeclarationGraphBlock extends BaseCycleDeclarationGraphBlock {
   constructor(
     id: string,
     body: GraphBlock[],
@@ -2808,6 +3335,10 @@ export class ForDeclarationGraphBlock extends BaseForDeclarationGraphBlock {
     private readonly updateBlock: GraphBlock
   ) {
     super(id, body);
+  }
+
+  public override get blockKind(): BlockKind {
+    return BlockKind.FOR_DECLARATION;
   }
 
   protected renderCondition(): string {

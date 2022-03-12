@@ -49,10 +49,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
-                                <a href="classes/BaseExitDeclarationGraphBlock.html" data-type="entity-link" >BaseExitDeclarationGraphBlock</a>
+                                <a href="classes/BaseCycleDeclarationGraphBlock.html" data-type="entity-link" >BaseCycleDeclarationGraphBlock</a>
                             </li>
                             <li class="link">
-                                <a href="classes/BaseForDeclarationGraphBlock.html" data-type="entity-link" >BaseForDeclarationGraphBlock</a>
+                                <a href="classes/BaseExitDeclarationGraphBlock.html" data-type="entity-link" >BaseExitDeclarationGraphBlock</a>
                             </li>
                             <li class="link">
                                 <a href="classes/BinaryExpressionDeclarationGraphBlock.html" data-type="entity-link" >BinaryExpressionDeclarationGraphBlock</a>
@@ -61,7 +61,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/BlockDeclarationGraphBlock.html" data-type="entity-link" >BlockDeclarationGraphBlock</a>
                             </li>
                             <li class="link">
+                                <a href="classes/BreakDeclarationGraphBlock.html" data-type="entity-link" >BreakDeclarationGraphBlock</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/CodeParser.html" data-type="entity-link" >CodeParser</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ContinueDeclarationGraphBlock.html" data-type="entity-link" >ContinueDeclarationGraphBlock</a>
                             </li>
                             <li class="link">
                                 <a href="classes/Convertor.html" data-type="entity-link" >Convertor</a>
@@ -106,7 +112,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/NamedBlockDeclarationGraphBlock.html" data-type="entity-link" >NamedBlockDeclarationGraphBlock</a>
                             </li>
                             <li class="link">
+                                <a href="classes/OfKindSiblingCondition.html" data-type="entity-link" >OfKindSiblingCondition</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/ParallelBlockDeclarationGraphBlock.html" data-type="entity-link" >ParallelBlockDeclarationGraphBlock</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/PositiveSiblingCondition.html" data-type="entity-link" >PositiveSiblingCondition</a>
                             </li>
                             <li class="link">
                                 <a href="classes/ReturnDeclarationGraphBlock.html" data-type="entity-link" >ReturnDeclarationGraphBlock</a>
@@ -148,6 +160,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="interfaces/GraphResult.html" data-type="entity-link" >GraphResult</a>
                             </li>
+                            <li class="link">
+                                <a href="interfaces/SiblingCondition.html" data-type="entity-link" >SiblingCondition</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="chapter">
@@ -163,6 +178,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                            </li>
+                            <li class="link">
+                                <a href="miscellaneous/typealiases.html" data-type="entity-link">Type aliases</a>
                             </li>
                             <li class="link">
                                 <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
