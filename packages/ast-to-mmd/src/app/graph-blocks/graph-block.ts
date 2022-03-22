@@ -472,7 +472,7 @@ ${this._generateSpace(_indent)}end
    *
    * @param child {@link GraphBlock} Node which for sibling is looked for.
    * @param parentSiblingCondition {@link SiblingCondition}.
-   * @param siblingCondition {@lnk SiblingCondition}.
+   * @param siblingCondition {@link SiblingCondition}.
    * @returns {@link GraphBlock} | {@link undefined} Sibling of wanted child or undefined when sibling was not possible to find.
    */
   protected _findSiblingChild(child: GraphBlock, parentSiblingCondition: SiblingCondition = this.siblingCondition, siblingCondition: SiblingCondition = this.siblingCondition): GraphBlock | undefined {
@@ -489,13 +489,20 @@ ${this._generateSpace(_indent)}end
     const result: [number, number] | undefined = this.__multiFindChildIndex(filteredParentChildren, child);
     if (result) {
       const [outerIndexOfThisBlock, innerIndexOfThisBlock]: [number, number] = result;
-      if (filteredParentChildren[outerIndexOfThisBlock].length - 1 > innerIndexOfThisBlock) {
-        const sibling = filteredParentChildren[outerIndexOfThisBlock][innerIndexOfThisBlock + 1];
-        if (siblingCondition.isValid(sibling)) {
-          return sibling;
-        } else {
-          return this._findSiblingChild(parent, parentSiblingCondition, siblingCondition);
+      const childrenCount = filteredParentChildren[outerIndexOfThisBlock].length;
+      if (childrenCount - 1 > innerIndexOfThisBlock) {
+        for (let i = innerIndexOfThisBlock + 1; i < childrenCount; i++) {
+          const sibling = filteredParentChildren[outerIndexOfThisBlock][i];
+          if (siblingCondition.isValid(sibling)) {
+            return sibling;
+          }
         }
+        // const sibling = filteredParentChildren[outerIndexOfThisBlock][innerIndexOfThisBlock + 1];
+        // if (siblingCondition.isValid(sibling)) {
+        //   return sibling;
+        // } else {
+          return this._findSiblingChild(parent, parentSiblingCondition, siblingCondition);
+        // }
       } else {
         return this._findSiblingChild(parent, parentSiblingCondition, siblingCondition);
       }

@@ -14,7 +14,7 @@ export class OfKindSiblingCondition implements SiblingCondition {
   }
 
   isValid(sibling: GraphBlock): boolean {
-    return this._blockKinds.some((block: BlockKind) => block === sibling.blockKind);//sibling.blockKind === this.blockKind;
+    return this._blockKinds.some((block: BlockKind) => block === sibling.blockKind);
   }
 
 }

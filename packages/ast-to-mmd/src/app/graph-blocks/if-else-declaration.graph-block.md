@@ -9,6 +9,9 @@
 ## Example of rendered nested _conditions_ with functions before and after
 ![Conditions](../docu-graph-generated/condition3.png)
 
+## Example of rendered nested _conditions_ with functions before and after and return statements
+![Conditions](../docu-graph-generated/condition4.png)
+
 ## Example of rendered _condition_ with _return_ when positive
 ![Conditions](../docu-graph-generated/conditional_return1.png)
 

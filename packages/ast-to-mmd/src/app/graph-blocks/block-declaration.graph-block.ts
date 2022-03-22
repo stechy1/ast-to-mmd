@@ -1,10 +1,12 @@
 import { BlockKind } from '../block.kind';
+import { NotEmptyBlockSiblingCondition } from '../conditions';
 import { GraphBlock } from './graph-block';
 import { LINE_HEAD, LineRenderer } from './renderer';
 
 export class BlockDeclarationGraphBlock extends GraphBlock {
   constructor(id: string, protected readonly childBlocks: GraphBlock[]) {
     super(id);
+    this.siblingCondition = new NotEmptyBlockSiblingCondition();
     this._assignParent(childBlocks);
   }
 

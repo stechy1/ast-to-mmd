@@ -1,7 +1,7 @@
 import { BlockKind } from '../block.kind';
 import { BlockDeclarationGraphBlock } from './block-declaration.graph-block';
 import { GraphBlock } from './graph-block';
-import { LINE_HEAD, LineRenderer, LineRendererModifier, Shape } from './renderer';
+import { LineRenderer, LineRendererModifier, Shape } from './renderer';
 
 export class IfElseDeclarationGraphBlock extends BlockDeclarationGraphBlock {
   private static CONDITION_COUNTER = 0;

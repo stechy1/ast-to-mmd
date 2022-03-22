@@ -2,7 +2,8 @@ import * as path from 'path';
 import { Project, SourceFile } from 'ts-morph';
 
 import { Convertor } from '../app';
-import { IncrementalBlockIdGenerator } from '../app/block-id-generator/incremental-block-id-generator';
+import { IncrementalBlockIdGenerator } from '../app/block-id-generator';
+import { AcceptAllFileFilter } from '../app/file-filter/impl/accept-all.file-filter';
 
 describe('test', () => {
   let resourcesDir: string;
@@ -16,7 +17,7 @@ describe('test', () => {
   });
 
   it('positive - should validate graph', () => {
-    const convertor = new Convertor(sourceFiles, new IncrementalBlockIdGenerator());
+    const convertor = new Convertor(sourceFiles, new AcceptAllFileFilter(), new IncrementalBlockIdGenerator());
     const graphResults = convertor.convert();
     for (const graphResult of graphResults) {
       console.log(graphResult.graph.render(0));
