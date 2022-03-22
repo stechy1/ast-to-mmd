@@ -49,6 +49,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
+                                <a href="classes/AcceptAllFileFilter.html" data-type="entity-link" >AcceptAllFileFilter</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/AndConstraint.html" data-type="entity-link" >AndConstraint</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/BaseCycleDeclarationGraphBlock.html" data-type="entity-link" >BaseCycleDeclarationGraphBlock</a>
                             </li>
                             <li class="link">
@@ -67,6 +73,18 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/CodeParser.html" data-type="entity-link" >CodeParser</a>
                             </li>
                             <li class="link">
+                                <a href="classes/ConfigConstraintFactory.html" data-type="entity-link" >ConfigConstraintFactory</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/Constraint.html" data-type="entity-link" >Constraint</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ConstraintFileFilter.html" data-type="entity-link" >ConstraintFileFilter</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ContainsConstraint.html" data-type="entity-link" >ContainsConstraint</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/ContinueDeclarationGraphBlock.html" data-type="entity-link" >ContinueDeclarationGraphBlock</a>
                             </li>
                             <li class="link">
@@ -76,7 +94,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/EmptyGraphBlock.html" data-type="entity-link" >EmptyGraphBlock</a>
                             </li>
                             <li class="link">
+                                <a href="classes/EndsWithConstraint.html" data-type="entity-link" >EndsWithConstraint</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/Exporter.html" data-type="entity-link" >Exporter</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ExternalFileFilter.html" data-type="entity-link" >ExternalFileFilter</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/FileFilterFactory.html" data-type="entity-link" >FileFilterFactory</a>
                             </li>
                             <li class="link">
                                 <a href="classes/ForDeclarationGraphBlock.html" data-type="entity-link" >ForDeclarationGraphBlock</a>
@@ -112,7 +139,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/NamedBlockDeclarationGraphBlock.html" data-type="entity-link" >NamedBlockDeclarationGraphBlock</a>
                             </li>
                             <li class="link">
+                                <a href="classes/NotConstraint.html" data-type="entity-link" >NotConstraint</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/OfKindSiblingCondition.html" data-type="entity-link" >OfKindSiblingCondition</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/OrConstraint.html" data-type="entity-link" >OrConstraint</a>
                             </li>
                             <li class="link">
                                 <a href="classes/ParallelBlockDeclarationGraphBlock.html" data-type="entity-link" >ParallelBlockDeclarationGraphBlock</a>
@@ -125,6 +158,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/ShapeRenderer.html" data-type="entity-link" >ShapeRenderer</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/StartsWithConstraint.html" data-type="entity-link" >StartsWithConstraint</a>
                             </li>
                             <li class="link">
                                 <a href="classes/TextGraphBlock.html" data-type="entity-link" >TextGraphBlock</a>
@@ -156,6 +192,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
                                 <a href="interfaces/BlockIdGenerator.html" data-type="entity-link" >BlockIdGenerator</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/FileFilter.html" data-type="entity-link" >FileFilter</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/GraphResult.html" data-type="entity-link" >GraphResult</a>
