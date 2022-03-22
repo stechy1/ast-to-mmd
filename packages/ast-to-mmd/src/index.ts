@@ -9,6 +9,7 @@ import { Project, ProjectOptions } from 'ts-morph';
 
 import { Convertor, Exporter } from './app';
 import { IncrementalBlockIdGenerator, UuidBlockIdGenerator } from "./app/block-id-generator";
+import { FileFilter, FileFilterFactory } from './app/file-filter';
 
 clear();
 console.log(figlet.textSync('AST-to-MMD CLI', { horizontalLayout: 'full' }));
@@ -24,7 +25,8 @@ program
   .option('-d, --directory <path>', 'Define path to directory where to find source files.')
   .option('-ts, --tsConfig <tsConfig>', 'Defines path to ts-config.json.')
   .option('-O, --output <output>', 'Defines output path. (currently not used)')
-  .option('-G, --idGenerator <type>', 'Defines type of ID generator', 'uuid')
+  .option('-G, --idGenerator <type>', 'Defines type of ID generator.', 'uuid')
+  .option('-F, --fileFilter <path>', 'Define path to file filter rules.', false)
   .parse(process.argv);
 
 const options = program.opts();
@@ -53,7 +55,9 @@ if (options['idGenerator'] === 'incremental') {
   idGenerator = new IncrementalBlockIdGenerator();
 }
 
-const convertor = new Convertor(project.getSourceFiles(), idGenerator);
+const fileFilterFactory = new FileFilterFactory();
+const fileFilter: FileFilter = fileFilterFactory.create(cwd, options['fileFilter']);
+const convertor = new Convertor(project.getSourceFiles(), fileFilter, idGenerator);
 const graphResults = convertor.convert();
 
 const exporter = new Exporter(options['output']);

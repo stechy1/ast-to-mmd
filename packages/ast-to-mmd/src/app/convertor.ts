@@ -1,6 +1,7 @@
 import { ClassDeclaration, FunctionDeclaration, SourceFile } from 'ts-morph';
 
 import { BlockIdGenerator } from './block-id-generator';
+import { FileFilter } from './file-filter';
 import {
   GraphBlock,
   GraphParentGraphBlock,
@@ -24,9 +25,10 @@ export class Convertor {
    * Creates new instance of {@link Convertor}.
    *
    * @param sourceFiles {@link SourceFile[]} Array of source files to process.
+   * @param fileFilter {@link FileFilter} Filter of processed files.
    * @param idGenerator {@link BlockIdGenerator} Generator of block IDs.
    */
-  constructor(private readonly sourceFiles: SourceFile[], private readonly idGenerator: BlockIdGenerator) {
+  constructor(private readonly sourceFiles: SourceFile[], private readonly fileFilter: FileFilter, private readonly idGenerator: BlockIdGenerator) {
     this.codeParser = new CodeParser(idGenerator);
   }
 
@@ -36,6 +38,10 @@ export class Convertor {
   public convert(): GraphResult[] {
     const graphs: GraphResult[] = [];
     for (const sourceFile of this.sourceFiles) {
+      if (!this.fileFilter.accept(sourceFile)) {
+        continue;
+      }
+
       const functions: FunctionDeclaration[] = sourceFile.getFunctions();
       const classes: ClassDeclaration[] = sourceFile.getClasses();
 
