@@ -142,6 +142,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/NotConstraint.html" data-type="entity-link" >NotConstraint</a>
                             </li>
                             <li class="link">
+                                <a href="classes/NotEmptyBlockSiblingCondition.html" data-type="entity-link" >NotEmptyBlockSiblingCondition</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/OfKindSiblingCondition.html" data-type="entity-link" >OfKindSiblingCondition</a>
                             </li>
                             <li class="link">

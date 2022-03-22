@@ -674,8 +674,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="568"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/graph-block.ts:568</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="575"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/graph-block.ts:575</a></div>
                 </td>
             </tr>
 
@@ -769,8 +769,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="539"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/graph-block.ts:539</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="546"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/graph-block.ts:546</a></div>
                 </td>
             </tr>
 
@@ -1068,8 +1068,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="514"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/graph-block.ts:514</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="521"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/graph-block.ts:521</a></div>
                 </td>
             </tr>
 
@@ -1239,6 +1239,8 @@
                                     </td>
 
                                     <td>
+                                        <p><a href="../interfaces/SiblingCondition.html">SiblingCondition</a>.</p>
+
                                     </td>
                                 </tr>
                             </tbody>
@@ -2526,8 +2528,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="582"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/graph-block.ts:582</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="589"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/graph-block.ts:589</a></div>
                 </td>
             </tr>
 
@@ -3729,7 +3731,7 @@ ${this._generateSpace(_indent)}end
    *
    * @param child {@link GraphBlock} Node which for sibling is looked for.
    * @param parentSiblingCondition {@link SiblingCondition}.
-   * @param siblingCondition {@lnk SiblingCondition}.
+   * @param siblingCondition {@link SiblingCondition}.
    * @returns {@link GraphBlock} | {@link undefined} Sibling of wanted child or undefined when sibling was not possible to find.
    */
   protected _findSiblingChild(child: GraphBlock, parentSiblingCondition: SiblingCondition &#x3D; this.siblingCondition, siblingCondition: SiblingCondition &#x3D; this.siblingCondition): GraphBlock | undefined {
@@ -3746,13 +3748,20 @@ ${this._generateSpace(_indent)}end
     const result: [number, number] | undefined &#x3D; this.__multiFindChildIndex(filteredParentChildren, child);
     if (result) {
       const [outerIndexOfThisBlock, innerIndexOfThisBlock]: [number, number] &#x3D; result;
-      if (filteredParentChildren[outerIndexOfThisBlock].length - 1 &gt; innerIndexOfThisBlock) {
-        const sibling &#x3D; filteredParentChildren[outerIndexOfThisBlock][innerIndexOfThisBlock + 1];
-        if (siblingCondition.isValid(sibling)) {
-          return sibling;
-        } else {
-          return this._findSiblingChild(parent, parentSiblingCondition, siblingCondition);
+      const childrenCount &#x3D; filteredParentChildren[outerIndexOfThisBlock].length;
+      if (childrenCount - 1 &gt; innerIndexOfThisBlock) {
+        for (let i &#x3D; innerIndexOfThisBlock + 1; i &lt; childrenCount; i++) {
+          const sibling &#x3D; filteredParentChildren[outerIndexOfThisBlock][i];
+          if (siblingCondition.isValid(sibling)) {
+            return sibling;
+          }
         }
+        // const sibling &#x3D; filteredParentChildren[outerIndexOfThisBlock][innerIndexOfThisBlock + 1];
+        // if (siblingCondition.isValid(sibling)) {
+        //   return sibling;
+        // } else {
+          return this._findSiblingChild(parent, parentSiblingCondition, siblingCondition);
+        // }
       } else {
         return this._findSiblingChild(parent, parentSiblingCondition, siblingCondition);
       }
