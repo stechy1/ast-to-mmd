@@ -4,11 +4,12 @@ import {
   Block,
   BreakStatement,
   CallExpression,
+  CaseOrDefaultClause,
   CatchClause,
   ClassDeclaration,
   ClassMemberTypes,
   ContinueStatement,
-  Expression,
+  Expression, ExpressionedNode,
   ExpressionStatement,
   ForInStatement,
   ForOfStatement,
@@ -24,6 +25,7 @@ import {
   ReturnStatement,
   Statement,
   StringLiteral,
+  SwitchStatement,
   SyntaxKind,
   ThrowStatement,
   TryStatement,
@@ -37,7 +39,7 @@ import { BlockIdGenerator } from '../block-id-generator';
 import {
   BinaryExpressionDeclarationGraphBlock,
   BlockDeclarationGraphBlock,
-  BreakDeclarationGraphBlock,
+  BreakDeclarationGraphBlock, CaseDeclarationGraphBlock,
   ContinueDeclarationGraphBlock,
   EmptyGraphBlock,
   ForDeclarationGraphBlock,
@@ -49,6 +51,7 @@ import {
   NamedBlockDeclarationGraphBlock,
   ParallelBlockDeclarationGraphBlock,
   ReturnDeclarationGraphBlock,
+  SwitchDeclarationGraphBlock,
   TextGraphBlock,
   ThrowDeclarationGraphBlock,
   TryCatchDeclarationGraphBlock,
@@ -74,14 +77,7 @@ export class CodeParser {
    * @returns {@link BlockDeclarationGraphBlock}
    */
   public processNodes(node: Node): GraphBlock {
-    const graphBlocks: GraphBlock[] = [];
-    for (const child of node.getChildren()) {
-      const graphBlock = this.processNode(child);
-      if (graphBlock) {
-        graphBlocks.push(graphBlock);
-      }
-    }
-    return new BlockDeclarationGraphBlock(this.idGenerator.generate(), graphBlocks);
+    return this._processStatements(node.getChildren());
   }
 
   /**
@@ -139,6 +135,8 @@ export class CodeParser {
         return this.processBreakStatement(node as BreakStatement);
       case SyntaxKind.ReturnStatement:                                    // 246
         return this.processReturnStatement(node as ReturnStatement);
+      case SyntaxKind.SwitchStatement:                                    // 248
+        return this.processSwitchStatement(node as SwitchStatement);
       case SyntaxKind.ThrowStatement:                                     // 250
         return this.processThrowStatement(node as ThrowStatement);
       case SyntaxKind.TryStatement:                                       // 251
@@ -336,10 +334,56 @@ export class CodeParser {
    * kind = 246
    *
    * @param _statement {@link ReturnStatement}
-   * @returns {@link ForDeclarationGraphBlock}
+   * @returns {@link ReturnDeclarationGraphBlock}
    */
   protected processReturnStatement(_statement: ReturnStatement): GraphBlock {
     return new ReturnDeclarationGraphBlock(this.idGenerator.generate());
+  }
+
+  /**
+   * Process SwitchStatement
+   *
+   * kind = 248
+   *
+   * @param statement {@link SwitchStatement}
+   * @returns {@link SwitchDeclarationGraphBlock}
+   */
+  protected processSwitchStatement(statement: SwitchStatement): GraphBlock {
+    function prepareClauseCondition(conditions: string[]): string {
+      return conditions.reduce((prev: string, curr: string) => prev ? `${prev} | ${curr}` : curr, "");
+    }
+
+    const expression = statement.getExpression();
+    const clauses: CaseOrDefaultClause[] = statement.getClauses();
+    const condition = expression.getText();
+    const caseMap: CaseDeclarationGraphBlock[] = [];
+    let consolidatedClauseExpressions: string[] = [];
+    let enableConsolidation = false;
+    let defaultClauseExists = false;
+
+    for (const clause of clauses) {
+      let clauseExpression = "default";
+      if (clause.getKind() === SyntaxKind.CaseClause) {
+        clauseExpression = (<ExpressionedNode>clause).getExpression().getText();
+      } else {
+        defaultClauseExists = true;
+      }
+      const statements = clause.getStatements();
+      enableConsolidation = statements.length === 0;
+      consolidatedClauseExpressions.push(clauseExpression);
+
+      if (enableConsolidation) {
+        continue;
+      }
+
+      const clauseStatements: GraphBlock = this._processStatements(statements);
+      caseMap.push(new CaseDeclarationGraphBlock(this.idGenerator.generate(), this.unwrapBlockDeclaration(clauseStatements), prepareClauseCondition(consolidatedClauseExpressions)));
+      consolidatedClauseExpressions = []
+    }
+
+    caseMap.reverse();
+
+    return new SwitchDeclarationGraphBlock(this.idGenerator.generate(), caseMap, condition, defaultClauseExists);
   }
 
   /**
@@ -451,9 +495,9 @@ export class CodeParser {
    *
    * kind = 244
    *
-   * @param statement {@link ContinueStatement}
+   * @param _statement {@link ContinueStatement}
    */
-  protected processContinueStatement(statement: ContinueStatement): GraphBlock {
+  protected processContinueStatement(_statement: ContinueStatement): GraphBlock {
     return new ContinueDeclarationGraphBlock(this.idGenerator.generate());
   }
 
@@ -462,9 +506,9 @@ export class CodeParser {
    *
    * kind = 245
    *
-   * @param statement {@link BreakStatement}
+   * @param _statement {@link BreakStatement}
    */
-  protected processBreakStatement(statement: BreakStatement): GraphBlock {
+  protected processBreakStatement(_statement: BreakStatement): GraphBlock {
     return new BreakDeclarationGraphBlock(this.idGenerator.generate());
   }
 
@@ -580,6 +624,23 @@ export class CodeParser {
     }
 
     return blocks;
+  }
+
+  /**
+   * Process all nodes and wrap them into {@link BlockDeclarationGraphBlock}.
+   *
+   * @param nodes {@link Node[]}.
+   * @returns {@link BlockDeclarationGraphBlock}.
+   */
+  protected _processStatements(nodes: Node[]): GraphBlock {
+    const graphBlocks: GraphBlock[] = [];
+    for (const node of nodes) {
+      const graphBlock = this.processNode(node);
+      if (graphBlock) {
+        graphBlocks.push(graphBlock);
+      }
+    }
+    return new BlockDeclarationGraphBlock(this.idGenerator.generate(), graphBlocks);
   }
 
   /**

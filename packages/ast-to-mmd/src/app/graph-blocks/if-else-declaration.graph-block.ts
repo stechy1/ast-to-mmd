@@ -114,8 +114,12 @@ ${this.renderDirectDependencies(indent + 1)}
         const firstChild: GraphBlock = filteredElseBlock[0];
         dependencies += this.__renderDirectDependencies(indent, firstChild, this.negativeBuilderModifier);
       } else {
-        const lastChild: GraphBlock = filteredElseBlock[filteredElseBlock.length - 1];
-        dependencies += this.__renderDirectDependencies(indent, lastChild, this.negativeBuilderModifier);
+        if (this.parent) {
+          const siblingChild: GraphBlock | undefined = this._findSiblingChild(this);
+          if (siblingChild) {
+            siblingChild.lazyDependency = this._renderLine(0, this.id, siblingChild.id, this.negativeBuilderModifier);
+          }
+        }
       }
     } else {
       if (this.parent) {

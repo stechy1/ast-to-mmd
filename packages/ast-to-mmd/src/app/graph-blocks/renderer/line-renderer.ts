@@ -150,9 +150,9 @@ export class LineRenderer {
 
     if (this._connectionDescription) {
       if (this.isDotted) {
-        result += ` ${this._connectionDescription} `;
+        result += ` "${this._connectionDescription}" `;
       } else {
-        result += `${this.linePiece} ${this._connectionDescription} ${this.linePiece}`;
+        result += `${this.linePiece} "${this._connectionDescription}" ${this.linePiece}`;
       }
     } else {
       const tmpLineLength = this._lineLength;

@@ -7,7 +7,7 @@ export class BreakDeclarationGraphBlock extends BaseExitDeclarationGraphBlock {
 
   public constructor(id: string) {
     super(id);
-    this.parentSiblingCondition = new OfKindSiblingCondition(...CYCLE_BLOCK_KIND);
+    this.parentSiblingCondition = new OfKindSiblingCondition(...CYCLE_BLOCK_KIND, BlockKind.SWITCH_DECLARATION);
   }
 
   public override get blockKind(): BlockKind {
