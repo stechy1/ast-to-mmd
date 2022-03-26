@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >IfElseDeclarationGraphBlock</li>
+  <li >SwitchDeclarationGraphBlock</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -65,7 +65,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>packages/ast-to-mmd/src/app/graph-blocks/if-else-declaration.graph-block.ts</code>
+            <code>packages/ast-to-mmd/src/app/graph-blocks/switch-declaration.graph-block.ts</code>
         </p>
 
 
@@ -91,15 +91,6 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Static</span>
-                                <a href="#CONDITION_COUNTER" >CONDITION_COUNTER</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#conditionID" >conditionID</a>
-                            </li>
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#_lazyDependencies" >_lazyDependencies</a>
@@ -153,15 +144,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#__renderDirectDependencies" >__renderDirectDependencies</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#negativeBuilderModifier" >negativeBuilderModifier</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#positiveBuilderModifier" >positiveBuilderModifier</a>
+                                <a href="#__buildLineModifier" >__buildLineModifier</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -171,10 +154,6 @@
                             <li>
                                     <span class="modifier">Protected</span>
                                 <a href="#renderDirectDependencies" >renderDirectDependencies</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#renderOuterBody" >renderOuterBody</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
@@ -282,15 +261,6 @@
                                 <li>
                                     <a href="#lastBlocks" >lastBlocks</a>
                                 </li>
-                                <li>
-                                    <a href="#hasChildren" >hasChildren</a>
-                                </li>
-                                <li>
-                                    <a href="#children" >children</a>
-                                </li>
-                                <li>
-                                    <a href="#allowUnwrapChildren" >allowUnwrapChildren</a>
-                                </li>
                             </ul>
                         </td>
                     </tr>
@@ -304,12 +274,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, condition: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, thanBlock: <a href="../classes/GraphBlock.html" target="_self">GraphBlock[]</a>, elseBlock?: <a href="../classes/GraphBlock.html" target="_self">GraphBlock[]</a>)</code>
+<code>constructor(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, blockCases: CaseDeclarationGraphBlock[], condition: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, defaultClauseExists: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/if-else-declaration.graph-block.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/switch-declaration.graph-block.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -339,6 +309,18 @@
                                                     
                                                 </tr>
                                                 <tr>
+                                                        <td>blockCases</td>
+                                                  
+                                                        <td>
+                                                                    <code>CaseDeclarationGraphBlock[]</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
                                                         <td>condition</td>
                                                   
                                                         <td>
@@ -351,26 +333,14 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>thanBlock</td>
+                                                        <td>defaultClauseExists</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock[]</a></code>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
                                                         </td>
                                                   
                                                     <td>
                                                             No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>elseBlock</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock[]</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            Yes
                                                     </td>
                                                     
                                                 </tr>
@@ -388,65 +358,6 @@
     <h3 id="inputs">
         Properties
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="CONDITION_COUNTER"></a>
-                    <span class="name">
-                            <span class="modifier">Private</span>
-                            <span class="modifier">Static</span>
-                        <span ><b>CONDITION_COUNTER</b></span>
-                        <a href="#CONDITION_COUNTER"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>0</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/if-else-declaration.graph-block.ts:7</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="conditionID"></a>
-                    <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>conditionID</b></span>
-                        <a href="#conditionID"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>IfElseDeclarationGraphBlock.CONDITION_COUNTER++</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/if-else-declaration.graph-block.ts:9</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -809,26 +720,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="__renderDirectDependencies"></a>
+                    <a name="__buildLineModifier"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
-                        <span ><b>__renderDirectDependencies</b></span>
-                        <a href="#__renderDirectDependencies"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>__buildLineModifier</b></span>
+                        <a href="#__buildLineModifier"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>__renderDirectDependencies(indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, children: <a href="../classes/GraphBlock.html" target="_self">GraphBlock</a>, builderModifier: <a href="../classes/LineRenderer.html" target="_self">LineRendererModifier</a>)</code>
+                    <code>__buildLineModifier(child: <a href="../classes/CaseDeclarationGraphBlock.html" target="_self">CaseDeclarationGraphBlock</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="144"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/if-else-declaration.graph-block.ts:144</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/switch-declaration.graph-block.ts:49</a></div>
                 </td>
             </tr>
 
@@ -849,33 +760,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>indent</td>
+                                    <td>child</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>children</td>
-                                    <td>
-                                                <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>builderModifier</td>
-                                    <td>
-                                                <code><a href="../classes/LineRenderer.html" target="_self" >LineRendererModifier</a></code>
+                                                <code><a href="../classes/CaseDeclarationGraphBlock.html" target="_self" >CaseDeclarationGraphBlock</a></code>
                                     </td>
 
                                     <td>
@@ -890,149 +777,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="negativeBuilderModifier"></a>
-                    <span class="name">
-                        <span class="modifier">Protected</span>
-                        <span ><b>negativeBuilderModifier</b></span>
-                        <a href="#negativeBuilderModifier"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>negativeBuilderModifier(builder: <a href="../classes/LineRenderer.html" target="_self">LineRenderer</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="140"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/if-else-declaration.graph-block.ts:140</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>builder</td>
-                                    <td>
-                                                <code><a href="../classes/LineRenderer.html" target="_self" >LineRenderer</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/LineRenderer.html" target="_self" >LineRenderer</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="positiveBuilderModifier"></a>
-                    <span class="name">
-                        <span class="modifier">Protected</span>
-                        <span ><b>positiveBuilderModifier</b></span>
-                        <a href="#positiveBuilderModifier"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>positiveBuilderModifier(builder: <a href="../classes/LineRenderer.html" target="_self">LineRenderer</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="136"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/if-else-declaration.graph-block.ts:136</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>builder</td>
-                                    <td>
-                                                <code><a href="../classes/LineRenderer.html" target="_self" >LineRenderer</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/LineRenderer.html" target="_self" >LineRenderer</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/LineRenderer.html" target="_self" >LineRendererModifier</a></code>
 
                     </div>
                     <div class="io-description">
@@ -1071,7 +816,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:21</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/GraphBlock.html#source" target="_self" >GraphBlock:26</a></code>
 </div>
                 </td>
             </tr>
@@ -1135,86 +880,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>renderDirectDependencies(indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <code>renderDirectDependencies(_indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="102"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/if-else-declaration.graph-block.ts:102</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>indent</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="renderOuterBody"></a>
-                    <span class="name">
-                        <span class="modifier">Protected</span>
-                        <span ><b>renderOuterBody</b></span>
-                        <a href="#renderOuterBody"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>renderOuterBody(indent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="91"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/if-else-declaration.graph-block.ts:91</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/switch-declaration.graph-block.ts:34</a></div>
                 </td>
             </tr>
 
@@ -1235,7 +909,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>indent</td>
+                                    <td>_indent</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                     </td>
@@ -3366,7 +3040,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/if-else-declaration.graph-block.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/switch-declaration.graph-block.ts:13</a></div>
                                 </td>
                             </tr>
 
@@ -3388,7 +3062,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/if-else-declaration.graph-block.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/switch-declaration.graph-block.ts:17</a></div>
                                 </td>
                             </tr>
 
@@ -3410,73 +3084,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/if-else-declaration.graph-block.ts:38</a></div>
-                                </td>
-                            </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="hasChildren"></a>
-                        <span class="name"><b>hasChildren</b><a href="#hasChildren"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <span class="accessor"><b>get</b><code>hasChildren()</code></span>
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/if-else-declaration.graph-block.ts:50</a></div>
-                                </td>
-                            </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="children"></a>
-                        <span class="name"><b>children</b><a href="#children"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <span class="accessor"><b>get</b><code>children()</code></span>
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/if-else-declaration.graph-block.ts:54</a></div>
-                                </td>
-                            </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="allowUnwrapChildren"></a>
-                        <span class="name"><b>allowUnwrapChildren</b><a href="#allowUnwrapChildren"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <span class="accessor"><b>get</b><code>allowUnwrapChildren()</code></span>
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/if-else-declaration.graph-block.ts:87</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">packages/ast-to-mmd/src/app/graph-blocks/switch-declaration.graph-block.ts:22</a></div>
                                 </td>
                             </tr>
 
@@ -3486,185 +3094,77 @@
     </div>
 
     <div class="tab-pane fade " id="c-readme">
-        <p><h1 id="conditions">Conditions</h1>
-<h2 id="example-of-rendered-simple-condition-with-functions-before-and-after">Example of rendered simple <em>condition</em> with functions before and after</h2>
-<p><img src="../docu-graph-generated/condition1.png" alt="Conditions" class="img-responsive"></p>
-<h2 id="example-of-rendered-condition-without-else">Example of rendered <em>condition</em> without <em>else</em></h2>
-<p><img src="../docu-graph-generated/condition2.png" alt="Conditions" class="img-responsive"></p>
-<h2 id="example-of-rendered-nested-conditions-with-functions-before-and-after">Example of rendered nested <em>conditions</em> with functions before and after</h2>
-<p><img src="../docu-graph-generated/condition3.png" alt="Conditions" class="img-responsive"></p>
-<h2 id="example-of-rendered-nested-conditions-with-functions-before-and-after-and-return-statements">Example of rendered nested <em>conditions</em> with functions before and after and return statements</h2>
-<p><img src="../docu-graph-generated/condition4.png" alt="Conditions" class="img-responsive"></p>
-<h2 id="example-of-rendered-condition-with-return-when-positive">Example of rendered <em>condition</em> with <em>return</em> when positive</h2>
-<p><img src="../docu-graph-generated/conditional_return1.png" alt="Conditions" class="img-responsive"></p>
-<h2 id="example-of-rendered-condition-with-return-when-negative">Example of rendered <em>condition</em> with <em>return</em> when negative</h2>
-<p><img src="../docu-graph-generated/conditional_return2.png" alt="Conditions" class="img-responsive"></p>
-<h2 id="example-of-rendered-condition-with-throw-when-positive">Example of rendered <em>condition</em> with <em>throw</em> when positive</h2>
-<p><img src="../docu-graph-generated/conditional_throw1.png" alt="Conditions" class="img-responsive"></p>
-<h2 id="example-of-rendered-condition-with-throw-when-positive-without-continue">Example of rendered <em>condition</em> with <em>throw</em> when positive without continue</h2>
-<p><img src="../docu-graph-generated/conditional_throw2.png" alt="Conditions" class="img-responsive"></p>
-<h2 id="example-of-rendered-condition-with-throw-when-negative">Example of rendered <em>condition</em> with <em>throw</em> when negative</h2>
-<p><img src="../docu-graph-generated/conditional_throw3.png" alt="Conditions" class="img-responsive"></p>
+        <p><h1 id="switch-statement">Switch statement</h1>
+<h2 id="example-of-rendered-switch-statement">Example of rendered <em>switch</em> statement</h2>
+<p><img src="../docu-graph-generated/switch1.png" alt="Switch" class="img-responsive"></p>
+<h2 id="example-of-rendered-switch-statement-1">Example of rendered <em>switch</em> statement</h2>
+<p><img src="../docu-graph-generated/switch2.png" alt="Switch" class="img-responsive"></p>
+<h2 id="example-of-rendered-switch-statement-2">Example of rendered <em>switch</em> statement</h2>
+<p><img src="../docu-graph-generated/switch3.png" alt="Switch" class="img-responsive"></p>
+<h2 id="example-of-rendered-switch-statement-3">Example of rendered <em>switch</em> statement</h2>
+<p><img src="../docu-graph-generated/switch4.png" alt="Switch" class="img-responsive"></p>
+<h2 id="example-of-rendered-switch-statement-4">Example of rendered <em>switch</em> statement</h2>
+<p><img src="../docu-graph-generated/switch5.png" alt="Switch" class="img-responsive"></p>
+<h2 id="example-of-rendered-switch-statement-5">Example of rendered <em>switch</em> statement</h2>
+<p><img src="../docu-graph-generated/switch6.png" alt="Switch" class="img-responsive"></p>
 </p>
     </div>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BlockKind } from &#x27;../block.kind&#x27;;
 import { BlockDeclarationGraphBlock } from &#x27;./block-declaration.graph-block&#x27;;
+import { CaseDeclarationGraphBlock } from &#x27;./case-declaration.graph-block&#x27;;
 import { GraphBlock } from &#x27;./graph-block&#x27;;
-import { LineRenderer, LineRendererModifier, Shape } from &#x27;./renderer&#x27;;
+import { LineRendererModifier, Shape } from &#x27;./renderer&#x27;;
 
-export class IfElseDeclarationGraphBlock extends BlockDeclarationGraphBlock {
-  private static CONDITION_COUNTER &#x3D; 0;
+export class SwitchDeclarationGraphBlock extends BlockDeclarationGraphBlock {
 
-  private conditionID &#x3D; IfElseDeclarationGraphBlock.CONDITION_COUNTER++;
-
-  constructor(
-    id: string,
-    private readonly condition: string,
-    private readonly thanBlock: GraphBlock[],
-    private readonly elseBlock?: GraphBlock[]
-  ) {
-    super(id, thanBlock);
-    this._assignParent(elseBlock || []);
-  }
-
-  public override render(_indent: number): string {
-    return this.renderInSubgraph(
-      _indent,
-      &#x60;${this.id}_${this.conditionID}&#x60;,
-      &#x60;CONDITION_${this.conditionID}&#x60;,
-      (bodyIndent) &#x3D;&gt; this.renderOuterBody(bodyIndent)
-    );
+  constructor(id: string, blockCases: CaseDeclarationGraphBlock[], private readonly condition: string, private readonly defaultClauseExists: boolean) {
+    super(id, blockCases);
   }
 
   public override get blockKind(): BlockKind {
-    return BlockKind.IF_ELSE_DECLARATION;
+    return BlockKind.SWITCH_DECLARATION;
   }
 
   override get firstBlock(): GraphBlock {
     return this;
   }
 
+
   public override get lastBlocks(): string[] {
-    const thanBlockId &#x3D; super.lastBlocks;
-    const visibleElseBlocks &#x3D; this.elseBlock ? this._filterChildren(this.elseBlock) : [];
-    let elseBlockId: string[];
-    if (visibleElseBlocks.length &#x3D;&#x3D;&#x3D; 0) {
-      elseBlockId &#x3D; [];
-    } else {
-      elseBlockId &#x3D; visibleElseBlocks[visibleElseBlocks.length - 1].lastBlocks;
-    }
-    return [...thanBlockId, ...elseBlockId];
+    return this.childBlocks.map(child &#x3D;&gt; child.lastBlocks).reduce((prev: string[], curr: string[]) &#x3D;&gt; [...prev, ...curr], [])
   }
 
-  public override get hasChildren(): boolean {
-    return this.thanBlock.length !&#x3D;&#x3D; 0;
-  }
-
-  public override get children(): GraphBlock[][] {
-    const filteredThanBlock &#x3D; this._filterChildren(this.thanBlock);
-    const filteredElseBlock &#x3D; this.elseBlock ? this._filterChildren(this.elseBlock) : [];
-    const result: GraphBlock[][] &#x3D; [];
-
-    /**
-     * Local helper function for unified pushing direct children into a result
-     *
-     * @param child {@link GraphBlock}
-     * @param result {@link GraphBlock[][]}
-     */
-    function pushDirectChildren(child: GraphBlock, result: GraphBlock[][]): void {
-      const indirectChildren &#x3D; child.children;
-      if (indirectChildren.length !&#x3D;&#x3D; 0 &amp;&amp; child.allowUnwrapChildren) {
-        result.push(...indirectChildren);
-      } else {
-        result.push([child]);
-      }
-    }
-
-    if (filteredThanBlock.length !&#x3D;&#x3D; 0) {
-      const lastDirectChild &#x3D; filteredThanBlock[filteredThanBlock.length - 1];
-      pushDirectChildren(lastDirectChild, result);
-    }
-
-    if (filteredElseBlock.length !&#x3D;&#x3D; 0) {
-      const lastDirectChild &#x3D; filteredElseBlock[filteredElseBlock.length - 1];
-      pushDirectChildren(lastDirectChild, result);
-    }
-
-    return result;
-  }
-
-  override get allowUnwrapChildren(): boolean {
-    return false;
-  }
-
-  protected renderOuterBody(indent: number): string {
+  public override render(_indent: number): string {
     return &#x60;
-${this._generateSpace(indent + 1)}${this.id}${this._renderShape(this.condition, Shape.RHOMBUS)}
-${this.renderChildren(indent, this.thanBlock)}
-${this.renderChildren(indent, this.elseBlock || [])}
-${this.renderDependencies(indent)}
-${this._renderDependencies(indent, this.elseBlock || [])}
-${this.renderDirectDependencies(indent + 1)}
+${this._generateSpace(_indent + 1)}${this.id}${this._renderShape(&#x60;SWITCH &lt;br&gt; ${this.condition}&#x60;, Shape.RHOMBUS)}
+${super.render(_indent)}
+${this.renderDirectDependencies(_indent + 1)}
 &#x60;;
   }
 
-  protected renderDirectDependencies(indent: number): string {
-    let dependencies &#x3D; &#x27;&#x27;;
-    const filteredThanBlock &#x3D; this._filterChildren(this.thanBlock);
-    if (filteredThanBlock.length !&#x3D;&#x3D; 0) {
-      const firstChild: GraphBlock &#x3D; filteredThanBlock[0];
-      dependencies +&#x3D; this.__renderDirectDependencies(indent, firstChild, this.positiveBuilderModifier);
+  protected renderDirectDependencies(_indent: number): string {
+    const directDependencies &#x3D; this.childBlocks.map(child &#x3D;&gt;
+      this._renderLine(_indent, this.id, child.firstBlock.id, this.__buildLineModifier(child as CaseDeclarationGraphBlock))
+    ).join(&#x27;\n&#x27;);
 
-      dependencies +&#x3D; &#x27;\n&#x27;;
-    }
-    if (this.elseBlock) {
-      const filteredElseBlock &#x3D; this._filterChildren(this.elseBlock);
-      if (filteredElseBlock.length !&#x3D;&#x3D; 0) {
-        const firstChild: GraphBlock &#x3D; filteredElseBlock[0];
-        dependencies +&#x3D; this.__renderDirectDependencies(indent, firstChild, this.negativeBuilderModifier);
-      } else {
-        if (this.parent) {
-          const siblingChild: GraphBlock | undefined &#x3D; this._findSiblingChild(this);
-          if (siblingChild) {
-            siblingChild.lazyDependency &#x3D; this._renderLine(0, this.id, siblingChild.id, this.negativeBuilderModifier);
-          }
-        }
-      }
-    } else {
-      if (this.parent) {
-        const siblingChild: GraphBlock | undefined &#x3D; this._findSiblingChild(this);
-        if (siblingChild) {
-          siblingChild.lazyDependency &#x3D; this._renderLine(0, this.id, siblingChild.id, this.negativeBuilderModifier);
-        }
+    if (!this.defaultClauseExists) {
+      const sibling: GraphBlock | undefined &#x3D; this._findSiblingChild(this);
+      if (sibling) {
+        this.lazyDependency &#x3D; this._renderLine(0, this.id, sibling.id, builder &#x3D;&gt; builder.setConnectionDescription(&#x27;default&#x27;))
       }
     }
 
-    return dependencies;
+    return directDependencies;
   }
 
-  protected positiveBuilderModifier(builder: LineRenderer): LineRenderer {
-    return builder.setConnectionDescription(&#x27;Yes&#x27;);
+  private __buildLineModifier(child: CaseDeclarationGraphBlock): LineRendererModifier {
+    return builder &#x3D;&gt; builder.setConnectionDescription(child.condition);
   }
-
-  protected negativeBuilderModifier(builder: LineRenderer): LineRenderer {
-    return builder.setConnectionDescription(&#x27;No&#x27;);
-  }
-
-  private __renderDirectDependencies(indent: number, children: GraphBlock, builderModifier: LineRendererModifier): string {
-    let dependencies &#x3D; &#x27;&#x27;;
-    if (!children.isDependencyBridge) {
-      dependencies +&#x3D; this._renderLine(indent, this.id, children.firstBlock.id, builderModifier);
-    }
-    if (children.skipRenderRestDependencies) {
-      dependencies +&#x3D; this._renderConnectionWithParent(indent, children, [this.id], builderModifier);
-    }
-
-    return dependencies;
-  }
-
 }
+
+export type CaseMap &#x3D; { condition: string, block: GraphBlock };
 </code></pre>
     </div>
 </div>
@@ -3702,7 +3202,7 @@ ${this.renderDirectDependencies(indent + 1)}
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'IfElseDeclarationGraphBlock.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'SwitchDeclarationGraphBlock.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

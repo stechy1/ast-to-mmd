@@ -70,6 +70,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/BreakDeclarationGraphBlock.html" data-type="entity-link" >BreakDeclarationGraphBlock</a>
                             </li>
                             <li class="link">
+                                <a href="classes/CaseDeclarationGraphBlock.html" data-type="entity-link" >CaseDeclarationGraphBlock</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/CodeParser.html" data-type="entity-link" >CodeParser</a>
                             </li>
                             <li class="link">
@@ -166,6 +169,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/StartsWithConstraint.html" data-type="entity-link" >StartsWithConstraint</a>
                             </li>
                             <li class="link">
+                                <a href="classes/SwitchDeclarationGraphBlock.html" data-type="entity-link" >SwitchDeclarationGraphBlock</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/TextGraphBlock.html" data-type="entity-link" >TextGraphBlock</a>
                             </li>
                             <li class="link">
@@ -217,9 +223,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse " ${ isNormalMode ? 'id="miscellaneous-links"' : 'id="xs-miscellaneous-links"' }>
                             <li class="link">
                                 <a href="miscellaneous/enumerations.html" data-type="entity-link">Enums</a>
-                            </li>
-                            <li class="link">
-                                <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
                             </li>
                             <li class="link">
                                 <a href="miscellaneous/typealiases.html" data-type="entity-link">Type aliases</a>

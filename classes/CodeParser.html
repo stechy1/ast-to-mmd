@@ -92,6 +92,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Protected</span>
+                                <a href="#_processStatements" >_processStatements</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
                                 <a href="#processBinaryExpression" >processBinaryExpression</a>
                             </li>
                             <li>
@@ -164,6 +168,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
+                                <a href="#processSwitchStatement" >processSwitchStatement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
                                 <a href="#processThrowStatement" >processThrowStatement</a>
                             </li>
                             <li>
@@ -209,7 +217,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:62</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:65</a></div>
                             </td>
                         </tr>
 
@@ -264,6 +272,84 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="_processStatements"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>_processStatements</b></span>
+                        <a href="#_processStatements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_processStatements(nodes: Node[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="635"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:635</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process all nodes and wrap them into <a href="../classes/BlockDeclarationGraphBlock.html">BlockDeclarationGraphBlock</a>.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>nodes</td>
+                                    <td>
+                                            <code>Node[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>[]<a href="Node">Node</a>.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="processBinaryExpression"></a>
                     <span class="name">
                         <span class="modifier">Protected</span>
@@ -282,8 +368,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="252"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:252</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="250"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:250</a></div>
                 </td>
             </tr>
 
@@ -361,8 +447,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="275"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:275</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="273"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:273</a></div>
                 </td>
             </tr>
 
@@ -433,15 +519,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>processBreakStatement(statement: BreakStatement)</code>
+                    <code>processBreakStatement(_statement: BreakStatement)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="467"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:467</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="511"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:511</a></div>
                 </td>
             </tr>
 
@@ -466,7 +552,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>statement</td>
+                                    <td>_statement</td>
                                     <td>
                                             <code>BreakStatement</code>
                                     </td>
@@ -519,8 +605,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="550"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:550</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="594"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:594</a></div>
                 </td>
             </tr>
 
@@ -598,8 +684,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="181"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:181</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="179"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:179</a></div>
                 </td>
             </tr>
 
@@ -676,8 +762,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="572"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:572</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="616"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:616</a></div>
                 </td>
             </tr>
 
@@ -750,15 +836,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>processContinueStatement(statement: ContinueStatement)</code>
+                    <code>processContinueStatement(_statement: ContinueStatement)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="456"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:456</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="500"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:500</a></div>
                 </td>
             </tr>
 
@@ -783,7 +869,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>statement</td>
+                                    <td>_statement</td>
                                     <td>
                                             <code>ContinueStatement</code>
                                     </td>
@@ -836,8 +922,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="288"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:288</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="286"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:286</a></div>
                 </td>
             </tr>
 
@@ -915,8 +1001,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="393"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:393</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="437"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:437</a></div>
                 </td>
             </tr>
 
@@ -994,8 +1080,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="425"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:425</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="469"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:469</a></div>
                 </td>
             </tr>
 
@@ -1073,8 +1159,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="353"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:353</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="397"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:397</a></div>
                 </td>
             </tr>
 
@@ -1152,8 +1238,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="166"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:166</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="164"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:164</a></div>
                 </td>
             </tr>
 
@@ -1231,8 +1317,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="315"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:315</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="313"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:313</a></div>
                 </td>
             </tr>
 
@@ -1310,8 +1396,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="228"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:228</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="226"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:226</a></div>
                 </td>
             </tr>
 
@@ -1389,8 +1475,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="94"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:94</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:90</a></div>
                 </td>
             </tr>
 
@@ -1467,8 +1553,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="196"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:196</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="194"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:194</a></div>
                 </td>
             </tr>
 
@@ -1545,8 +1631,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:79</a></div>
                 </td>
             </tr>
 
@@ -1623,8 +1709,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="341"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:341</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="339"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:339</a></div>
                 </td>
             </tr>
 
@@ -1684,6 +1770,85 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="processSwitchStatement"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>processSwitchStatement</b></span>
+                        <a href="#processSwitchStatement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processSwitchStatement(statement: SwitchStatement)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="351"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:351</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Process SwitchStatement</p>
+<p>kind = 248</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>statement</td>
+                                    <td>
+                                            <code>SwitchStatement</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p><a href="SwitchStatement">SwitchStatement</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/GraphBlock.html" target="_self" >GraphBlock</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="processThrowStatement"></a>
                     <span class="name">
                         <span class="modifier">Protected</span>
@@ -1702,8 +1867,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="478"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:478</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="522"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:522</a></div>
                 </td>
             </tr>
 
@@ -1781,8 +1946,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="489"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:489</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="533"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:533</a></div>
                 </td>
             </tr>
 
@@ -1860,8 +2025,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="217"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:217</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="215"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:215</a></div>
                 </td>
             </tr>
 
@@ -1939,8 +2104,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="532"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:532</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="576"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:576</a></div>
                 </td>
             </tr>
 
@@ -2018,8 +2183,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="515"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:515</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="559"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:559</a></div>
                 </td>
             </tr>
 
@@ -2097,8 +2262,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="592"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:592</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="653"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/graph-parser/parser.ts:653</a></div>
                 </td>
             </tr>
 
@@ -2170,11 +2335,12 @@ if parent block allows children unwrap.</p>
   Block,
   BreakStatement,
   CallExpression,
+  CaseOrDefaultClause,
   CatchClause,
   ClassDeclaration,
   ClassMemberTypes,
   ContinueStatement,
-  Expression,
+  Expression, ExpressionedNode,
   ExpressionStatement,
   ForInStatement,
   ForOfStatement,
@@ -2190,6 +2356,7 @@ if parent block allows children unwrap.</p>
   ReturnStatement,
   Statement,
   StringLiteral,
+  SwitchStatement,
   SyntaxKind,
   ThrowStatement,
   TryStatement,
@@ -2203,7 +2370,7 @@ import { BlockIdGenerator } from &#x27;../block-id-generator&#x27;;
 import {
   BinaryExpressionDeclarationGraphBlock,
   BlockDeclarationGraphBlock,
-  BreakDeclarationGraphBlock,
+  BreakDeclarationGraphBlock, CaseDeclarationGraphBlock,
   ContinueDeclarationGraphBlock,
   EmptyGraphBlock,
   ForDeclarationGraphBlock,
@@ -2215,6 +2382,7 @@ import {
   NamedBlockDeclarationGraphBlock,
   ParallelBlockDeclarationGraphBlock,
   ReturnDeclarationGraphBlock,
+  SwitchDeclarationGraphBlock,
   TextGraphBlock,
   ThrowDeclarationGraphBlock,
   TryCatchDeclarationGraphBlock,
@@ -2240,14 +2408,7 @@ export class CodeParser {
    * @returns {@link BlockDeclarationGraphBlock}
    */
   public processNodes(node: Node): GraphBlock {
-    const graphBlocks: GraphBlock[] &#x3D; [];
-    for (const child of node.getChildren()) {
-      const graphBlock &#x3D; this.processNode(child);
-      if (graphBlock) {
-        graphBlocks.push(graphBlock);
-      }
-    }
-    return new BlockDeclarationGraphBlock(this.idGenerator.generate(), graphBlocks);
+    return this._processStatements(node.getChildren());
   }
 
   /**
@@ -2305,6 +2466,8 @@ export class CodeParser {
         return this.processBreakStatement(node as BreakStatement);
       case SyntaxKind.ReturnStatement:                                    // 246
         return this.processReturnStatement(node as ReturnStatement);
+      case SyntaxKind.SwitchStatement:                                    // 248
+        return this.processSwitchStatement(node as SwitchStatement);
       case SyntaxKind.ThrowStatement:                                     // 250
         return this.processThrowStatement(node as ThrowStatement);
       case SyntaxKind.TryStatement:                                       // 251
@@ -2502,10 +2665,56 @@ export class CodeParser {
    * kind &#x3D; 246
    *
    * @param _statement {@link ReturnStatement}
-   * @returns {@link ForDeclarationGraphBlock}
+   * @returns {@link ReturnDeclarationGraphBlock}
    */
   protected processReturnStatement(_statement: ReturnStatement): GraphBlock {
     return new ReturnDeclarationGraphBlock(this.idGenerator.generate());
+  }
+
+  /**
+   * Process SwitchStatement
+   *
+   * kind &#x3D; 248
+   *
+   * @param statement {@link SwitchStatement}
+   * @returns {@link SwitchDeclarationGraphBlock}
+   */
+  protected processSwitchStatement(statement: SwitchStatement): GraphBlock {
+    function prepareClauseCondition(conditions: string[]): string {
+      return conditions.reduce((prev: string, curr: string) &#x3D;&gt; prev ? &#x60;${prev} | ${curr}&#x60; : curr, &quot;&quot;);
+    }
+
+    const expression &#x3D; statement.getExpression();
+    const clauses: CaseOrDefaultClause[] &#x3D; statement.getClauses();
+    const condition &#x3D; expression.getText();
+    const caseMap: CaseDeclarationGraphBlock[] &#x3D; [];
+    let consolidatedClauseExpressions: string[] &#x3D; [];
+    let enableConsolidation &#x3D; false;
+    let defaultClauseExists &#x3D; false;
+
+    for (const clause of clauses) {
+      let clauseExpression &#x3D; &quot;default&quot;;
+      if (clause.getKind() &#x3D;&#x3D;&#x3D; SyntaxKind.CaseClause) {
+        clauseExpression &#x3D; (&lt;ExpressionedNode&gt;clause).getExpression().getText();
+      } else {
+        defaultClauseExists &#x3D; true;
+      }
+      const statements &#x3D; clause.getStatements();
+      enableConsolidation &#x3D; statements.length &#x3D;&#x3D;&#x3D; 0;
+      consolidatedClauseExpressions.push(clauseExpression);
+
+      if (enableConsolidation) {
+        continue;
+      }
+
+      const clauseStatements: GraphBlock &#x3D; this._processStatements(statements);
+      caseMap.push(new CaseDeclarationGraphBlock(this.idGenerator.generate(), this.unwrapBlockDeclaration(clauseStatements), prepareClauseCondition(consolidatedClauseExpressions)));
+      consolidatedClauseExpressions &#x3D; []
+    }
+
+    caseMap.reverse();
+
+    return new SwitchDeclarationGraphBlock(this.idGenerator.generate(), caseMap, condition, defaultClauseExists);
   }
 
   /**
@@ -2617,9 +2826,9 @@ export class CodeParser {
    *
    * kind &#x3D; 244
    *
-   * @param statement {@link ContinueStatement}
+   * @param _statement {@link ContinueStatement}
    */
-  protected processContinueStatement(statement: ContinueStatement): GraphBlock {
+  protected processContinueStatement(_statement: ContinueStatement): GraphBlock {
     return new ContinueDeclarationGraphBlock(this.idGenerator.generate());
   }
 
@@ -2628,9 +2837,9 @@ export class CodeParser {
    *
    * kind &#x3D; 245
    *
-   * @param statement {@link BreakStatement}
+   * @param _statement {@link BreakStatement}
    */
-  protected processBreakStatement(statement: BreakStatement): GraphBlock {
+  protected processBreakStatement(_statement: BreakStatement): GraphBlock {
     return new BreakDeclarationGraphBlock(this.idGenerator.generate());
   }
 
@@ -2746,6 +2955,23 @@ export class CodeParser {
     }
 
     return blocks;
+  }
+
+  /**
+   * Process all nodes and wrap them into {@link BlockDeclarationGraphBlock}.
+   *
+   * @param nodes {@link Node[]}.
+   * @returns {@link BlockDeclarationGraphBlock}.
+   */
+  protected _processStatements(nodes: Node[]): GraphBlock {
+    const graphBlocks: GraphBlock[] &#x3D; [];
+    for (const node of nodes) {
+      const graphBlock &#x3D; this.processNode(node);
+      if (graphBlock) {
+        graphBlocks.push(graphBlock);
+      }
+    }
+    return new BlockDeclarationGraphBlock(this.idGenerator.generate(), graphBlocks);
   }
 
   /**

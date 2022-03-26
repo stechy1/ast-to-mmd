@@ -1296,9 +1296,9 @@ export class LineRenderer {
 
     if (this._connectionDescription) {
       if (this.isDotted) {
-        result +&#x3D; &#x60; ${this._connectionDescription} &#x60;;
+        result +&#x3D; &#x60; &quot;${this._connectionDescription}&quot; &#x60;;
       } else {
-        result +&#x3D; &#x60;${this.linePiece} ${this._connectionDescription} ${this.linePiece}&#x60;;
+        result +&#x3D; &#x60;${this.linePiece} &quot;${this._connectionDescription}&quot; ${this.linePiece}&#x60;;
       }
     } else {
       const tmpLineLength &#x3D; this._lineLength;
