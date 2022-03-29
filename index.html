@@ -32,7 +32,71 @@
                    <div class="content-data">
 
 <h1 id="ast-to-mmd">AST-to-MMD</h1>
-
+<p>Simple utility to transform your TS code to <a href="http://mermaid-js.github.io/mermaid/">MermaidJS</a> syntax for <a href="http://mermaid-js.github.io/mermaid/#/flowchart">flowcharts</a>.</p>
+<p>New file *.mmd is generated next to each TS file which fulfilled condition.</p>
+<h2 id="usage">Usage</h2>
+<p>Install utility as <strong>dev dependency</strong>: <code>npm install --dev @stechy1/ast-to-mmd</code>.
+Run it with <code>npx @stechy1/ast-to-mmd</code>.</p>
+<h3 id="options">Options</h3>
+<ul>
+<li>-p, --path &lt;path&gt;: Defines path where to find (one) source file,</li>
+<li>-d, --directory &lt;path&gt;: Defines path to directory where to find source files,</li>
+<li>-ts, --tsConfig &lt;tsConfigPath&gt;: Defines path to project ts-config.json file,</li>
+<li>-g, --idGenerator &lt;type&gt;: Defines type of ID generator (&#39;uuid&#39; | &#39;incremental&#39;), default=&#39;incremental&#39;,</li>
+<li>-f, --fileFilter &lt;fileFilterPath&gt;: Defines path to file with filter rules.</li>
+</ul>
+<h2 id="supported-constructs">Supported constructs</h2>
+<ul>
+<li>function call</li>
+<li><a href="https://stechy1.github.io/ast-to-mmd/classes/IfElseDeclarationGraphBlock.html#readme">conditions</a><ul>
+<li>return</li>
+<li>break</li>
+<li>throw</li>
+</ul>
+</li>
+<li><a href="https://stechy1.github.io/ast-to-mmd/classes/ForDeclarationGraphBlock.html#readme">for cycles</a><ul>
+<li>continue</li>
+<li>return</li>
+<li>break</li>
+<li>throw</li>
+</ul>
+</li>
+<li><a href="https://stechy1.github.io/ast-to-mmd/classes/TryCatchDeclarationGraphBlock.html#readme">try-catch-finaly</a><ul>
+<li>return</li>
+<li>break</li>
+<li>throw</li>
+</ul>
+</li>
+<li><a href="https://stechy1.github.io/ast-to-mmd/classes/SwitchDeclarationGraphBlock.html#readme">switch-case</a><ul>
+<li>return</li>
+<li>break</li>
+<li>throw</li>
+</ul>
+</li>
+</ul>
+<h2 id="filter-conditions">Filter conditions</h2>
+<h3 id="json-conditions">JSON conditions</h3>
+<p>Supported logical condition constructs:</p>
+<ul>
+<li>and: all conditions must be fulfilled</li>
+<li>or: some of the conditions must be fulfilled</li>
+<li>not: negate condition
+Supported functional condition constructs:</li>
+<li>contains: tested file path must contain defined string</li>
+<li>endsWith: tested file path must ends with defined string</li>
+</ul>
+<p>Example of simmple JSON conditions:</p>
+<div><pre class="line-numbers"><code class="language-json">{
+  &quot;and&quot;: [
+    {
+      &quot;endsWith&quot;: &quot;handler.ts&quot;,
+      &quot;contains&quot;: &quot;event&quot;,
+      &quot;not&quot;: {
+        &quot;contains&quot;: &quot;entity&quot;
+      }
+    }
+  ]
+}</code></pre></div>
 
 
 
