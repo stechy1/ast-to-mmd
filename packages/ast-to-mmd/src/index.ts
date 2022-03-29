@@ -24,9 +24,9 @@ program
   .option('-p, --path <path>', 'Define path where to find source file.')
   .option('-d, --directory <path>', 'Define path to directory where to find source files.')
   .option('-ts, --tsConfig <tsConfig>', 'Defines path to ts-config.json.')
-  .option('-O, --output <output>', 'Defines output path. (currently not used)')
-  .option('-G, --idGenerator <type>', 'Defines type of ID generator.', 'uuid')
-  .option('-F, --fileFilter <path>', 'Define path to file filter rules.', false)
+  .option('-o, --output <output>', 'Defines output path. (currently not used)')
+  .option('-g, --idGenerator <type>', 'Defines type of ID generator.', 'incremental')
+  .option('-f, --fileFilter <path>', 'Define path to file filter rules.', false)
   .parse(process.argv);
 
 const options = program.opts();
