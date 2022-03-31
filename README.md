@@ -38,6 +38,54 @@ Run it with `npx @stechy1/ast-to-mmd`.
   * break
   * throw
 
+### Example of rendered code
+
+**source code**
+
+```
+function fun() {
+  foo();
+
+  for (let i = 0; i < 10; i++) {
+    bar();
+    baz();
+  }
+
+  fooBar();
+}
+```
+
+**transformed to mmd syntax**
+
+```
+flowchart TD
+subgraph 600 ["Functions"]
+direction TB
+   subgraph 580 ["fun"]
+    direction TB
+      581[["foo()"]]
+      subgraph 595_16 ["CYCLE_16"]
+       direction TB
+        595[/"i = 0; i < 10; i++"/]
+        582[["bar()"]]
+        583[["baz()"]]
+        595 ---> 582
+         583 -. "loop_16" .-> 595
+         582 ---> 583
+      end
+      596[["fooBar()"]]
+       581 ---> 595
+       583 ---> 596
+   end
+end
+subgraph 601 ["Classes"]
+   direction TB
+end
+```
+
+**rendered result**
+![Diagram result](docu-graph-generated/for_cycle_full.png)
+
 ## Filter conditions
 
 ### JSON conditions
@@ -66,3 +114,4 @@ Example of simmple JSON conditions:
   ]
 }
 ```
+
