@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https:/github.com/stechy1/ast-to-mmd.schema.json",
+  "title": "Ast-to-mmd schema",
+  "description": "JSON schema of constraints for ast-to-mmd utility",
+  "type": "object",
+  "$ref": "#/$defs/constraint",
+  "$defs": {
+    "constraint": {
+      "type": "object",
+      "properties": {
+        "and": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/constraint"
+          }
+        },
+        "or": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/constraint"
+          }
+        },
+        "not": {
+          "type": "object",
+          "$ref": "#/$defs/constraint"
+        },
+        "contains": {
+          "type": "string"
+        },
+        "endsWith": {
+          "type": "string"
+        }
+      },
+      "anyOf": ["and", "or", "contains", "endsWith"]
+    }
+  },
+  "additionalProperties": false
+}
