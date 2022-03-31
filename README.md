@@ -84,7 +84,7 @@ end
 ```
 
 **rendered result**
-![Diagram result](docu-graph-generated/for_cycle_full.png)
+![Diagram result](https://stechy1.github.io/ast-to-mmd/docu-graph-generated/for_cycle_full.png)
 
 ## Filter conditions
 
