@@ -74,6 +74,42 @@ Run it with <code>npx @stechy1/ast-to-mmd</code>.</p>
 </ul>
 </li>
 </ul>
+<h3 id="example-of-rendered-code">Example of rendered code</h3>
+<p><strong>source code</strong></p>
+<div><pre class="line-numbers"><code class="language-none">function fun() {
+  foo();
+
+  for (let i = 0; i &lt; 10; i++) {
+    bar();
+    baz();
+  }
+
+  fooBar();
+}</code></pre></div><p><strong>transformed to mmd syntax</strong></p>
+<div><pre class="line-numbers"><code class="language-none">flowchart TD
+subgraph 600 [&quot;Functions&quot;]
+direction TB
+   subgraph 580 [&quot;fun&quot;]
+    direction TB
+      581[[&quot;foo()&quot;]]
+      subgraph 595_16 [&quot;CYCLE_16&quot;]
+       direction TB
+        595[/&quot;i = 0; i &lt; 10; i++&quot;/]
+        582[[&quot;bar()&quot;]]
+        583[[&quot;baz()&quot;]]
+        595 ---&gt; 582
+         583 -. &quot;loop_16&quot; .-&gt; 595
+         582 ---&gt; 583
+      end
+      596[[&quot;fooBar()&quot;]]
+       581 ---&gt; 595
+       583 ---&gt; 596
+   end
+end
+subgraph 601 [&quot;Classes&quot;]
+   direction TB
+end</code></pre></div><p><strong>rendered result</strong>
+<img src="docu-graph-generated/for_cycle_full.png" alt="Diagram result" class="img-responsive"></p>
 <h2 id="filter-conditions">Filter conditions</h2>
 <h3 id="json-conditions">JSON conditions</h3>
 <p>Supported logical condition constructs:</p>
