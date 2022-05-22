@@ -128,7 +128,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(sourceFiles: SourceFile[], fileFilter: <a href="../interfaces/FileFilter.html" target="_self">FileFilter</a>, idGenerator: <a href="../interfaces/BlockIdGenerator.html" target="_self">BlockIdGenerator</a>)</code>
+<code>constructor(sourceFiles: SourceFile[], fileFilter: <a href="../interfaces/FileFilter.html" target="_self">FileFilter</a>, idGenerator: <a href="../interfaces/BlockIdGenerator.html" target="_self">BlockIdGenerator</a>, experimentalMode: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -198,6 +198,22 @@
                                                     
                                                         <td>
                                                                 <p><a href="../interfaces/BlockIdGenerator.html">BlockIdGenerator</a> Generator of block IDs.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>experimentalMode</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Toggles experimental mode.</p>
 
                                                         </td>
                                                 </tr>
@@ -278,8 +294,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">packages/ast-to-mmd/src/app/convertor.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">packages/ast-to-mmd/src/app/convertor.ts:39</a></div>
                 </td>
             </tr>
 
@@ -336,9 +352,10 @@ export class Convertor {
    * @param sourceFiles {@link SourceFile[]} Array of source files to process.
    * @param fileFilter {@link FileFilter} Filter of processed files.
    * @param idGenerator {@link BlockIdGenerator} Generator of block IDs.
+   * @param experimentalMode {boolean} Toggles experimental mode.
    */
-  constructor(private readonly sourceFiles: SourceFile[], private readonly fileFilter: FileFilter, private readonly idGenerator: BlockIdGenerator) {
-    this.codeParser &#x3D; new CodeParser(idGenerator);
+  constructor(private readonly sourceFiles: SourceFile[], private readonly fileFilter: FileFilter, private readonly idGenerator: BlockIdGenerator, readonly experimentalMode: boolean) {
+    this.codeParser &#x3D; new CodeParser(idGenerator, experimentalMode);
   }
 
   /**
