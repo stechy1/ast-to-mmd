@@ -27,6 +27,7 @@ program
   .option('-o, --output <output>', 'Defines output path. (currently not used)')
   .option('-g, --idGenerator <type>', 'Defines type of ID generator.', 'incremental')
   .option('-f, --fileFilter <path>', 'Define path to file filter rules.', false)
+  .option('-e, --experimental', 'Enables experimental mode - when unknown kind is found, empty block is generated instead of throwing exception')
   .parse(process.argv);
 
 const options = program.opts();
@@ -55,9 +56,10 @@ if (options['idGenerator'] === 'incremental') {
   idGenerator = new IncrementalBlockIdGenerator();
 }
 
+const experimentalMode = options['experimental'] !== undefined;
 const fileFilterFactory = new FileFilterFactory();
 const fileFilter: FileFilter = fileFilterFactory.create(cwd, options['fileFilter']);
-const convertor = new Convertor(project.getSourceFiles(), fileFilter, idGenerator);
+const convertor = new Convertor(project.getSourceFiles(), fileFilter, idGenerator, experimentalMode);
 const graphResults = convertor.convert();
 
 const exporter = new Exporter(options['output']);

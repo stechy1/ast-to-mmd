@@ -15,7 +15,8 @@ Run it with `npx @stechy1/ast-to-mmd`.
 * -d, --directory &lt;path>: Defines path to directory where to find source files,
 * -ts, --tsConfig &lt;tsConfigPath>: Defines path to project ts-config.json file,
 * -g, --idGenerator &lt;type>: Defines type of ID generator ('uuid' | 'incremental'), default='incremental',
-* -f, --fileFilter &lt;fileFilterPath>: Defines path to file with filter rules.
+* -f, --fileFilter &lt;fileFilterPath>: Defines path to file with filter rules,
+* -e, --experimental Enables experimental mode - when unknown kind is found, empty block is generated instead of throwing exception.
 
 ## Supported constructs
 

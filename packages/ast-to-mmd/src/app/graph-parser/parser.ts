@@ -39,7 +39,8 @@ import { BlockIdGenerator } from '../block-id-generator';
 import {
   BinaryExpressionDeclarationGraphBlock,
   BlockDeclarationGraphBlock,
-  BreakDeclarationGraphBlock, CaseDeclarationGraphBlock,
+  BreakDeclarationGraphBlock,
+  CaseDeclarationGraphBlock,
   ContinueDeclarationGraphBlock,
   EmptyGraphBlock,
   ForDeclarationGraphBlock,
@@ -67,8 +68,9 @@ export class CodeParser {
    * Creates new instance of {@link CodeParser}
    *
    * @param idGenerator {@link BlockIdGenerator} ID generator implementation
+   * @param experimentalMode
    */
-  constructor(private readonly idGenerator: BlockIdGenerator) {}
+  constructor(private readonly idGenerator: BlockIdGenerator, private readonly experimentalMode: boolean) {}
 
   /**
    * Process children of node from parameter and wrap result into {@link BlockDeclarationGraphBlock}
@@ -150,6 +152,10 @@ export class CodeParser {
       case SyntaxKind.ClassDeclaration:                                   // 256
         return this.processClass(node as ClassDeclaration);
       default:                                                            //  -1
+        if (this.experimentalMode) {
+          console.log(`You found unknown syntax kind: ' ${node.getKind()}. Please report it. Empty block is used instead.`);
+          return new EmptyGraphBlock(this.idGenerator.generate());
+        }
         throw new Error('Unknown kind! ' + node.getKind());
     }
   }

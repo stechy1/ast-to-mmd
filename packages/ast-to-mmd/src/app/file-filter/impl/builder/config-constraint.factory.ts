@@ -38,7 +38,7 @@ export class ConfigConstraintFactory {
       case 'or':
         return new OrConstraint(...this.recursiveBuild(...configElement as FileFilterConfigType[]));
       case 'not':
-        return new NotConstraint(this.recursiveBuild(...configElement as FileFilterConfigType[])[0]);
+        return new NotConstraint(this.recursiveBuild(configElement as FileFilterConfigType)[0]);
       case 'contains':
         return new ContainsConstraint(configElement as string);
       case 'startsWith':

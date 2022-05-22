@@ -27,9 +27,10 @@ export class Convertor {
    * @param sourceFiles {@link SourceFile[]} Array of source files to process.
    * @param fileFilter {@link FileFilter} Filter of processed files.
    * @param idGenerator {@link BlockIdGenerator} Generator of block IDs.
+   * @param experimentalMode {boolean} Toggles experimental mode.
    */
-  constructor(private readonly sourceFiles: SourceFile[], private readonly fileFilter: FileFilter, private readonly idGenerator: BlockIdGenerator) {
-    this.codeParser = new CodeParser(idGenerator);
+  constructor(private readonly sourceFiles: SourceFile[], private readonly fileFilter: FileFilter, private readonly idGenerator: BlockIdGenerator, readonly experimentalMode: boolean) {
+    this.codeParser = new CodeParser(idGenerator, experimentalMode);
   }
 
   /**
